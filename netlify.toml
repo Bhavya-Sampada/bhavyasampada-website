@@ -8,20 +8,3 @@
 
 [dev]
   port = 8888
-```
-
-7. Click **"Commit changes"** → **"Commit changes"** again
-
-8. Wait 60 seconds, then check Netlify dashboard — confirm it says **"Published"**
-
-9. **Hard refresh** the admin page: go to `https://rococo-cendol-312798.netlify.app/admin` and press **Ctrl+Shift+R** (or Cmd+Shift+R on Mac) to clear browser cache
-
----
-
-## Step 2 — Fix Login (No Email Needed)
-
-While that deploys, fix the login issue simultaneously:
-
-1. Go to:
-```
-   https://app.netlify.com/sites/rococo-cendol-312798/settings/identity
