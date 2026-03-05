@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhavya Sampada — Website Setup Guide</title>
+<style>
+  :root {
+    --gold: #c9a84c; --black: #080808; --white: #fff;
+    --gray: #666; --light: #f8f8f6; --border: #e5e7eb;
+    --green: #2d7a4f; --blue: #1a3a5c;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--light); color: #2c2c2c; line-height: 1.7; }
+  .hero { background: var(--black); color: var(--white); padding: 60px 40px; text-align: center; }
+  .hero h1 { font-size: 2rem; margin-bottom: 8px; }
+  .hero h1 span { color: var(--gold); }
+  .hero p { color: #aaa; font-size: 1rem; }
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  h2 { font-size: 1.3rem; color: var(--black); margin: 48px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--gold); }
+  h3 { font-size: 1rem; font-weight: 700; color: var(--black); margin: 24px 0 8px; }
+  p, li { font-size: 0.93rem; color: #444; margin-bottom: 10px; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--gold); }
+
+  /* PHASE CARDS */
+  .phase {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 36px;
+    overflow: hidden;
+  }
+  .phase-header {
+    background: var(--black);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .phase-num {
+    width: 44px; height: 44px;
+    background: var(--gold);
+    color: var(--black);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; font-weight: 800; flex-shrink: 0;
+  }
+  .phase-title { color: var(--white); font-size: 1.1rem; font-weight: 700; }
+  .phase-sub { color: #aaa; font-size: 0.82rem; }
+  .phase-body { padding: 28px; }
+
+  /* STEPS */
+  .step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .step-num {
+    width: 30px; height: 30px;
+    background: var(--light);
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 800; flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content {}
+  .step-title { font-weight: 700; color: var(--black); font-size: 0.95rem; margin-bottom: 6px; }
+  .step-desc { font-size: 0.88rem; color: #555; line-height: 1.65; }
+
+  /* CODE / LINK BOXES */
+  .code-box {
+    background: #1e1e1e;
+    color: #e8e8e8;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    margin: 10px 0;
+    overflow-x: auto;
+  }
+  .link-box {
+    background: #e8f4ff;
+    border: 1px solid #b3d4f5;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    margin: 10px 0;
+  }
+  .link-box a { color: #1a56db; font-weight: 600; }
+
+  /* TIPS & WARNINGS */
+  .tip {
+    background: #f0fdf4;
+    border-left: 4px solid var(--green);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 14px 0;
+    font-size: 0.88rem;
+    color: #1a4a30;
+  }
+  .warning {
+    background: #fff8e6;
+    border-left: 4px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    margin: 14px 0;
+    font-size: 0.88rem;
+    color: #5a3e00;
+  }
+  .tip strong, .warning strong { display: block; margin-bottom: 4px; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0 8px 28px; position: relative; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '☐'; position: absolute; left: 0; color: var(--gold); font-size: 1rem; }
+
+  /* DAILY USE SECTION */
+  .cms-action {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .cms-action-title { font-weight: 700; color: var(--black); font-size: 0.95rem; margin-bottom: 8px; }
+  .cms-action ol { margin-top: 6px; }
+  .cms-action li { font-size: 0.86rem; color: #555; }
+
+  /* TAG */
+  .tag { display: inline-block; background: #fff3cd; color: #856404; border: 1px solid #ffc107; border-radius: 4px; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; margin-left: 6px; vertical-align: middle; }
+  .badge-free { background: #d4edda; color: #155724; border-color: #c3e6cb; }
+  .badge-req { background: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+
+  .footer { text-align: center; padding: 32px; color: var(--gray); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Bhavya Sampada — <span>Website Deployment Guide</span></h1>
+  <p>Step-by-step instructions to go live on the internet. Estimated time: 45–60 minutes.</p>
+</div>
+
+<div class="container">
+
+  <!-- OVERVIEW -->
+  <h2>How This Works — The Big Picture</h2>
+  <p>Here is exactly what we are setting up:</p>
+  <ul>
+    <li><strong>GitHub</strong> (free) — stores all your website files, like a safe vault</li>
+    <li><strong>Netlify</strong> (free) — hosts your website on the internet, automatically updates when you change anything</li>
+    <li><strong>GoDaddy</strong> — you already have this; we will point your domain to Netlify</li>
+    <li><strong>Decap CMS</strong> (free) — your admin panel at bhavyasampada.com/admin to add blogs and videos</li>
+  </ul>
+  <div class="tip">
+    <strong>✅ Total cost: ₹0/month extra</strong>
+    All services used are on free tiers. You only pay for your GoDaddy domain renewal (which you already do).
+  </div>
+
+  <!-- PHASE 1: GITHUB -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">1</div>
+      <div>
+        <div class="phase-title">Create a GitHub Account & Upload Your Files</div>
+        <div class="phase-sub">GitHub stores your website files — takes about 10 minutes</div>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Create a free GitHub account</div>
+          <div class="step-desc">
+            Go to <a href="https://github.com" target="_blank">github.com</a> and click <strong>Sign up</strong>.
+            Use your email support@bhavyasampada.com. Choose any username — suggestion: <strong>bhavyasampada</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Create a new repository</div>
+          <div class="step-desc">
+            After logging in, click the green <strong>New</strong> button (top-left).<br>
+            Fill in:
+            <ul style="margin-top:8px;">
+              <li><strong>Repository name:</strong> bhavyasampada-website</li>
+              <li><strong>Visibility:</strong> Private (your files stay private)</li>
+              <li>Check ✅ <strong>Add a README file</strong></li>
+            </ul>
+            Click <strong>Create repository</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Upload all your website files</div>
+          <div class="step-desc">
+            In your new repository, click <strong>Add file → Upload files</strong>.<br><br>
+            Select <strong>all files and folders</strong> from the <code>bhavyasampada-website</code> folder (the one you downloaded from me). That includes:
+            <ul style="margin-top:8px;">
+              <li>📄 index.html</li>
+              <li>📄 netlify.toml</li>
+              <li>📄 SETUP-GUIDE.html</li>
+              <li>📁 admin/ (entire folder)</li>
+              <li>📁 content/ (entire folder)</li>
+            </ul>
+            <div class="warning">
+              <strong>⚠️ Important:</strong> Make sure to upload the folders WITH their subfolders, not just the files inside. GitHub will ask you to drag-and-drop entire folders — that works perfectly.
+            </div>
+            Scroll down, click <strong>Commit changes</strong>.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 2: NETLIFY -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">2</div>
+      <div>
+        <div class="phase-title">Connect Netlify to GitHub & Deploy</div>
+        <div class="phase-sub">Netlify will host your website — takes about 10 minutes</div>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Create a free Netlify account</div>
+          <div class="step-desc">
+            Go to <a href="https://netlify.com" target="_blank">netlify.com</a>, click <strong>Sign up</strong>.
+            Choose <strong>Sign up with GitHub</strong> — this links them automatically.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Import your GitHub repository</div>
+          <div class="step-desc">
+            On the Netlify dashboard, click <strong>Add new site → Import an existing project</strong>.<br>
+            Choose <strong>GitHub</strong> → find and select <strong>bhavyasampada-website</strong>.<br><br>
+            On the build settings page, leave everything as-is (the netlify.toml file handles this automatically).<br>
+            Click <strong>Deploy site</strong>.
+          </div>
+          <div class="tip"><strong>✅ In about 30 seconds</strong>, your site will be live at a temporary Netlify URL like <code>amazing-cupcake-123456.netlify.app</code>. You can test it!</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Enable Netlify Identity (required for CMS login)</div>
+          <div class="step-desc">
+            In Netlify, go to <strong>Site configuration → Identity</strong>.<br>
+            Click <strong>Enable Identity</strong>.<br><br>
+            Then scroll down to <strong>Git Gateway</strong> and click <strong>Enable Git Gateway</strong>.<br><br>
+            Finally, go to <strong>Registration</strong> and set it to <strong>Invite only</strong> — this ensures only you can log into the CMS.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Invite yourself as the CMS admin</div>
+          <div class="step-desc">
+            In Netlify → Identity → click <strong>Invite users</strong>.<br>
+            Enter your email: support@bhavyasampada.com.<br>
+            You will receive an email — click the link to set your CMS password.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 3: GODADDY DOMAIN -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">3</div>
+      <div>
+        <div class="phase-title">Point Your GoDaddy Domain to Netlify</div>
+        <div class="phase-sub">Connect bhavyasampada.com to your new site — takes 5 minutes (DNS update takes up to 24 hrs to propagate)</div>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Add your custom domain in Netlify</div>
+          <div class="step-desc">
+            In Netlify → <strong>Domain management → Add a domain</strong>.<br>
+            Type: <strong>bhavyasampada.com</strong> → click Verify → Add domain.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Update DNS records in GoDaddy</div>
+          <div class="step-desc">
+            Log in to GoDaddy → go to <strong>My Products → Domains → bhavyasampada.com → Manage DNS</strong>.<br><br>
+            You need to update the <strong>A record</strong> and add a <strong>CNAME record</strong>:
+
+            <div class="code-box">
+Type: A | Name: @ | Value: 75.2.60.5 | TTL: 600
+
+Type: CNAME | Name: www | Value: your-netlify-site-name.netlify.app | TTL: 600
+            </div>
+
+            <div class="warning"><strong>⚠️ Replace</strong> <code>your-netlify-site-name</code> with your actual Netlify subdomain (e.g., amazing-cupcake-123456).</div>
+
+            Click <strong>Save</strong>. DNS changes take 2–24 hours to propagate worldwide.
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Enable free SSL certificate (HTTPS)</div>
+          <div class="step-desc">
+            Once your domain propagates, go back to Netlify → <strong>Domain management → HTTPS</strong>.<br>
+            Click <strong>Verify DNS configuration</strong> → then <strong>Provision certificate</strong>.<br>
+            Netlify will install a free SSL certificate automatically. Your site will show the 🔒 padlock in browsers.
+          </div>
+          <div class="tip"><strong>✅ Your site is now live at bhavyasampada.com</strong> with HTTPS, fully secured and deployed!</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 4: DAILY CMS USE -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-num">4</div>
+      <div>
+        <div class="phase-title">How to Use Your CMS Every Day</div>
+        <div class="phase-sub">Add blogs, paste YouTube links — content appears on your website automatically</div>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <p style="margin-bottom:20px;">Visit <strong>bhavyasampada.com/admin</strong> from any browser. Log in with your email and password (the one you set in Phase 2, Step 4).</p>
+
+      <div class="cms-action">
+        <div class="cms-action-title">📝 To publish a new blog post:</div>
+        <ol>
+          <li>Click <strong>📝 Blog Posts</strong> in the left sidebar</li>
+          <li>Click the existing entry, then click the <strong>+ Add item</strong> button</li>
+          <li>Fill in: ID (e.g. <code>my-blog-title</code>), Title, Date, Category, Short Excerpt, Full Content</li>
+          <li>Click <strong>Publish</strong> (top right)</li>
+          <li>Wait ~30 seconds → refresh your website → your new article appears! ✅</li>
+        </ol>
+      </div>
+
+      <div class="cms-action">
+        <div class="cms-action-title">▶️ To add a YouTube video:</div>
+        <ol>
+          <li>Click <strong>▶️ YouTube Videos</strong> in the left sidebar</li>
+          <li>Click the existing entry, then <strong>+ Add item</strong></li>
+          <li>Fill in: Title, YouTube Video ID (see below), Date, Category, Description</li>
+          <li>Click <strong>Publish</strong></li>
+          <li>Wait ~30 seconds → your video appears embedded on the website ✅</li>
+        </ol>
+        <div class="tip" style="margin-top:12px;">
+          <strong>How to find the YouTube Video ID:</strong><br>
+          Open the video on YouTube. The URL looks like:<br>
+          <code>https://www.youtube.com/watch?v=<strong>dQw4w9WgXcQ</strong></code><br>
+          The part after <code>?v=</code> is the ID. In this example: <strong>dQw4w9WgXcQ</strong>. Paste just that part.
+        </div>
+      </div>
+
+      <div class="cms-action">
+        <div class="cms-action-title">⚙️ To update your stats or contact details:</div>
+        <ol>
+          <li>Click <strong>⚙️ Site Settings</strong> in the left sidebar</li>
+          <li>Update AUM, clients count, phone number, address etc.</li>
+          <li>Click <strong>Publish</strong> — done!</li>
+        </ol>
+        <div class="warning" style="margin-top:8px;">
+          <strong>Note:</strong> Stats on the homepage hero are currently hard-coded for performance. To update them, you'll need to edit index.html directly or ask your developer. This can be made dynamic in a future update.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FINAL CHECKLIST -->
+  <h2>✅ Go-Live Checklist</h2>
+  <p>Use this to make sure everything is done before announcing your new website:</p>
+  <ul class="checklist">
+    <li>GitHub account created and all files uploaded</li>
+    <li>Netlify account created and site deployed (green ✅ in Netlify dashboard)</li>
+    <li>Netlify Identity enabled with Git Gateway</li>
+    <li>Yourself invited as admin user and password set</li>
+    <li>GoDaddy DNS A record and CNAME updated</li>
+    <li>Domain live at bhavyasampada.com (may take up to 24 hrs)</li>
+    <li>HTTPS certificate active (🔒 padlock in browser)</li>
+    <li>Tested /admin login successfully</li>
+    <li>Published one test blog post and confirmed it appears on website</li>
+    <li>Added one YouTube video and confirmed it appears on website</li>
+    <li>Tested website on mobile (looks good?)</li>
+    <li>Submitted sitemap to Google Search Console (see below)</li>
+  </ul>
+
+  <!-- SEO: GOOGLE SEARCH CONSOLE -->
+  <h2>🔍 Submit to Google (Important for SEO)</h2>
+  <p>After your site goes live, tell Google about it so it appears in search results:</p>
+  <div class="phase-body" style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:24px;">
+    <div class="step" style="border:none;margin:0;padding:0;">
+      <div class="step-content">
+        <div class="step-title">1. Set up Google Search Console</div>
+        <div class="step-desc" style="margin-bottom:16px;">
+          Go to <a href="https://search.google.com/search-console" target="_blank">search.google.com/search-console</a> → Add property → enter <strong>bhavyasampada.com</strong>.<br>
+          Follow verification steps (choose the HTML tag method — paste a meta tag Netlify can help you add).
+        </div>
+        <div class="step-title">2. Submit your sitemap</div>
+        <div class="step-desc">
+          In Search Console → Sitemaps → enter: <code>bhavyasampada.com/sitemap.xml</code><br>
+          (We'll need to create this file — ask your developer or I can generate it for you.)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPPORT -->
+  <h2>🆘 Need Help?</h2>
+  <p>If you get stuck at any step, here are resources:</p>
+  <ul>
+    <li><strong>Netlify Docs:</strong> <a href="https://docs.netlify.com" target="_blank">docs.netlify.com</a> — excellent step-by-step guides</li>
+    <li><strong>Decap CMS Docs:</strong> <a href="https://decapcms.org/docs" target="_blank">decapcms.org/docs</a></li>
+    <li><strong>GoDaddy DNS Help:</strong> Search "GoDaddy update A record" on YouTube — many video guides available</li>
+    <li><strong>Netlify Support Chat:</strong> Available inside your Netlify dashboard</li>
+  </ul>
+  <div class="tip"><strong>💡 Pro Tip:</strong> Share the GitHub repository link with any web developer you hire — they can update the site directly without needing to transfer files back and forth.</div>
+
+</div>
+
+<div class="footer">
+  Prepared for Bhavya Sampada Financial Advisors · March 2026<br>
+  Website files + this guide are everything you need to go live.
+</div>
+
+</body>
+</html>

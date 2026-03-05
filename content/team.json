@@ -1,0 +1,44 @@
+{
+  "team": [
+    {
+      "id": "nagender-reddy",
+      "name": "K. Nagender Reddy",
+      "initials": "KN",
+      "title": "Founder & Managing Director",
+      "credentials": ["AMFI Certified", "SEBI Registered"],
+      "bio": "With over 15 years in wealth management, Nagender founded Bhavya Sampada with the mission to democratize quality financial advice. His philosophy centers on goal based planning and building lasting client relationships. Under his leadership, the firm has grown to manage ₹250+ Crores across 2,000+ families.",
+      "expertise": ["Financial Planning", "Portfolio Mgmt", "Client Advisory"],
+      "featured": true
+    },
+    {
+      "id": "priya-reddy",
+      "name": "Priya Reddy",
+      "initials": "PR",
+      "title": "Head of Research & Portfolio Strategy",
+      "credentials": ["MBA Finance", "CFA Level II"],
+      "bio": "Priya leads our research team with rigorous, data driven analysis. She monitors market trends, evaluates fund performance, and constructs optimal client portfolios. Her expertise in quantitative analysis ensures our clients benefit from evidence based investment decisions.",
+      "expertise": ["Investment Research", "Mutual Funds", "Risk Analysis"],
+      "featured": true
+    },
+    {
+      "id": "ravi-kumar",
+      "name": "Ravi Kumar",
+      "initials": "RK",
+      "title": "Senior Financial Advisor",
+      "credentials": ["CFP", "NISM Certified"],
+      "bio": "Ravi brings 10 years of hands on client advisory experience. He specializes in retirement planning, tax optimization, and insurance structuring for government employees, doctors, and business owners. Known for his patient, educational approach to financial planning.",
+      "expertise": ["Retirement Planning", "Tax Planning", "Insurance"],
+      "featured": true
+    },
+    {
+      "id": "sunita-sharma",
+      "name": "Sunita Sharma",
+      "initials": "SS",
+      "title": "Client Relations & Operations",
+      "credentials": ["B.Com", "NISM Series V-A"],
+      "bio": "Sunita ensures every client interaction reflects our commitment to excellence. She manages onboarding, documentation, and service delivery — making the investment process seamless and stress free for all 2,000+ client families we serve.",
+      "expertise": ["Client Onboarding", "Operations", "Documentation"],
+      "featured": true
+    }
+  ]
+}

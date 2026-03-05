@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Bhavya Sampada Wealth Management Hyderabad</title>
+  <meta name="description" content="Meet the team behind Bhavya Sampada — Hyderabad's trusted wealth management firm. Learn about our leadership, mission, and core values driving 15+ years of financial excellence." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.bhavyasampada.com/about.html" />
+  <meta property="og:title" content="About Us | Bhavya Sampada Wealth Management" />
+  <meta property="og:description" content="Meet the leadership team and learn the values behind Bhavya Sampada — Hyderabad's trusted wealth partner for 15+ years." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===================================
+       ROOT & BASE
+    =================================== */
+    :root {
+      --black: #080808;
+      --black2: #0f0f0f;
+      --black3: #161616;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dim: rgba(201,168,76,0.15);
+      --gold-border: rgba(201,168,76,0.25);
+      --white: #ffffff;
+      --gray: #888888;
+      --gray-light: #bbbbbb;
+      --text: #e8e8e8;
+      --ff: 'Inter', sans-serif;
+      --ff-serif: 'Playfair Display', serif;
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--ff);
+      font-size: 1rem;
+      line-height: 1.6;
+      padding-top: 80px;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===================================
+       NAVIGATION
+    =================================== */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    #navbar.scrolled {
+      background: rgba(8,8,8,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(201,168,76,0.15);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: 8px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .nav-logo img { height: 46px; width: auto; }
+    .nav-logo-text {
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .nav-logo-text span { display: block; font-size: 0.65rem; font-family: var(--ff); letter-spacing: 2px; color: var(--gold); text-transform: uppercase; font-weight: 600; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav-links > li { position: relative; list-style: none; }
+    .nav-links > li > a {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      color: var(--gray-light);
+      transition: color var(--transition);
+      text-transform: uppercase;
+      padding: 8px 11px;
+      white-space: nowrap;
+    }
+    .nav-links > li > a:hover,
+    .nav-links > li:hover > a { color: var(--gold); }
+    .nav-arrow {
+      width: 10px; height: 10px;
+      transition: transform 0.2s ease;
+      opacity: 0.6; flex-shrink: 0;
+    }
+    .nav-links > li:hover .nav-arrow { transform: rotate(180deg); opacity: 1; }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(12,12,12,0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      min-width: 200px;
+      padding: 8px 0;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      z-index: 100;
+    }
+    .nav-links > li:hover .nav-dropdown,
+    .nav-login-wrap:hover .nav-dropdown { display: block; }
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 0.8rem;
+      color: var(--gray-light);
+      transition: color var(--transition), background var(--transition), padding-left var(--transition);
+      border-left: 2px solid transparent;
+      white-space: nowrap;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .nav-dropdown a:hover {
+      color: var(--gold);
+      background: var(--gold-dim);
+      border-left-color: var(--gold);
+      padding-left: 22px;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .nav-login-wrap { position: relative; }
+    .nav-login-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      color: var(--gray);
+      text-transform: uppercase;
+      padding: 8px 12px;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: color var(--transition), border-color var(--transition);
+      white-space: nowrap;
+      font-family: var(--ff);
+    }
+    .nav-login-btn:hover,
+    .nav-login-wrap:hover .nav-login-btn { color: var(--gold); border-color: var(--gold-border); }
+    .nav-login-wrap:hover .nav-arrow { transform: rotate(180deg); opacity: 1; }
+    .nav-login-wrap .nav-dropdown { left: auto; right: 0; transform: none; min-width: 210px; }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black) !important;
+      padding: 10px 16px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border-radius: 2px;
+      transition: background var(--transition), transform var(--transition);
+      display: inline-block;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 80px; left: 0; right: 0; bottom: 0;
+      background: rgba(8,8,8,0.99);
+      backdrop-filter: blur(20px);
+      padding-bottom: 40px;
+      border-top: 1px solid var(--gold-border);
+      z-index: 999;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-section-title {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 20px 24px 8px;
+      opacity: 0.8;
+    }
+    .mobile-menu > a {
+      display: block;
+      padding: 13px 24px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gray-light);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color var(--transition);
+    }
+    .mobile-menu > a:hover { color: var(--gold); }
+    .mobile-menu a.mobile-sub {
+      display: block;
+      padding: 11px 24px 11px 38px;
+      font-size: 0.82rem;
+      color: var(--gray);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      transition: color var(--transition);
+    }
+    .mobile-menu a.mobile-sub:hover { color: var(--gold); }
+    .mobile-menu .mobile-cta {
+      display: block;
+      margin: 24px 24px 8px;
+      padding: 14px 24px;
+      background: var(--gold);
+      color: var(--black) !important;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+      border-radius: 2px;
+      border-bottom: none;
+    }
+    .mobile-menu .mobile-cta:hover { background: var(--gold-light); }
+
+    /* ===================================
+       LAYOUT & UTILITIES
+    =================================== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section { padding: 100px 0; }
+    section.full-width { padding-left: 0; padding-right: 0; }
+
+    .tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+    h1, h2, h3 { font-family: var(--ff-serif); font-weight: 700; }
+    h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 24px; }
+    h2 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; }
+    h3 { font-size: 1.5rem; line-height: 1.3; margin-bottom: 12px; }
+    .subtitle { font-size: 1.1rem; color: var(--gray-light); line-height: 1.7; margin-bottom: 32px; }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all var(--transition);
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-secondary {
+      background: none;
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+    }
+    .btn-secondary:hover { background: var(--gold-dim); border-color: var(--gold); }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* ===================================
+       HERO SECTION
+    =================================== */
+    .hero {
+      min-height: 65vh;
+      background: linear-gradient(180deg, var(--black) 0%, var(--black2) 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(201,168,76,0.02) 1px, rgba(201,168,76,0.02) 2px),
+        repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(201,168,76,0.02) 1px, rgba(201,168,76,0.02) 2px);
+      background-size: 100px 100px;
+      pointer-events: none;
+    }
+    .hero .container { max-width: 900px; text-align: center; position: relative; z-index: 1; }
+    .hero .tag { justify-content: center; display: flex; }
+    .hero h1 { margin-bottom: 28px; }
+    .hero .subtitle { margin-bottom: 40px; font-size: 1.15rem; }
+    .hero-stats {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .stat-pill {
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===================================
+       STATS BAR
+    =================================== */
+    .stats-bar {
+      background: var(--black2);
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 40px 24px;
+    }
+    .stats-bar .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      text-align: center;
+    }
+    .stats-bar .stat {
+      padding: 0 24px;
+      border-right: 1px solid var(--gold-border);
+    }
+    .stats-bar .stat:last-child { border-right: none; }
+    .stats-bar .stat-label { font-size: 0.8rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .stats-bar .stat-value { font-size: 1.8rem; font-family: var(--ff-serif); color: var(--gold); font-weight: 700; }
+
+    /* ===================================
+       MANAGEMENT TEAM
+    =================================== */
+    .management {
+      background: var(--black);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+    }
+    .team-card {
+      background: var(--black2);
+      border-left: 3px solid var(--gold);
+      padding: 32px;
+      border-radius: 4px;
+      transition: all var(--transition);
+    }
+    .team-card:hover { background: var(--black3); transform: translateY(-4px); }
+    .team-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(201,168,76,0.3), rgba(232,201,122,0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      font-family: var(--ff-serif);
+      border: 1px solid var(--gold-border);
+      margin-bottom: 20px;
+    }
+    .team-card h3 { margin-bottom: 4px; }
+    .team-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .team-creds {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .cred-badge {
+      font-size: 0.7rem;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .team-bio {
+      font-size: 0.95rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .expertise {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .expertise-tag {
+      font-size: 0.75rem;
+      background: rgba(201,168,76,0.08);
+      color: var(--text);
+      padding: 5px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--gold-border);
+    }
+
+    /* ===================================
+       MISSION SECTION
+    =================================== */
+    .mission {
+      background: var(--black2);
+    }
+    .mission .container { max-width: 900px; text-align: center; }
+    .mission-statement {
+      background: var(--black3);
+      border-left: 4px solid var(--gold);
+      padding: 40px;
+      margin: 48px 0;
+      font-size: 1.4rem;
+      font-family: var(--ff-serif);
+      line-height: 1.8;
+      color: var(--white);
+      border-radius: 4px;
+    }
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+    }
+    .pillar {
+      text-align: center;
+    }
+    .pillar-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--gold-dim);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+    }
+    .pillar h3 { margin-bottom: 12px; color: var(--gold); }
+    .pillar p { font-size: 0.95rem; color: var(--gray-light); line-height: 1.6; }
+
+    /* ===================================
+       VALUES SECTION
+    =================================== */
+    .values {
+      background: var(--black);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 60px;
+    }
+    .value-card {
+      background: var(--black2);
+      padding: 32px;
+      border-radius: 4px;
+      border-top: 3px solid var(--gold);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.02), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+      pointer-events: none;
+    }
+    .value-card:hover { transform: translateY(-8px); background: var(--black3); }
+    .value-card:hover::before { opacity: 1; }
+    .value-number {
+      font-size: 3rem;
+      font-family: var(--ff-serif);
+      color: var(--gold);
+      opacity: 0.3;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .value-card h3 { color: var(--white); margin-bottom: 16px; }
+    .value-card p { font-size: 0.95rem; color: var(--gray-light); line-height: 1.7; }
+
+    /* ===================================
+       AWARDS SECTION
+    =================================== */
+    .awards {
+      background: var(--black2);
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 50px;
+    }
+    .award-card {
+      background: var(--black);
+      border: 1px solid var(--gold-border);
+      padding: 28px;
+      text-align: center;
+      border-radius: 4px;
+      transition: all var(--transition);
+    }
+    .award-card:hover { background: var(--black3); border-color: var(--gold); transform: translateY(-6px); }
+    .award-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    .award-card h4 {
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      color: var(--gold);
+      line-height: 1.5;
+    }
+
+    /* ===================================
+       CTA SECTION
+    =================================== */
+    .cta-section {
+      background: var(--black2);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .cta-section .container { max-width: 700px; }
+    .cta-section h2 { margin-bottom: 16px; }
+    .cta-section .subtitle { margin-bottom: 32px; }
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .cta-link {
+      color: var(--gold);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .cta-link:hover { color: var(--gold-light); }
+
+    /* ===================================
+       FOOTER
+    =================================== */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--gold-border);
+      padding: 60px 24px 20px;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-col h4 { font-family: var(--ff-serif); font-size: 1.1rem; margin-bottom: 16px; color: var(--white); }
+    .footer-col p { font-size: 0.9rem; color: var(--gray-light); line-height: 1.7; margin-bottom: 12px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col a { color: var(--gray-light); font-size: 0.9rem; transition: color var(--transition); }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-sebi { font-size: 0.85rem; color: var(--gray); margin-top: 8px; }
+    .footer-bottom {
+      border-top: 1px solid var(--gold-border);
+      padding-top: 24px;
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+    .footer-bottom p { margin-bottom: 8px; }
+    .footer-disclaimer { margin-top: 16px; font-size: 0.8rem; color: var(--gray); line-height: 1.6; font-style: italic; }
+
+    /* ===================================
+       RESPONSIVE
+    =================================== */
+    @media (max-width: 1024px) {
+      h1 { font-size: 3rem; }
+      h2 { font-size: 2.2rem; }
+      .team-grid { grid-template-columns: 1fr; gap: 24px; }
+      .pillars { grid-template-columns: 1fr; gap: 24px; }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .awards-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-bar .container { grid-template-columns: repeat(2, 1fr); }
+      .footer-content { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.8rem; }
+      section { padding: 60px 0; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero { min-height: 50vh; padding: 80px 24px; }
+      .hero h1 { margin-bottom: 20px; }
+      .hero-stats { flex-direction: column; }
+      .hero-ctas { flex-direction: column; }
+      .stats-bar .container { grid-template-columns: repeat(2, 1fr); }
+      .stats-bar .stat { border-right: none; border-bottom: 1px solid var(--gold-border); padding: 20px 24px; }
+      .stats-bar .stat:nth-child(2n) { border-right: 1px solid var(--gold-border); }
+      .stats-bar .stat:nth-child(3),
+      .stats-bar .stat:nth-child(4) { border-bottom: none; }
+      .team-avatar { width: 70px; height: 70px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .awards-grid { grid-template-columns: 1fr; }
+      .pillars { grid-template-columns: 1fr; }
+      .mission-statement { padding: 32px 24px; font-size: 1.2rem; }
+      .footer-content { grid-template-columns: 1fr; gap: 32px; }
+      .cta-actions { flex-direction: column; }
+      .nav-actions { gap: 4px; }
+      .nav-cta { padding: 8px 12px; font-size: 0.65rem; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.5rem; }
+      h3 { font-size: 1.2rem; }
+      .hero { padding: 60px 20px; }
+      .hero-stats { gap: 10px; }
+      .stat-pill { font-size: 0.8rem; padding: 8px 14px; }
+      .team-card { padding: 24px; }
+      .value-card { padding: 24px; }
+      .mission-statement { padding: 24px 18px; font-size: 1rem; }
+      .award-card { padding: 20px; }
+      .footer-content { gap: 24px; }
+    }
+
+    /* ===================================
+       CERTIFICATIONS SECTION
+    =================================== */
+    .certifications-section {
+      padding: 100px 0;
+      background: var(--black2);
+    }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .cert-card {
+      background: var(--black3);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      padding: 28px 24px;
+      transition: border-color var(--transition), transform var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cert-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .cert-card-img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      border-radius: 4px;
+      background: var(--black2);
+      border: 1px solid var(--gold-border);
+      padding: 8px;
+    }
+    .cert-card-img-placeholder {
+      width: 48px;
+      height: 48px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+    .cert-category {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.8;
+    }
+    .cert-title {
+      font-family: var(--ff-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .cert-desc {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.7;
+      flex: 1;
+    }
+    @media (max-width: 900px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .cert-grid { grid-template-columns: 1fr; } }
+
+  </style>
+</head>
+<body>
+
+<!-- ==============================
+     NAVIGATION
+=============================== -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Bhavya Sampada Home">
+      <img src="https://www.bhavyasampada.com/_next/static/media/Logo.5f3cd0f4.png"
+           alt="Bhavya Sampada Logo" width="46" height="46"
+           onerror="this.style.display='none'" />
+      <div class="nav-logo-text">
+        Bhavya Sampada
+        <span>Wealth Management</span>
+      </div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li>
+        <a href="/">Home
+          <svg class="nav-arrow" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="/#services">Services</a>
+          <a href="/#process">Our Process</a>
+          <a href="/#about">About</a>
+          <a href="/#testimonials">Clients</a>
+          <a href="/#insights">Insights</a>
+          <a href="/#portals">Client Access</a>
+        </div>
+      </li>
+      <li>
+        <a href="/about.html" style="color:#c9a84c;">About Us
+          <svg class="nav-arrow" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="/about.html#management">Management Team</a>
+          <a href="/about.html#mission">Mission Statement</a>
+          <a href="/about.html#values">Core Values</a>
+        </div>
+      </li>
+      <li><a href="/services.html">Our Services</a></li>
+      <li><a href="/blog.html">Blogs</a></li>
+      <li><a href="/videos.html">Videos</a></li>
+      <li><a href="/testimonials.html">Testimonials</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-login-wrap">
+        <button class="nav-login-btn" aria-label="Client Login">
+          Login
+          <svg class="nav-arrow" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="nav-dropdown">
+          <a href="https://eonboard.njindiaonline.com/partner-tiny-url?njBrcode=73991" target="_blank" rel="noopener">Create Account</a>
+          <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" rel="noopener">NJ E-Wealth Account</a>
+          <a href="https://www.njindiaonline.in/cdesk/login.fin" target="_blank" rel="noopener">Client Desk Account</a>
+        </div>
+      </div>
+      <a href="/#cta" class="nav-cta">Free Consultation</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <div class="mobile-section-title">Home Sections</div>
+  <a href="/#services" class="mobile-sub" onclick="closeMobileMenu()">Services</a>
+  <a href="/#process" class="mobile-sub" onclick="closeMobileMenu()">Our Process</a>
+  <a href="/#about" class="mobile-sub" onclick="closeMobileMenu()">About</a>
+  <a href="/#testimonials" class="mobile-sub" onclick="closeMobileMenu()">Clients</a>
+  <a href="/#insights" class="mobile-sub" onclick="closeMobileMenu()">Insights</a>
+  <a href="/#portals" class="mobile-sub" onclick="closeMobileMenu()">Client Access</a>
+  <div class="mobile-section-title">About Us</div>
+  <a href="/about.html" onclick="closeMobileMenu()">About Us</a>
+  <a href="/about.html#management" class="mobile-sub" onclick="closeMobileMenu()">Management Team</a>
+  <a href="/about.html#mission" class="mobile-sub" onclick="closeMobileMenu()">Mission Statement</a>
+  <a href="/about.html#values" class="mobile-sub" onclick="closeMobileMenu()">Core Values</a>
+  <a href="/services.html" onclick="closeMobileMenu()">Our Services</a>
+  <a href="/blog.html" onclick="closeMobileMenu()">Blogs</a>
+  <a href="/videos.html" onclick="closeMobileMenu()">Videos</a>
+  <a href="/testimonials.html" onclick="closeMobileMenu()">Testimonials</a>
+  <div class="mobile-section-title">Client Login</div>
+  <a href="https://eonboard.njindiaonline.com/partner-tiny-url?njBrcode=73991" target="_blank" rel="noopener" class="mobile-sub">Create Account</a>
+  <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" rel="noopener" class="mobile-sub">NJ E-Wealth Account</a>
+  <a href="https://www.njindiaonline.in/cdesk/login.fin" target="_blank" rel="noopener" class="mobile-sub">Client Desk Account</a>
+  <a href="/#cta" class="mobile-cta" onclick="closeMobileMenu()">Free Consultation</a>
+</nav>
+
+<!-- ==============================
+     HERO SECTION
+=============================== -->
+<section class="hero">
+  <div class="container reveal">
+    <div class="tag">15+ YEARS OF TRUST</div>
+    <h1>Our Story, Your Future</h1>
+    <p class="subtitle">Bhavya Sampada was founded on a simple belief — that every family deserves world-class financial guidance. Today, we are proud to serve 2,000+ families across Hyderabad with the same personal attention we had on day one.</p>
+    <div class="hero-stats">
+      <div class="stat-pill">₹250Cr+ AUM</div>
+      <div class="stat-pill">2,000+ Families</div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#management" class="btn btn-primary">Meet the Team</a>
+      <a href="/services.html" class="btn btn-secondary">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     STATS BAR
+=============================== -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stat reveal">
+      <div class="stat-label">Years of Experience</div>
+      <div class="stat-value">15+</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-label">AUM Under Management</div>
+      <div class="stat-value">₹250Cr+</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-label">Active Client Families</div>
+      <div class="stat-value">2,000+</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-label">Industry Awards</div>
+      <div class="stat-value">75+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     MANAGEMENT TEAM
+=============================== -->
+<section class="management" id="management">
+  <div class="container">
+    <div class="tag reveal">OUR LEADERSHIP</div>
+    <h2 class="reveal">Meet the Team</h2>
+    <p class="subtitle reveal">Experienced professionals dedicated to your financial success.</p>
+    
+    <div class="team-grid" id="team-grid">
+        <!-- Team members loaded dynamically from /content/team.json -->
+        <div class="team-loading" id="team-loading" style="grid-column:1/-1;text-align:center;padding:40px;color:#888;">Loading team...</div>
+      </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CERTIFICATIONS SECTION
+=============================== -->
+<section class="certifications-section" id="certifications">
+  <div class="container">
+    <div class="tag reveal">OUR CREDENTIALS</div>
+    <h2 class="reveal">Degrees &amp; Certifications</h2>
+    <p class="subtitle reveal">Our team's professional qualifications and regulatory certifications that underpin every recommendation we make.</p>
+    <div class="cert-grid" id="cert-grid">
+      <!-- Loaded from /content/certifications.json -->
+      <div style="grid-column:1/-1;text-align:center;padding:40px;color:#888;">Loading certifications...</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     MISSION SECTION
+=============================== -->
+<section class="mission" id="mission">
+  <div class="container">
+    <div class="tag reveal">WHY WE EXIST</div>
+    <h2 class="reveal">Our Mission</h2>
+    
+    <div class="mission-statement reveal">
+      To empower every family and individual with world-class, unbiased financial guidance — helping them build sustainable wealth, protect what matters most, and achieve genuine financial freedom.
+    </div>
+
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="pillar-icon">❤️</div>
+        <h3>Client First</h3>
+        <p>Every recommendation we make starts and ends with your best interest. We are a fee-transparent advisory firm with no hidden incentives.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">🧭</div>
+        <h3>Long-term Thinking</h3>
+        <p>We don't chase short-term performance. We build lasting wealth through disciplined, goal-based planning that stands the test of time.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">💡</div>
+        <h3>Financial Education</h3>
+        <p>An informed client is an empowered client. We invest time in educating you about your finances — so you always understand what, why, and how.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     VALUES SECTION
+=============================== -->
+<section class="values" id="values">
+  <div class="container">
+    <div class="tag reveal">WHAT WE STAND FOR</div>
+    <h2 class="reveal">Our Core Values</h2>
+    
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-number">01</div>
+        <h3>Integrity</h3>
+        <p>We operate with complete transparency. You'll always know our fees, our reasoning, and our recommendations — without fine print or conflicts of interest.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-number">02</div>
+        <h3>Excellence</h3>
+        <p>We hold ourselves to the highest professional standards. SEBI registered, AMFI certified, and continuously trained — because your wealth deserves the best.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-number">03</div>
+        <h3>Empathy</h3>
+        <p>We listen before we advise. Every client's situation is unique, and we take the time to truly understand your goals, fears, and aspirations.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-number">04</div>
+        <h3>Accountability</h3>
+        <p>We take ownership of your financial journey. Regular reviews, proactive communication, and honest assessments — we're in this with you for the long term.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-number">05</div>
+        <h3>Simplicity</h3>
+        <p>Finance can be complex. Our job is to make it simple. We explain every concept clearly so you can make confident, informed decisions.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-number">06</div>
+        <h3>Community</h3>
+        <p>Bhavya Sampada is more than a firm — it's a community of families building better financial futures together. Your success is our success.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     AWARDS SECTION
+=============================== -->
+<section class="awards">
+  <div class="container">
+    <div class="tag reveal">RECOGNITION</div>
+    <h2 class="reveal">75+ Awards & Recognition</h2>
+    <p class="subtitle reveal">Industry recognition for our commitment to excellence in wealth management.</p>
+    
+    <div class="awards-grid">
+      <div class="award-card reveal">
+        <div class="award-icon">🏆</div>
+        <h4>Best Financial Advisor — Hyderabad 2023</h4>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon">⭐</div>
+        <h4>Top Wealth Management Firm — Telangana 2022</h4>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon">🥇</div>
+        <h4>Excellence in Client Service 2021</h4>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon">✅</div>
+        <h4>AMFI Certified Partner 2020</h4>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon">📈</div>
+        <h4>Best Mutual Fund Advisor 2019</h4>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon">💎</div>
+        <h4>Client's Choice Award 2018</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CTA SECTION
+=============================== -->
+<section class="cta-section" id="cta">
+  <div class="container reveal">
+    <h2>Ready to Start Your Wealth Journey?</h2>
+    <p class="subtitle">Book a free 30-minute consultation with our advisors. No commitment, no pressure — just a conversation about your financial goals.</p>
+    <div class="cta-actions">
+      <button class="btn btn-primary" onclick="document.location.href='#cta'">Book Free Consultation</button>
+      <a href="/services.html" class="btn btn-secondary">Explore Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     FOOTER
+=============================== -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-col">
+      <h4>Bhavya Sampada</h4>
+      <p>Hyderabad's trusted wealth management firm, empowering families to build sustainable wealth and achieve financial freedom through personalized, unbiased advisory.</p>
+      <p class="footer-sebi">SEBI Registration: INA200017566</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/services.html">Financial Planning</a></li>
+        <li><a href="/services.html">Portfolio Management</a></li>
+        <li><a href="/services.html">Mutual Funds</a></li>
+        <li><a href="/services.html">Insurance Planning</a></li>
+        <li><a href="/services.html">Tax Planning</a></li>
+        <li><a href="/services.html">Direct Equity</a></li>
+        <li><a href="/services.html">Bonds & Fixed Income</a></li>
+        <li><a href="/services.html">Estate Planning</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/blog.html">Blogs</a></li>
+        <li><a href="/videos.html">Videos</a></li>
+        <li><a href="/testimonials.html">Testimonials</a></li>
+        <li><a href="#cta">Free Consultation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p><strong>Phone:</strong><br /><a href="tel:+919848977660">+91 98489 77660</a></p>
+      <p><strong>Email:</strong><br /><a href="mailto:support@bhavyasampada.com">support@bhavyasampada.com</a></p>
+      <p><strong>Address:</strong><br />Plot 156, Kapra<br />Secunderabad 500062<br />Telangana, India</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Bhavya Sampada. All rights reserved. | SEBI Reg: INA200017566 | AMFI ARN: 73991</p>
+    <p class="footer-disclaimer">Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. This website is for informational purposes only and does not constitute an offer to sell or a solicitation to buy any securities.</p>
+  </div>
+</footer>
+
+<script>
+  /* ======= NAVBAR ======= */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+  });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  hamburger.addEventListener('keypress', (e) => { if(e.key==='Enter') hamburger.click(); });
+  function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); }
+
+  /* ======= SCROLL REVEAL ======= */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+  /* ======= LOAD TEAM FROM CMS ======= */
+  async function loadTeam() {
+    try {
+      const res = await fetch('/content/team.json');
+      const data = await res.json();
+      const grid = document.getElementById('team-grid');
+      if (!grid || !data.team) return;
+      grid.innerHTML = data.team.map((m, i) => `
+        <div class="team-card ${i % 2 === 0 ? 'reveal-left' : 'reveal-right'}">
+          <div class="team-avatar">${m.initials}</div>
+          <h3>${m.name}</h3>
+          <div class="team-title">${m.title}</div>
+          <div class="team-creds">
+            ${m.credentials.map(c => `<span class="cred-badge">${c}</span>`).join('')}
+          </div>
+          <p class="team-bio">${m.bio}</p>
+          <div class="expertise">
+            ${m.expertise.map(e => `<span class="expertise-tag">${e}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+      document.querySelectorAll('.team-card.reveal-left, .team-card.reveal-right').forEach(el => observer.observe(el));
+    } catch (e) {
+      console.error('Team load error:', e);
+    }
+  }
+
+  /* ======= LOAD CERTIFICATIONS FROM CMS ======= */
+  async function loadCertifications() {
+    try {
+      const res = await fetch('/content/certifications.json');
+      const data = await res.json();
+      const grid = document.getElementById('cert-grid');
+      if (!grid || !data.certifications) return;
+      grid.innerHTML = data.certifications.map(c => `
+        <div class="cert-card reveal">
+          <div class="cert-category">${c.category}</div>
+          ${c.image ? `<img class="cert-card-img" src="${c.image}" alt="${c.title}" />` : `
+          <div class="cert-card-img-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          </div>`}
+          <div class="cert-title">${c.title}</div>
+          <p class="cert-desc">${c.description}</p>
+        </div>
+      `).join('');
+      document.querySelectorAll('.cert-card.reveal').forEach(el => observer.observe(el));
+    } catch (e) {
+      console.error('Certifications load error:', e);
+    }
+  }
+
+  loadTeam();
+  loadCertifications();
+
+</script>
+
+</body>
+</html>

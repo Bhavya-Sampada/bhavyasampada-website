@@ -1,0 +1,84 @@
+{
+  "testimonials": [
+    {
+      "type": "text",
+      "name": "Mr. K. Nagarajan",
+      "role": "Head PCB, ECIL",
+      "quote": "They took the time to understand my needs and recommended policies fitting my budget — giving me real peace of mind about my family's future.",
+      "rating": 5,
+      "featured": true
+    },
+    {
+      "type": "text",
+      "name": "Mrs. S Prameela Shetty",
+      "role": "Dy. General Manager, ECIL (Retd.)",
+      "quote": "A game-changer in how I approach finances. They helped me prioritize my goals with a personalized investment strategy that actually fits my life.",
+      "rating": 5,
+      "featured": true
+    },
+    {
+      "type": "text",
+      "name": "Dr. K. Seshu Babu",
+      "role": "MD, Suman Scan Center",
+      "quote": "Created a solid financial plan accounting for my unique needs as a medical professional — including comprehensive insurance protection. Highly recommended.",
+      "rating": 5,
+      "featured": true
+    },
+    {
+      "type": "text",
+      "name": "Mr. C. Arun Kumar",
+      "role": "Sr. Deputy General Manager, ECIL (Retd.)",
+      "quote": "A professional team willing to go the extra mile. I am far more confident about my financial future than I was before working with them.",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "type": "text",
+      "name": "Mr. Sridhar Rao",
+      "role": "Retired HEAD/ESG, ECIL",
+      "quote": "Impressed with the service level and expertise. The advisor genuinely helped me understand markets and make informed decisions — not just sell me products.",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "type": "text",
+      "name": "Mrs. Beena Rao",
+      "role": "Vice Principal, DAV Public School",
+      "quote": "Provided the knowledge and resources I needed to start investing confidently. The team is incredibly knowledgeable and always accessible when I have questions.",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "type": "text",
+      "name": "Mr. Bhadkara Rao",
+      "role": "Sr. Manager, ECIL (Retd.)",
+      "quote": "Significant portfolio growth under their guidance. The advisors provide thoughtful, strategic guidance that has made a real difference to my wealth.",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "type": "text",
+      "name": "Dr. K. Krishna Mohan",
+      "role": "MD",
+      "quote": "Helped me grow my wealth and achieve my financial goals. I feel confident about the future thanks to their clear, honest advice.",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "type": "text",
+      "name": "Mr. K. Girija Shankar",
+      "role": "Personal Manager, ECIL (Retd.)",
+      "quote": "Made sense of my finances and created a clear plan for the future. The team is friendly, knowledgeable, and genuinely cares about your success.",
+      "rating": 5,
+      "featured": false
+    },
+    {
+      "type": "text",
+      "name": "Mr. K. Hara Gopal",
+      "role": "Sr. Dy. General Manager, ECIL (Retd.)",
+      "quote": "Made life insurance easy to understand. Provided multiple options and helped me select the most suitable policy for my family's needs.",
+      "rating": 5,
+      "featured": false
+    }
+  ]
+}

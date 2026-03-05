@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Our Services - Bhavya Sampada. Comprehensive wealth management solutions including financial planning, portfolio management, mutual fund advisory, insurance, tax planning, and more." />
+  <title>Our Services - Bhavya Sampada | Wealth Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dim: rgba(201, 168, 76, 0.15);
+      --gold-border: rgba(201, 168, 76, 0.25);
+      --black: #080808;
+      --black2: #0f0f0f;
+      --black3: #161616;
+      --white: #ffffff;
+      --gray: #888888;
+      --gray-light: #bbbbbb;
+      --text: #e8e8e8;
+      --ff: 'Inter', sans-serif;
+      --ff-serif: 'Playfair Display', serif;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--ff);
+      font-size: 1rem;
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: var(--ff);
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ===================================
+       NAVIGATION
+    =================================== */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #navbar.scrolled {
+      background: rgba(8, 8, 8, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(201, 168, 76, 0.15);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: 8px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .nav-logo img {
+      height: 46px;
+      width: auto;
+    }
+    .nav-logo-text {
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .nav-logo-text span {
+      display: block;
+      font-size: 0.65rem;
+      font-family: var(--ff);
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav-links > li {
+      position: relative;
+    }
+    .nav-links > li > a {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      color: var(--gray-light);
+      transition: color var(--transition);
+      text-transform: uppercase;
+      padding: 8px 11px;
+      white-space: nowrap;
+    }
+    .nav-links > li > a:hover,
+    .nav-links > li:hover > a {
+      color: var(--gold);
+    }
+    .nav-arrow {
+      width: 10px;
+      height: 10px;
+      transition: transform 0.2s ease;
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+    .nav-links > li:hover .nav-arrow {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(12, 12, 12, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      min-width: 200px;
+      padding: 8px 0;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      z-index: 100;
+    }
+    .nav-links > li:hover .nav-dropdown,
+    .nav-login-wrap:hover .nav-dropdown {
+      display: block;
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 0.8rem;
+      color: var(--gray-light);
+      transition: color var(--transition), background var(--transition),
+        padding-left var(--transition);
+      border-left: 2px solid transparent;
+      white-space: nowrap;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .nav-dropdown a:hover {
+      color: var(--gold);
+      background: var(--gold-dim);
+      border-left-color: var(--gold);
+      padding-left: 22px;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .nav-login-wrap {
+      position: relative;
+    }
+    .nav-login-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      color: var(--gray);
+      text-transform: uppercase;
+      padding: 8px 12px;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: color var(--transition), border-color var(--transition);
+      white-space: nowrap;
+      font-family: var(--ff);
+    }
+    .nav-login-btn:hover,
+    .nav-login-wrap:hover .nav-login-btn {
+      color: var(--gold);
+      border-color: var(--gold-border);
+    }
+    .nav-login-wrap:hover .nav-arrow {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+    .nav-login-wrap .nav-dropdown {
+      left: auto;
+      right: 0;
+      transform: none;
+      min-width: 210px;
+    }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black) !important;
+      padding: 10px 16px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border-radius: 2px;
+      transition: background var(--transition), transform var(--transition);
+      display: inline-block;
+    }
+    .nav-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(8, 8, 8, 0.99);
+      backdrop-filter: blur(20px);
+      padding-bottom: 40px;
+      border-top: 1px solid var(--gold-border);
+      z-index: 999;
+      overflow-y: auto;
+    }
+    .mobile-menu.open {
+      display: block;
+    }
+    .mobile-section-title {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 20px 24px 8px;
+      opacity: 0.8;
+    }
+    .mobile-menu > a {
+      display: block;
+      padding: 13px 24px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gray-light);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color var(--transition);
+    }
+    .mobile-menu > a:hover {
+      color: var(--gold);
+    }
+    .mobile-menu a.mobile-sub {
+      display: block;
+      padding: 11px 24px 11px 38px;
+      font-size: 0.82rem;
+      color: var(--gray);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      transition: color var(--transition);
+    }
+    .mobile-menu a.mobile-sub:hover {
+      color: var(--gold);
+    }
+    .mobile-menu .mobile-cta {
+      display: block;
+      margin: 24px 24px 8px;
+      padding: 14px 24px;
+      background: var(--gold);
+      color: var(--black) !important;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+      border-radius: 2px;
+      border-bottom: none;
+    }
+    .mobile-menu .mobile-cta:hover {
+      background: var(--gold-light);
+    }
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-actions {
+        display: none;
+      }
+      .nav-hamburger {
+        display: flex;
+      }
+    }
+
+    /* ===================================
+       HERO SECTION
+    =================================== */
+    #hero {
+      min-height: 70vh;
+      background: var(--black);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      border-radius: 20px;
+      padding: 8px 16px;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--gray-light);
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all var(--transition);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-secondary:hover {
+      background: var(--gold-dim);
+      border-color: var(--gold-light);
+    }
+
+    .hero-trust {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--gold-border);
+    }
+
+    .trust-badge {
+      font-size: 0.8rem;
+      color: var(--gray-light);
+    }
+
+    .trust-badge::before {
+      content: '✓ ';
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .scroll-arrow {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 24px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-8px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-4px);
+      }
+    }
+
+    /* ===================================
+       SERVICES BAR
+    =================================== */
+    .services-bar {
+      background: var(--black2);
+      padding: 24px;
+      border-bottom: 1px solid var(--gold-border);
+      overflow-x: auto;
+    }
+
+    .services-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-start;
+    }
+
+    .service-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      background: var(--black3);
+      border: 1px solid var(--gold-border);
+      border-radius: 20px;
+      color: var(--gray-light);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      transition: all var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .service-pill:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-dim);
+    }
+
+    /* ===================================
+       SERVICES SECTION
+    =================================== */
+    #services {
+      padding: 100px 24px;
+      background: var(--black);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-heading {
+      font-family: var(--ff-serif);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .section-subtext {
+      font-size: 1.05rem;
+      color: var(--gray-light);
+      margin-bottom: 60px;
+      max-width: 600px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 40px;
+    }
+
+    .service-card {
+      background: linear-gradient(135deg, var(--black2) 0%, var(--black3) 100%);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      padding: 40px;
+      transition: all var(--transition);
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .service-card:nth-child(1) { animation-delay: 0.1s; }
+    .service-card:nth-child(2) { animation-delay: 0.2s; }
+    .service-card:nth-child(3) { animation-delay: 0.3s; }
+    .service-card:nth-child(4) { animation-delay: 0.4s; }
+    .service-card:nth-child(5) { animation-delay: 0.5s; }
+    .service-card:nth-child(6) { animation-delay: 0.6s; }
+    .service-card:nth-child(7) { animation-delay: 0.7s; }
+    .service-card:nth-child(8) { animation-delay: 0.8s; }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.05) 0%, var(--black3) 100%);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(201, 168, 76, 0.1);
+    }
+
+    .service-number {
+      font-family: var(--ff-serif);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.3;
+      margin-bottom: 12px;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+    }
+
+    .service-title {
+      font-family: var(--ff-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .service-description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--gray-light);
+      margin-bottom: 24px;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .service-features li {
+      padding: 8px 0;
+      font-size: 0.9rem;
+      color: var(--gray-light);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    }
+
+    .service-features li::before {
+      content: '→ ';
+      color: var(--gold);
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .service-cta {
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition);
+    }
+
+    .service-cta:hover {
+      color: var(--gold-light);
+      transform: translateX(4px);
+    }
+
+    /* ===================================
+       PROCESS SECTION
+    =================================== */
+    #process {
+      padding: 100px 24px;
+      background: var(--black);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .process-steps {
+      display: flex;
+      gap: 0;
+      justify-content: space-between;
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 5%;
+      right: 5%;
+      height: 2px;
+      border-top: 2px dashed var(--gold-border);
+      z-index: 1;
+    }
+
+    .process-step {
+      flex: 1;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .process-circle {
+      width: 60px;
+      height: 60px;
+      background: var(--black);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: var(--ff-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .process-title {
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .process-description {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--gray-light);
+    }
+
+    @media (max-width: 768px) {
+      .process-steps {
+        flex-direction: column;
+        gap: 40px;
+      }
+      .process-steps::before {
+        display: none;
+      }
+      .process-step {
+        padding: 0;
+      }
+    }
+
+    /* ===================================
+       PORTALS SECTION
+    =================================== */
+    #portals {
+      padding: 100px 24px;
+      background: var(--black2);
+    }
+
+    .portals-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .portals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .portal-card {
+      background: linear-gradient(135deg, var(--black3) 0%, var(--black) 100%);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      padding: 36px;
+      transition: all var(--transition);
+      text-align: center;
+    }
+
+    .portal-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.08) 0%, var(--black3) 100%);
+      transform: scale(1.02);
+    }
+
+    .portal-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(201, 168, 76, 0.12);
+    }
+
+    .portal-title {
+      font-family: var(--ff-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .portal-description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--gray-light);
+      margin-bottom: 24px;
+    }
+
+    .portal-cta {
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition);
+    }
+
+    .portal-cta:hover {
+      color: var(--gold-light);
+      transform: translateX(4px);
+    }
+
+    /* ===================================
+       CTA BANNER
+    =================================== */
+    .cta-banner {
+      background: var(--black);
+      position: relative;
+      padding: 80px 24px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta-banner-content {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-banner-heading {
+      font-family: var(--ff-serif);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .cta-banner-subtext {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gray-light);
+      margin-bottom: 32px;
+    }
+
+    .cta-banner-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cta-banner-phone {
+      font-size: 0.9rem;
+      color: var(--gray-light);
+      transition: color var(--transition);
+    }
+
+    .cta-banner-phone a {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .cta-banner-phone a:hover {
+      color: var(--gold-light);
+    }
+
+    /* ===================================
+       FOOTER
+    =================================== */
+    footer {
+      background: var(--black2);
+      border-top: 1px solid var(--gold-border);
+      padding: 60px 24px 20px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      font-family: var(--ff-serif);
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .footer-col p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--gray-light);
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col a {
+      font-size: 0.9rem;
+      color: var(--gray-light);
+      transition: color var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 8px;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--gold-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .footer-copyright {
+      flex: 1;
+    }
+
+    .footer-disclaimer {
+      flex: 1;
+      text-align: right;
+    }
+
+    @media (max-width: 768px) {
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-disclaimer {
+        text-align: center;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .portals-grid {
+        grid-template-columns: 1fr;
+      }
+      .portal-card.featured {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Bhavya Sampada Home">
+        <img src="https://www.bhavyasampada.com/_next/static/media/Logo.5f3cd0f4.png" alt="Bhavya Sampada Logo" width="46" height="46" onerror="this.style.display='none'" />
+        <div class="nav-logo-text">Bhavya Sampada<span>Wealth Management</span></div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li>
+          <a href="/">Home <svg class="nav-arrow" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="nav-dropdown">
+            <a href="/#services">Services</a><a href="/#process">Our Process</a><a href="/#about">About</a><a href="/#testimonials">Clients</a><a href="/#insights">Insights</a><a href="/#portals">Client Access</a>
+          </div>
+        </li>
+        <li>
+          <a href="/about.html">About Us <svg class="nav-arrow" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="nav-dropdown">
+            <a href="/about.html#management">Management Team</a><a href="/about.html#mission">Mission Statement</a><a href="/about.html#values">Core Values</a>
+          </div>
+        </li>
+        <li><a href="/services.html" style="color:#c9a84c;">Our Services</a></li>
+        <li><a href="/blog.html">Blogs</a></li>
+        <li><a href="/videos.html">Videos</a></li>
+        <li><a href="/testimonials.html">Testimonials</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-login-wrap">
+          <button class="nav-login-btn">Login <svg class="nav-arrow" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="https://eonboard.njindiaonline.com/partner-tiny-url?njBrcode=73991" target="_blank" rel="noopener">Create Account</a>
+            <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" rel="noopener">NJ E-Wealth Account</a>
+            <a href="https://www.njindiaonline.in/cdesk/login.fin" target="_blank" rel="noopener">Client Desk Account</a>
+          </div>
+        </div>
+        <a href="/#cta" class="nav-cta">Free Consultation</a>
+      </div>
+      <div class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <div class="mobile-section-title">Home Sections</div>
+    <a href="/#services" class="mobile-sub" onclick="closeMobileMenu()">Services</a>
+    <a href="/#process" class="mobile-sub" onclick="closeMobileMenu()">Our Process</a>
+    <a href="/#about" class="mobile-sub" onclick="closeMobileMenu()">About</a>
+    <a href="/#testimonials" class="mobile-sub" onclick="closeMobileMenu()">Clients</a>
+    <a href="/#insights" class="mobile-sub" onclick="closeMobileMenu()">Insights</a>
+    <a href="/#portals" class="mobile-sub" onclick="closeMobileMenu()">Client Access</a>
+    <div class="mobile-section-title">About Us</div>
+    <a href="/about.html" onclick="closeMobileMenu()">About Us</a>
+    <a href="/about.html#management" class="mobile-sub" onclick="closeMobileMenu()">Management Team</a>
+    <a href="/about.html#mission" class="mobile-sub" onclick="closeMobileMenu()">Mission Statement</a>
+    <a href="/about.html#values" class="mobile-sub" onclick="closeMobileMenu()">Core Values</a>
+    <a href="/services.html" onclick="closeMobileMenu()">Our Services</a>
+    <a href="/blog.html" onclick="closeMobileMenu()">Blogs</a>
+    <a href="/videos.html" onclick="closeMobileMenu()">Videos</a>
+    <a href="/testimonials.html" onclick="closeMobileMenu()">Testimonials</a>
+    <div class="mobile-section-title">Client Login</div>
+    <a href="https://eonboard.njindiaonline.com/partner-tiny-url?njBrcode=73991" target="_blank" rel="noopener" class="mobile-sub">Create Account</a>
+    <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" rel="noopener" class="mobile-sub">NJ E-Wealth Account</a>
+    <a href="https://www.njindiaonline.in/cdesk/login.fin" target="_blank" rel="noopener" class="mobile-sub">Client Desk Account</a>
+    <a href="/#cta" class="mobile-cta" onclick="closeMobileMenu()">Free Consultation</a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Comprehensive Wealth Solutions</span>
+      <h1 class="hero-title">Everything You Need to Build Lasting Wealth</h1>
+      <p class="hero-subtitle">From your first SIP to estate planning for your family — Bhavya Sampada offers every financial service you need, backed by 15+ years of expertise and ₹250Cr+ in assets under management.</p>
+      <div class="hero-buttons">
+        <a href="/#cta" class="btn btn-primary">Start Free Consultation</a>
+        <a href="/about.html" class="btn btn-secondary">Meet Our Team</a>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-badge">SEBI Registered RIA</span>
+        <span class="trust-badge">AMFI Certified ARN:73991</span>
+        <span class="trust-badge">15+ Years Trusted</span>
+      </div>
+    </div>
+    <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </section>
+
+  <!-- SERVICES BAR -->
+  <div class="services-bar">
+    <div class="services-bar-inner">
+      <a href="#service-01" class="service-pill">Financial Planning</a>
+      <a href="#service-02" class="service-pill">Portfolio Management</a>
+      <a href="#service-03" class="service-pill">Mutual Fund Advisory</a>
+      <a href="#service-04" class="service-pill">Insurance Solutions</a>
+      <a href="#service-05" class="service-pill">Tax Planning</a>
+      <a href="#service-06" class="service-pill">Direct Equity</a>
+      <a href="#service-07" class="service-pill">Bonds & Fixed Income</a>
+      <a href="#service-08" class="service-pill">Estate Planning</a>
+    </div>
+  </div>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <span class="section-tag">What We Offer</span>
+    <h2 class="section-heading">Our Services</h2>
+    <p class="section-subtext">A complete suite of financial services designed to serve every stage of your wealth journey.</p>
+
+    <div class="services-grid">
+      <!-- Service 01: Financial Planning -->
+      <div class="service-card" id="service-01">
+        <div class="service-number">01</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" stroke="#c9a84c" stroke-width="1.5"/>
+          <path d="M24 8V40M8 24H40" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M14 14L34 34M34 14L14 34" stroke="#c9a84c" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-title">Financial Planning</h3>
+        <p class="service-description">Your personalized roadmap to financial independence. We create comprehensive, goal-based financial plans that align with your life — whether you're planning for retirement, your children's education, buying a home, or building a business succession strategy.</p>
+        <ul class="service-features">
+          <li>Goal-based roadmap</li>
+          <li>Net worth & cash flow analysis</li>
+          <li>Emergency fund planning</li>
+          <li>Regular plan reviews</li>
+        </ul>
+        <a href="/#cta" class="service-cta">Get Started →</a>
+      </div>
+
+      <!-- Service 02: Portfolio Management -->
+      <div class="service-card" id="service-02">
+        <div class="service-number">02</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="12" width="6" height="24" stroke="#c9a84c" stroke-width="1.5" fill="#c9a84c" opacity="0.3"/>
+          <rect x="18" y="8" width="6" height="28" stroke="#c9a84c" stroke-width="1.5" fill="#c9a84c" opacity="0.5"/>
+          <rect x="28" y="6" width="6" height="30" stroke="#c9a84c" stroke-width="1.5" fill="#c9a84c"/>
+          <path d="M8 38H40" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-title">Portfolio Management</h3>
+        <p class="service-description">Professional management of your entire investment portfolio across asset classes. We actively monitor, rebalance, and optimize your equity, debt, and alternate investments to maximize risk-adjusted returns aligned with your goals.</p>
+        <ul class="service-features">
+          <li>Strategic asset allocation</li>
+          <li>Active rebalancing</li>
+          <li>Risk monitoring</li>
+          <li>Performance reporting</li>
+        </ul>
+        <a href="/#cta" class="service-cta">Get Started →</a>
+      </div>
+
+      <!-- Service 03: Mutual Fund Advisory -->
+      <div class="service-card" id="service-03">
+        <div class="service-number">03</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="16" stroke="#c9a84c" stroke-width="1.5"/>
+          <path d="M24 8V24L32 32" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="16" r="2" fill="#c9a84c" opacity="0.5"/>
+          <circle cx="36" cy="28" r="2" fill="#c9a84c" opacity="0.5"/>
+        </svg>
+        <h3 class="service-title">Mutual Fund Advisory</h3>
+        <p class="service-description">Expert guidance through India's 2,000+ mutual funds. We identify the funds perfectly suited to your risk profile, investment horizon, and financial objectives — cutting through marketing noise to deliver genuine value.</p>
+        <ul class="service-features">
+          <li>Direct & regular fund plans</li>
+          <li>SIP planning & optimization</li>
+          <li>Portfolio overlap analysis</li>
+          <li>Tax-efficient fund selection</li>
+        </ul>
+        <a href="/#cta" class="service-cta">Get Started →</a>
+      </div>
+
+      <!-- Service 04: Insurance Solutions -->
+      <div class="service-card" id="service-04">
+        <div class="service-number">04</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4L8 12V20C8 32 24 44 24 44C24 44 40 32 40 20V12L24 4Z" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+          <path d="M17 24L22 29L31 18" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 class="service-title">Insurance Solutions</h3>
+        <p class="service-description">Comprehensive insurance planning that goes beyond product sales. We analyze your complete protection needs — life, health, term, critical illness — and build a cost-effective coverage strategy that truly protects your family.</p>
+        <ul class="service-features">
+          <li>Term life planning</li>
+          <li>Health & critical illness cover</li>
+          <li>Policy audit & review</li>
+          <li>Claims assistance</li>
+        </ul>
+        <a href="/#cta" class="service-cta">Get Started →</a>
+      </div>
+
+      <!-- Service 05: Tax Planning -->
+      <div class="service-card" id="service-05">
+        <div class="service-number">05</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="6" width="28" height="36" stroke="#c9a84c" stroke-width="1.5" rx="2"/>
+          <path d="M24 14L24 34" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M20 18L28 18" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M18 26L30 26" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M20 34L28 34" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M20 22L28 22M20 30L28 30" stroke="#c9a84c" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-title">Tax Planning</h3>
+        <p class="service-description">Legal tax optimization that minimizes your liability while maximizing wealth creation. From 80C investment planning to capital gains optimization and HUF structuring, we ensure you keep more of what you earn.</p>
+        <ul class="service-features">
+          <li>80C/80D optimization</li>
+          <li>Capital gains tax planning</li>
+          <li>Business owner tax advisory</li>
+          <li>ITR filing support</li>
+        </ul>
+        <a href="/#cta" class="service-cta">Get Started →</a>
+      </div>
+
+      <!-- Service 06: Direct Equity -->
+      <div class="service-card" id="service-06">
+        <div class="service-number">06</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 38V12L18 20L28 8L40 22" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="18" cy="20" r="2" fill="#c9a84c"/>
+          <circle cx="28" cy="8" r="2" fill="#c9a84c"/>
+          <circle cx="40" cy="22" r="2" fill="#c9a84c"/>
+          <path d="M8 38H40" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-title">Direct Equity</h3>
+        <p class="service-description">Carefully researched direct stock investments for clients seeking market-beating returns. Our research-backed stock selection focuses on quality businesses with strong fundamentals, competitive moats, and long-term growth potential.</p>
+        <ul class="service-features">
+          <li>Fundamental research coverage</li>
+          <li>Portfolio construction</li>
+          <li>Disciplined entry/exit</li>
+          <li>Quarterly reviews</li>
+        </ul>
+        <a href="/#cta" class="service-cta">Get Started →</a>
+      </div>
+
+      <!-- Service 07: Bonds & Fixed Income -->
+      <div class="service-card" id="service-07">
+        <div class="service-number">07</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="8" width="6" height="28" stroke="#c9a84c" stroke-width="1.5" fill="#c9a84c" opacity="0.4"/>
+          <rect x="20" y="12" width="6" height="24" stroke="#c9a84c" stroke-width="1.5" fill="#c9a84c" opacity="0.6"/>
+          <rect x="30" y="14" width="6" height="22" stroke="#c9a84c" stroke-width="1.5" fill="#c9a84c" opacity="0.8"/>
+          <path d="M8 38H40" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="service-title">Bonds & Fixed Income</h3>
+        <p class="service-description">Fixed income instruments for portfolio stability and regular income. Government bonds, corporate bonds, NCDs, Sovereign Gold Bonds, and fixed deposit advisory — ideal for conservative investors and retirement income needs.</p>
+        <ul class="service-features">
+          <li>Government securities (GSecs)</li>
+          <li>Corporate bonds & NCDs</li>
+          <li>Sovereign Gold Bonds</li>
+          <li>FD optimization</li>
+        </ul>
+        <a href="/#cta" class="service-cta">Get Started →</a>
+      </div>
+
+      <!-- Service 08: Estate Planning -->
+      <div class="service-card" id="service-08">
+        <div class="service-number">08</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 6L40 16V40H8V16L24 6Z" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+          <path d="M24 14V40" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+          <path d="M16 22L20 26L28 18" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="24" y="28" width="8" height="12" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <h3 class="service-title">Estate Planning</h3>
+        <p class="service-description">Thoughtful wealth transfer planning to protect your legacy. We guide families through wills, nominations, trust structures, and family wealth governance — ensuring your assets reach the right people at the right time.</p>
+        <ul class="service-features">
+          <li>Will preparation support</li>
+          <li>Nomination management</li>
+          <li>Trust & HUF structures</li>
+          <li>Family wealth governance</li>
+        </ul>
+        <a href="/#cta" class="service-cta">Get Started →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section id="process">
+    <span class="section-tag">Our Approach</span>
+    <h2 class="section-heading">How We Deliver Results</h2>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-circle">1</div>
+        <h3 class="process-title">Discovery</h3>
+        <p class="process-description">Free 1-hour consultation to understand your goals, current situation, and priorities.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">2</div>
+        <h3 class="process-title">Analysis</h3>
+        <p class="process-description">Deep-dive into your complete financial picture: income, investments, insurance, taxes, and goals.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">3</div>
+        <h3 class="process-title">Strategy</h3>
+        <p class="process-description">Personalized financial plan with specific, actionable recommendations across all service areas.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">4</div>
+        <h3 class="process-title">Execution</h3>
+        <p class="process-description">We implement the strategy with you — setting up investments, policies, and all documentation.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-circle">5</div>
+        <h3 class="process-title">Review</h3>
+        <p class="process-description">Quarterly check-ins and annual comprehensive reviews to keep your plan on track.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTALS SECTION -->
+  <section id="portals">
+    <div class="portals-inner">
+      <span class="section-tag">Client Access</span>
+      <h2 class="section-heading">Manage Your Portfolio Anytime</h2>
+      <p class="section-subtext">Access your investments, track performance, and connect with your advisor through our secure client portals.</p>
+
+      <div class="portals-grid">
+        <div class="portal-card featured">
+          <h3 class="portal-title">Create Your Account</h3>
+          <p class="portal-description">Open your investment account online. Complete digital KYC, link your bank, and start investing in minutes.</p>
+          <a href="https://eonboard.njindiaonline.com/partner-tiny-url?njBrcode=73991" target="_blank" rel="noopener" class="portal-cta">Get Started →</a>
+        </div>
+
+        <div class="portal-card">
+          <h3 class="portal-title">NJ E-Wealth Portal</h3>
+          <p class="portal-description">View your portfolio, track fund performance, review returns, and download account statements.</p>
+          <a href="https://ewa.njindiaonline.com/ewa/login" target="_blank" rel="noopener" class="portal-cta">Login →</a>
+        </div>
+
+        <div class="portal-card">
+          <h3 class="portal-title">Client Desk Portal</h3>
+          <p class="portal-description">Submit service requests, update details, access documents, and communicate with your advisor.</p>
+          <a href="https://www.njindiaonline.in/cdesk/login.fin" target="_blank" rel="noopener" class="portal-cta">Login →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner" id="cta">
+    <div class="cta-banner-content">
+      <h2 class="cta-banner-heading">Ready to Start Your Wealth Journey?</h2>
+      <p class="cta-banner-subtext">Book a free 30-minute consultation. No commitment, no pressure — just a focused conversation about your financial future.</p>
+      <div class="cta-banner-actions">
+        <a href="#cta" class="btn btn-primary">Book Free Consultation</a>
+        <p class="cta-banner-phone">Or call us: <a href="tel:+919848977660">+91 98489 77660</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>Bhavya Sampada</h3>
+        <p>Premium wealth management for discerning investors.</p>
+        <p class="footer-tagline">SEBI Reg: INA200017566 | AMFI ARN: 73991</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="#service-01">Financial Planning</a></li>
+          <li><a href="#service-02">Portfolio Management</a></li>
+          <li><a href="#service-03">Mutual Fund Advisory</a></li>
+          <li><a href="#service-04">Insurance Solutions</a></li>
+          <li><a href="#service-05">Tax Planning</a></li>
+          <li><a href="#service-06">Direct Equity</a></li>
+          <li><a href="#service-07">Bonds & Fixed Income</a></li>
+          <li><a href="#service-08">Estate Planning</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/blog.html">Blogs</a></li>
+          <li><a href="/videos.html">Videos</a></li>
+          <li><a href="/testimonials.html">Testimonials</a></li>
+          <li><a href="#cta">Free Consultation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><strong>Phone:</strong> +91 98489 77660</p>
+        <p><strong>Email:</strong> hello@bhavyasampada.com</p>
+        <p><strong>Address:</strong> Hyderabad, Telangana<br/>India</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        &copy; 2025 Bhavya Sampada. All rights reserved.
+      </div>
+      <div class="footer-disclaimer">
+        Mutual fund investments are subject to market risks. Please read the scheme documents carefully before investing.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+
+    hamburger.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') hamburger.click();
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

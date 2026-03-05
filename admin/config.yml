@@ -1,0 +1,298 @@
+# ============================================================
+# Bhavya Sampada — Decap CMS Configuration
+# This file controls what fields appear in the CMS admin panel
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main          # Must match your GitHub default branch name
+
+# Where media uploads are stored
+media_folder: "content/images"
+public_folder: "/content/images"
+
+# Show a live preview of edits (optional)
+show_preview_links: true
+
+# ============================================================
+# COLLECTIONS — each collection is a content type
+# ============================================================
+collections:
+
+  # ----------------------------------------------------------
+  # BLOG POSTS
+  # Datta adds posts here → they appear on the website
+  # ----------------------------------------------------------
+  - name: "blog"
+    label: "📝 Blog Posts"
+    label_singular: "Blog Post"
+    files:
+      - file: "content/posts.json"
+        label: "All Blog Posts"
+        name: "posts"
+        fields:
+          - name: posts
+            label: "Blog Posts"
+            label_singular: "Post"
+            widget: list
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - label: "Unique ID"
+                name: id
+                widget: string
+                hint: "A short unique ID with no spaces, e.g. sip-vs-lumpsum-2026"
+                pattern:
+                  - "^[a-z0-9-]+$"
+                  - "Lowercase letters, numbers and hyphens only. No spaces."
+
+              - label: "Title"
+                name: title
+                widget: string
+                hint: "The blog post headline"
+
+              - label: "Publish Date"
+                name: date
+                widget: datetime
+                format: "YYYY-MM-DD"
+                date_format: "DD MMM YYYY"
+                time_format: false
+
+              - label: "Category"
+                name: category
+                widget: select
+                options:
+                  - Mutual Funds
+                  - Tax Planning
+                  - Retirement Planning
+                  - Insurance
+                  - Financial Planning
+                  - Market Update
+                  - Wealth Management
+                  - Direct Equity
+                  - Bonds & Fixed Income
+
+              - label: "Short Excerpt"
+                name: excerpt
+                widget: text
+                hint: "1-2 sentences shown on the homepage card (max 200 characters)"
+
+              - label: "Full Article Content"
+                name: content
+                widget: markdown
+                hint: "Write the full blog post here. Use headings, bullet points, bold text."
+
+              - label: "Featured Image (optional)"
+                name: image
+                widget: image
+                required: false
+                hint: "Upload a cover image for the post"
+
+  # ----------------------------------------------------------
+  # YOUTUBE VIDEOS
+  # Paste YouTube links here → they appear as embedded videos
+  # ----------------------------------------------------------
+  - name: "videos"
+    label: "▶️ YouTube Videos"
+    label_singular: "Video"
+    files:
+      - file: "content/videos.json"
+        label: "All Videos"
+        name: "videos"
+        fields:
+          - name: videos
+            label: "Videos"
+            label_singular: "Video"
+            widget: list
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - label: "Video Title"
+                name: title
+                widget: string
+                hint: "The title shown below the video"
+
+              - label: "YouTube Video ID"
+                name: youtube_id
+                widget: string
+                hint: "The part after ?v= in the YouTube URL. Example: if URL is youtube.com/watch?v=dQw4w9WgXcQ, paste dQw4w9WgXcQ"
+                pattern:
+                  - "^[A-Za-z0-9_-]{11}$"
+                  - "YouTube Video IDs are exactly 11 characters"
+
+              - label: "Publish Date"
+                name: date
+                widget: datetime
+                format: "YYYY-MM-DD"
+                date_format: "DD MMM YYYY"
+                time_format: false
+
+              - label: "Category"
+                name: category
+                widget: select
+                options:
+                  - Market Update
+                  - Financial Tips
+                  - Client Stories
+                  - Webinar
+                  - Tax Planning
+                  - Retirement Planning
+                  - Mutual Funds
+
+              - label: "Short Description"
+                name: description
+                widget: text
+                required: false
+                hint: "1-2 sentences describing the video (optional)"
+
+  # ----------------------------------------------------------
+  # TESTIMONIALS
+  # Add text or video testimonials — they appear on the website
+  # ----------------------------------------------------------
+  - name: "testimonials"
+    label: "⭐ Testimonials"
+    label_singular: "Testimonial"
+    files:
+      - file: "content/testimonials.json"
+        label: "All Testimonials"
+        name: "testimonials"
+        fields:
+          - name: testimonials
+            label: "Testimonials"
+            label_singular: "Testimonial"
+            widget: list
+            summary: "{{fields.name}} — {{fields.role}} ({{fields.type}})"
+            types:
+              - label: "Text Testimonial"
+                name: "text"
+                widget: object
+                fields:
+                  - {label: "Type", name: type, widget: hidden, default: "text"}
+                  - {label: "Client Name", name: name, widget: string}
+                  - {label: "Designation / Role", name: role, widget: string, hint: "e.g. Head PCB, ECIL"}
+                  - {label: "Testimonial Quote", name: quote, widget: text, hint: "The client's words (1-3 sentences)"}
+                  - {label: "Star Rating", name: rating, widget: number, default: 5, min: 1, max: 5}
+                  - {label: "Show on Homepage?", name: featured, widget: boolean, default: false, hint: "Only the first 3 featured testimonials show on the homepage"}
+
+              - label: "Video Testimonial"
+                name: "video"
+                widget: object
+                fields:
+                  - {label: "Type", name: type, widget: hidden, default: "video"}
+                  - {label: "Client Name", name: name, widget: string}
+                  - {label: "Designation / Role", name: role, widget: string}
+                  - {label: "YouTube Video ID", name: youtube_id, widget: string, hint: "The 11-character ID from the YouTube URL (after ?v=)", pattern: ["^[A-Za-z0-9_-]{11}$", "YouTube IDs are exactly 11 characters"]}
+                  - {label: "Short Description", name: description, widget: text, required: false}
+                  - {label: "Show on Homepage?", name: featured, widget: boolean, default: false}
+
+  # ----------------------------------------------------------
+  # FORM SUBMISSIONS (Read-only view of consultation requests)
+  # ----------------------------------------------------------
+  - name: "submissions"
+    label: "📨 Form Submissions"
+    label_singular: "Submission"
+    files:
+      - file: "content/submissions.json"
+        label: "All Consultation Requests"
+        name: "submissions"
+        fields:
+          - name: submissions
+            label: "Submissions"
+            label_singular: "Submission"
+            widget: list
+            summary: "{{fields.name}} — {{fields.email}} ({{fields.date}})"
+            fields:
+              - {label: "Name", name: name, widget: string}
+              - {label: "Email", name: email, widget: string}
+              - {label: "Phone", name: phone, widget: string}
+              - {label: "Goal", name: goal, widget: string}
+              - {label: "Date Submitted", name: date, widget: string}
+              - {label: "Status", name: status, widget: select, options: ["New", "Contacted", "In Progress", "Closed"], default: "New"}
+              - {label: "Notes", name: notes, widget: text, required: false, hint: "Add any follow-up notes here"}
+
+  # ----------------------------------------------------------
+  # SITE SETTINGS
+  # Update key site-wide information without touching code
+  # ----------------------------------------------------------
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    files:
+      - file: "content/settings.json"
+        label: "Contact & Business Info"
+        name: "settings"
+        fields:
+          - label: "Phone Number"
+            name: phone
+            widget: string
+
+          - label: "Email Address"
+            name: email
+            widget: string
+
+          - label: "Office Address"
+            name: address
+            widget: text
+
+          - label: "AUM (Assets Under Management)"
+            name: aum
+            widget: string
+            hint: "e.g. ₹250Cr+"
+
+          - label: "Total Clients"
+            name: clients
+            widget: string
+            hint: "e.g. 2,000+"
+
+          - label: "Awards Count"
+            name: awards
+            widget: string
+            hint: "e.g. 75+"
+
+          - label: "Years of Experience"
+            name: years
+            widget: string
+            hint: "e.g. 15+"
+
+  - name: "team"
+    label: "👥 Team Members"
+    files:
+      - label: "Team Members"
+        name: "team"
+        file: "content/team.json"
+        fields:
+          - label: "Team Members"
+            name: "team"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Full Name", name: "name", widget: "string"}
+              - {label: "Initials (2 letters)", name: "initials", widget: "string"}
+              - {label: "Job Title", name: "title", widget: "string"}
+              - label: "Credentials"
+                name: "credentials"
+                widget: "list"
+                field: {label: "Credential", name: "credential", widget: "string"}
+              - {label: "Bio", name: "bio", widget: "text"}
+              - label: "Expertise Tags"
+                name: "expertise"
+                widget: "list"
+                field: {label: "Tag", name: "tag", widget: "string"}
+              - {label: "Featured", name: "featured", widget: "boolean", default: true}
+
+  - name: "certifications"
+    label: "🎓 Degrees & Certifications"
+    files:
+      - label: "Certifications"
+        name: "certifications"
+        file: "content/certifications.json"
+        fields:
+          - label: "Certifications"
+            name: "certifications"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Image URL (optional)", name: "image", widget: "string", required: false}
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options: ["Regulatory", "Professional", "Academic", "Certification"]

@@ -1,0 +1,46 @@
+{
+  "certifications": [
+    {
+      "id": "sebi-ria",
+      "title": "SEBI Registered Investment Advisor",
+      "description": "Registered with the Securities and Exchange Board of India as a qualified Investment Advisor (RIA). Registration No: INA200017566.",
+      "image": "",
+      "category": "Regulatory"
+    },
+    {
+      "id": "amfi-arn",
+      "title": "AMFI Certified Mutual Fund Distributor",
+      "description": "Certified by the Association of Mutual Funds in India (AMFI) with ARN No: 73991. Qualified to advise on all mutual fund categories.",
+      "image": "",
+      "category": "Certification"
+    },
+    {
+      "id": "cfp",
+      "title": "Certified Financial Planner (CFP)",
+      "description": "CFP certification — the global gold standard in financial planning — held by our lead advisors, ensuring comprehensive goal based financial planning expertise.",
+      "image": "",
+      "category": "Professional"
+    },
+    {
+      "id": "cfa",
+      "title": "CFA (Chartered Financial Analyst)",
+      "description": "CFA certification held by our research team, demonstrating advanced expertise in investment analysis, portfolio management, and financial ethics.",
+      "image": "",
+      "category": "Professional"
+    },
+    {
+      "id": "nism",
+      "title": "NISM Certifications",
+      "description": "Multiple NISM certifications across Series V-A (Mutual Fund Distributors), Series X-A (Investment Adviser), and other modules held by our advisory team.",
+      "image": "",
+      "category": "Regulatory"
+    },
+    {
+      "id": "mba-finance",
+      "title": "MBA in Finance",
+      "description": "Post graduate degrees in Finance from reputed institutions, providing our team with deep theoretical foundations in corporate finance, investments, and risk management.",
+      "image": "",
+      "category": "Academic"
+    }
+  ]
+}
