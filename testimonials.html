@@ -920,6 +920,65 @@
         font-size: clamp(1.5rem, 3vw, 2rem);
       }
     }
+
+    /* Google Reviews Badge */
+    .google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.7rem;
+      color: #999;
+      margin-top: auto;
+      padding-top: 12px;
+    }
+    .google-g {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 700;
+      color: #4285F4;
+      flex-shrink: 0;
+    }
+    /* Google Rating Summary Bar */
+    #googleRatingBar {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: var(--black2);
+      border: 1px solid #333;
+      border-radius: 4px;
+      padding: 14px 24px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    #googleRatingBar.visible { display: flex; }
+    .g-overall-score {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .g-overall-label { font-size: 0.8rem; color: var(--gray); }
+    .g-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--gray-light);
+    }
+    .g-stars-big { color: #fbbc04; font-size: 1.1rem; letter-spacing: 2px; }
+    .g-review-link {
+      font-size: 0.78rem;
+      color: var(--gold);
+      text-decoration: underline;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -1044,11 +1103,31 @@
         </p>
       </div>
 
+      <!-- GOOGLE RATING SUMMARY BAR -->
+      <div id="googleRatingBar">
+        <div style="text-align:center;">
+          <div class="g-overall-score" id="gOverallScore">—</div>
+          <div class="g-overall-label">Google Rating</div>
+        </div>
+        <div>
+          <div class="g-stars-big" id="gStarsDisplay">☆☆☆☆☆</div>
+          <div class="g-logo-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Google Reviews
+          </div>
+        </div>
+        <a class="g-review-link" href="https://share.google/MIQNkBHcbf49DFYkY" target="_blank" rel="noopener">Leave a Review ↗</a>
+      </div>
+
       <!-- FILTER TABS -->
       <div class="filter-tabs">
         <button class="filter-btn active" data-filter="all">All Testimonials</button>
         <button class="filter-btn" data-filter="text">Text Reviews</button>
         <button class="filter-btn" data-filter="video">Video Testimonials</button>
+        <button class="filter-btn" data-filter="google" id="googleFilterBtn" style="display:none;">
+          <svg width="12" height="12" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:4px;"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google Reviews
+        </button>
       </div>
 
       <!-- TESTIMONIALS GRID -->
@@ -1146,52 +1225,112 @@
     });
   function closeMobileMenu() { mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); }
 
-    // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
       });
     });
 
-    // Testimonials Data
+    // ── DATA ──────────────────────────────────────────────────────
     let testimonialsData = [];
+    let googleReviewsData = [];
+    let currentFilter = 'all';
 
-    // Fetch testimonials from JSON
+    // ── LOAD CMS TESTIMONIALS ─────────────────────────────────────
     async function loadTestimonials() {
       try {
         const response = await fetch('./content/testimonials.json');
         const data = await response.json();
         testimonialsData = data.testimonials;
-        renderTestimonials('all');
-        setupFilterButtons();
       } catch (error) {
         console.error('Error loading testimonials:', error);
       }
     }
 
-    // Render testimonials based on filter
-    function renderTestimonials(filter) {
+    // ── LOAD GOOGLE REVIEWS via Places API ───────────────────────
+    async function loadGoogleReviews(apiKey, placeId) {
+      if (!apiKey || !placeId) return;
+      try {
+        // Load Maps JS API dynamically
+        await new Promise((resolve, reject) => {
+          if (window.google && window.google.maps) { resolve(); return; }
+          const script = document.createElement('script');
+          script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+
+        // Use PlacesService to get reviews
+        const service = new google.maps.places.PlacesService(document.createElement('div'));
+        service.getDetails({
+          placeId: placeId,
+          fields: ['name', 'rating', 'user_ratings_total', 'reviews']
+        }, (place, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK && place.reviews) {
+            googleReviewsData = place.reviews
+              .filter(r => r.rating >= 4) // Only show 4★ and 5★ reviews
+              .map(r => ({
+                type: 'google',
+                name: r.author_name,
+                role: 'Google Review',
+                quote: r.text || '★'.repeat(r.rating),
+                rating: r.rating,
+                avatar: r.profile_photo_url,
+                time: r.relative_time_description
+              }));
+
+            // Show rating bar
+            const bar = document.getElementById('googleRatingBar');
+            bar.classList.add('visible');
+            document.getElementById('gOverallScore').textContent = place.rating?.toFixed(1) || '—';
+            const fullStars = Math.round(place.rating || 0);
+            document.getElementById('gStarsDisplay').textContent = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+
+            // Show Google filter button
+            const btn = document.getElementById('googleFilterBtn');
+            if (btn) btn.style.display = '';
+
+            renderAll(currentFilter);
+          }
+        });
+      } catch (e) {
+        console.warn('Google Reviews could not be loaded:', e);
+      }
+    }
+
+    // ── RENDER ALL ────────────────────────────────────────────────
+    function renderAll(filter) {
+      currentFilter = filter;
       const grid = document.getElementById('testimonialsGrid');
       grid.innerHTML = '';
 
-      testimonialsData.forEach((testimonial, index) => {
-        const shouldShow = filter === 'all' || testimonial.type === (filter === 'text' ? 'text' : 'video');
+      const combined = [
+        ...testimonialsData,
+        ...googleReviewsData
+      ];
 
-        if (testimonial.type === 'text') {
-          const card = createTextTestimonialCard(testimonial, shouldShow);
-          grid.appendChild(card);
-        } else if (testimonial.type === 'video') {
-          const card = createVideoTestimonialCard(testimonial, shouldShow);
-          grid.appendChild(card);
-        }
+      combined.forEach((item) => {
+        let shouldShow = false;
+        if (filter === 'all') shouldShow = true;
+        else if (filter === 'text' && item.type === 'text') shouldShow = true;
+        else if (filter === 'video' && item.type === 'video') shouldShow = true;
+        else if (filter === 'google' && item.type === 'google') shouldShow = true;
+
+        let card;
+        if (item.type === 'text') card = createTextTestimonialCard(item, shouldShow);
+        else if (item.type === 'video') card = createVideoTestimonialCard(item, shouldShow);
+        else if (item.type === 'google') card = createGoogleReviewCard(item, shouldShow);
+
+        if (card) grid.appendChild(card);
       });
 
-      // Trigger reveal animations
+      // Animate visible cards
       setTimeout(() => {
         document.querySelectorAll('.testimonial-card, .testimonial-video').forEach((el, idx) => {
           if (!el.classList.contains('hidden')) {
             el.style.animation = `fadeUp 0.6s ease forwards`;
-            el.style.animationDelay = `${idx * 0.1}s`;
+            el.style.animationDelay = `${idx * 0.08}s`;
             el.style.opacity = '0';
             el.style.transform = 'translateY(24px)';
           }
@@ -1199,22 +1338,12 @@
       }, 0);
     }
 
-    // Create text testimonial card
+    // ── CARD CREATORS ─────────────────────────────────────────────
     function createTextTestimonialCard(testimonial, shouldShow) {
       const card = document.createElement('div');
       card.className = `testimonial-card ${!shouldShow ? 'hidden' : ''}`;
-
-      const initials = testimonial.name
-        .split(' ')
-        .map(n => n[0])
-        .join('')
-        .toUpperCase();
-
-      const starsHtml = Array(testimonial.rating)
-        .fill('★')
-        .map(star => `<span class="star">${star}</span>`)
-        .join('');
-
+      const initials = testimonial.name.split(' ').map(n => n[0]).join('').toUpperCase();
+      const starsHtml = Array(testimonial.rating).fill('★').map(s => `<span class="star">${s}</span>`).join('');
       card.innerHTML = `
         <div class="quote-mark">"</div>
         <p class="quote-text">${escapeHtml(testimonial.quote)}</p>
@@ -1226,17 +1355,44 @@
             <div class="author-role">${escapeHtml(testimonial.role)}</div>
           </div>
         </div>
-        <div class="stars">${starsHtml}</div>
-      `;
-
+        <div class="stars">${starsHtml}</div>`;
       return card;
     }
 
-    // Create video testimonial card
+    function createGoogleReviewCard(review, shouldShow) {
+      const card = document.createElement('div');
+      card.className = `testimonial-card ${!shouldShow ? 'hidden' : ''}`;
+      card.style.borderLeftColor = '#4285F4';
+      const initials = review.name.split(' ').map(n => n[0]).join('').slice(0,2).toUpperCase();
+      const avatarHtml = review.avatar
+        ? `<img src="${review.avatar}" alt="${escapeHtml(review.name)}" style="width:40px;height:40px;border-radius:50%;object-fit:cover;">`
+        : `<div class="author-avatar">${initials}</div>`;
+      const starsHtml = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+      const quoteText = review.quote.length > 280
+        ? review.quote.slice(0, 280) + '…'
+        : review.quote;
+      card.innerHTML = `
+        <div class="quote-mark" style="color:#4285F4;">"</div>
+        <p class="quote-text">${escapeHtml(quoteText)}</p>
+        <div class="divider-small"></div>
+        <div class="author-info">
+          ${avatarHtml}
+          <div class="author-details">
+            <div class="author-name">${escapeHtml(review.name)}</div>
+            <div class="author-role" style="font-size:0.75rem;color:#888;">${review.time || 'Google Review'}</div>
+          </div>
+        </div>
+        <div class="stars" style="color:#fbbc04;font-size:1rem;">${starsHtml}</div>
+        <div class="google-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span>Posted on Google</span>
+        </div>`;
+      return card;
+    }
+
     function createVideoTestimonialCard(testimonial, shouldShow) {
       const card = document.createElement('div');
       card.className = `testimonial-video ${!shouldShow ? 'hidden' : ''}`;
-
       card.innerHTML = `
         <div class="video-container">
           <iframe
@@ -1247,54 +1403,50 @@
           </iframe>
         </div>
         <div class="video-info">
-          <div class="video-author-name">${escapeHtml(testimonial.name)}</div>
-          <div class="video-author-role">${escapeHtml(testimonial.role)}</div>
-        </div>
-      `;
-
+          <div class="video-author">${escapeHtml(testimonial.name)}</div>
+          <div class="video-role">${escapeHtml(testimonial.role)}</div>
+          ${testimonial.description ? `<p class="video-desc">${escapeHtml(testimonial.description)}</p>` : ''}
+        </div>`;
       return card;
     }
 
-    // Setup filter buttons
+    // ── FILTER BUTTON SETUP ───────────────────────────────────────
     function setupFilterButtons() {
-      const buttons = document.querySelectorAll('.filter-btn');
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          buttons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-          renderTestimonials(button.dataset.filter);
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderAll(btn.dataset.filter);
         });
       });
     }
 
-    // Escape HTML helper
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
+    // ── HELPER ────────────────────────────────────────────────────
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    // Scroll reveal animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
+    // ── INIT ──────────────────────────────────────────────────────
+    async function init() {
+      // Load CMS testimonials first
+      await loadTestimonials();
+      renderAll('all');
+      setupFilterButtons();
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+      // Try to load Google Reviews from settings
+      try {
+        const settingsRes = await fetch('./content/settings.json');
+        const settings = await settingsRes.json();
+        if (settings.google_api_key && settings.google_place_id) {
+          await loadGoogleReviews(settings.google_api_key, settings.google_place_id);
         }
-      });
-    }, observerOptions);
+      } catch (e) {
+        // settings not available or Google keys not set yet — silent fail
+      }
+    }
 
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Initialize
-    loadTestimonials();
+    init();
   </script>
 <!-- Netlify Identity Widget -->
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>

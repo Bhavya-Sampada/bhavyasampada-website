@@ -251,6 +251,18 @@ collections:
             widget: string
             hint: "e.g. 15+"
 
+          - label: "Google Maps API Key"
+            name: google_api_key
+            widget: string
+            required: false
+            hint: "Paste your Google Maps Platform API key here. Get one free at console.cloud.google.com → Enable 'Places API (New)' → Create API Key → Restrict to your domain."
+
+          - label: "Google Place ID"
+            name: google_place_id
+            widget: string
+            required: false
+            hint: "Your business Place ID from Google Maps. Find it at: maps.google.com → search your business → share → copy link → the ID starts with ChIJ. Or use: developers.google.com/maps/documentation/javascript/examples/places-placeid-finder"
+
   - name: "team"
     label: "👥 Team Members"
     files:
