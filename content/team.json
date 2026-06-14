@@ -1,6 +1,14 @@
 {
   "team": [
     {
+      "featured": true,
+      "id": "Bapiraju",
+      "name": "Murali Bapiraju",
+      "initials": "MB",
+      "title": "Founder & CEO",
+      "bio": "Bapiraju brings over 25 years of financial market expertise. As the principal leader of the firm, his insights govern the high-level retirement planning, long-term asset allocation frameworks for the clients. His extensive industry tenure and profound market insight elevate our mutual fund distribution company standards to the highest professional level."
+    },
+    {
       "id": "vijay_datta",
       "name": "A.V.Datta",
       "initials": "A.V",
@@ -19,6 +27,25 @@
     },
     {
       "featured": true,
+      "title": "Co-Founder & Managing Director",
+      "bio": "Aparna is the Co-Founder and MD of Bhavya Sampada. An MBA in Finance with over 5 years of experience, she holds AMFI, PMS, and insurance advisory credentials. Her modern, forward-thinking perspective and multi-asset expertise enable her to relate to and effectively design financial strategies for a diverse, multi-generational client base.",
+      "id": "Aparna ",
+      "name": "Aparna A",
+      "initials": "AP",
+      "expertise": [
+        "Insurnace",
+        "Portfolio Management Services",
+        "Marketing"
+      ],
+      "credentials": [
+        "AMFI Certified",
+        "IRDAI-certified BQP",
+        "SEBI Registered",
+        "MBA Finance and Business Management"
+      ]
+    },
+    {
+      "featured": true,
       "title": "Client Relations Manager",
       "initials": "VD",
       "id": "Vamsidhar",
@@ -33,32 +60,12 @@
       ]
     },
     {
-      "featured": true,
-      "title": "Co-Founder & Managing Director",
-      "bio": "Aparna is the Co-Founder and MD of Bhavya Sampada. An MBA in Finance with over 5 years of experience, she holds AMFI, PMS, and insurance advisory credentials. Her modern, forward-thinking perspective and multi-asset expertise enable her to relate to and effectively design financial strategies for a diverse, multi-generational client base.",
-      "id": "Aparna ",
-      "name": "Aparna A",
-      "initials": "AP",
-      "expertise": [
-        null
-      ],
-      "credentials": [
-        "AMFI Certified",
-        "IRDAI-certified BQP",
-        "SEBI Registered",
-        "MBA Finance and Business Management"
-      ]
-    },
-    {
       "id": "Maheshwari",
-      "name": "Sunita Sharma",
-      "initials": "SS",
+      "name": "Maheshwari A",
+      "initials": "MA",
       "title": "Client Relations & Operations",
-      "credentials": [
-        "B.Com",
-        "NISM Series V-A"
-      ],
-      "bio": "Sunita ensures every client interaction reflects our commitment to excellence. She manages onboarding, documentation, and service delivery — making the investment process seamless and stress free for all 2,000+ client families we serve.",
+      "credentials": [],
+      "bio": "Maheshwari has over a decade of experience in client service and relationship management. She acts as the direct liaison between clients and management, specializing in identifying specific family needs. Her structured, accessible approach ensures seamless communication and consistent operational support for every client",
       "expertise": [
         "Client Onboarding",
         "Operations",
@@ -68,18 +75,18 @@
     },
     {
       "id": "Priyanka",
-      "name": "Ravi Kumar",
-      "initials": "RK",
-      "title": "Senior Financial Advisor",
+      "name": "Priyanaka D S",
+      "initials": "DSP",
+      "title": "Client Relations & Operations",
       "credentials": [
-        "CFP",
-        "NISM Certified"
+        "MBA Finance"
       ],
-      "bio": "Ravi brings 10 years of hands on client advisory experience. He specializes in retirement planning, tax optimization, and insurance structuring for government employees, doctors, and business owners. Known for his patient, educational approach to financial planning.",
+      "bio": "Priyanka holds an MBA in Finance and Marketing. Her financial background allows her to understand portfolio data deeply, helping her provide superior service to clients. She plays a key role in turning client needs into clear, actionable operations, ensuring a smooth and precise experience for multi-generational families and new wealth creators alike.",
       "expertise": [
-        "Retirement Planning",
-        "Tax Planning",
-        "Insurance"
+        "Insurance",
+        "Client Servicing",
+        "Operations",
+        "Client Onboarding"
       ],
       "featured": true
     }
