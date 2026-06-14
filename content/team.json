@@ -72,23 +72,6 @@
         "Documentation"
       ],
       "featured": true
-    },
-    {
-      "id": "Priyanka",
-      "name": "Priyanaka D S",
-      "initials": "DSP",
-      "title": "Client Relations & Operations",
-      "credentials": [
-        "MBA Finance"
-      ],
-      "bio": "Priyanka holds an MBA in Finance and Marketing. Her financial background allows her to understand portfolio data deeply, helping her provide superior service to clients. She plays a key role in turning client needs into clear, actionable operations, ensuring a smooth and precise experience for multi-generational families and new wealth creators alike.",
-      "expertise": [
-        "Insurance",
-        "Client Servicing",
-        "Operations",
-        "Client Onboarding"
-      ],
-      "featured": true
     }
   ]
 }
