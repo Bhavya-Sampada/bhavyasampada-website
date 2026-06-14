@@ -58,20 +58,6 @@
         "Client advisory",
         "Legacy Planning "
       ]
-    },
-    {
-      "id": "Maheshwari",
-      "name": "Maheshwari A",
-      "initials": "MA",
-      "title": "Client Relations & Operations",
-      "credentials": [],
-      "bio": "Maheshwari has over a decade of experience in client service and relationship management. She acts as the direct liaison between clients and management, specializing in identifying specific family needs. Her structured, accessible approach ensures seamless communication and consistent operational support for every client",
-      "expertise": [
-        "Client Onboarding",
-        "Operations",
-        "Documentation"
-      ],
-      "featured": true
     }
   ]
 }
