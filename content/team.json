@@ -18,41 +18,39 @@
       "featured": true
     },
     {
-      "id": "priya-reddy",
-      "name": "Priya Reddy",
-      "initials": "PR",
-      "title": "Head of Research & Portfolio Strategy",
-      "credentials": [
-        "MBA Finance",
-        "CFA Level II"
-      ],
-      "bio": "Priya leads our research team with rigorous, data driven analysis. She monitors market trends, evaluates fund performance, and constructs optimal client portfolios. Her expertise in quantitative analysis ensures our clients benefit from evidence based investment decisions.",
+      "featured": true,
+      "title": "Client Relations Manager",
+      "initials": "VD",
+      "id": "Vamsidhar",
+      "name": "Vamsidhar A",
+      "credentials": [],
+      "bio": "Vamsi, with over a decade of financial market experience in stocks, mutual funds, and portfolio management. Guided by the Bhavya Sampada framework, he analyzes each family's unique profile to design individualized financial strategies. He specializes in risk-calibrated insurance strategies, custom retirement planning, and tax minimization to protect long-term family wealth.",
       "expertise": [
-        "Investment Research",
-        "Mutual Funds",
-        "Risk Analysis"
-      ],
-      "featured": true
-    },
-    {
-      "id": "ravi-kumar",
-      "name": "Ravi Kumar",
-      "initials": "RK",
-      "title": "Senior Financial Advisor",
-      "credentials": [
-        "CFP",
-        "NISM Certified"
-      ],
-      "bio": "Ravi brings 10 years of hands on client advisory experience. He specializes in retirement planning, tax optimization, and insurance structuring for government employees, doctors, and business owners. Known for his patient, educational approach to financial planning.",
-      "expertise": [
+        "Insurance ",
         "Retirement Planning",
-        "Tax Planning",
-        "Insurance"
-      ],
-      "featured": true
+        "Client advisory",
+        "Legacy Planning "
+      ]
     },
     {
-      "id": "sunita-sharma",
+      "featured": true,
+      "title": "Co-Founder & Managing Director",
+      "bio": "Aparna is the Co-Founder and MD of Bhavya Sampada. An MBA in Finance with over 5 years of experience, she holds AMFI, PMS, and insurance advisory credentials. Her modern, forward-thinking perspective and multi-asset expertise enable her to relate to and effectively design financial strategies for a diverse, multi-generational client base.",
+      "id": "Aparna ",
+      "name": "Aparna A",
+      "initials": "AP",
+      "expertise": [
+        null
+      ],
+      "credentials": [
+        "AMFI Certified",
+        "IRDAI-certified BQP",
+        "SEBI Registered",
+        "MBA Finance and Business Management"
+      ]
+    },
+    {
+      "id": "Maheshwari",
       "name": "Sunita Sharma",
       "initials": "SS",
       "title": "Client Relations & Operations",
@@ -65,6 +63,23 @@
         "Client Onboarding",
         "Operations",
         "Documentation"
+      ],
+      "featured": true
+    },
+    {
+      "id": "Priyanka",
+      "name": "Ravi Kumar",
+      "initials": "RK",
+      "title": "Senior Financial Advisor",
+      "credentials": [
+        "CFP",
+        "NISM Certified"
+      ],
+      "bio": "Ravi brings 10 years of hands on client advisory experience. He specializes in retirement planning, tax optimization, and insurance structuring for government employees, doctors, and business owners. Known for his patient, educational approach to financial planning.",
+      "expertise": [
+        "Retirement Planning",
+        "Tax Planning",
+        "Insurance"
       ],
       "featured": true
     }
