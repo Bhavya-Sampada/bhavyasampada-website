@@ -1,0 +1,29 @@
+{
+  "updated": "2026-11-11",
+  "rating": 5.0,
+  "count": 139,
+  "source": "Snapshot taken by hand from the Google Business Profile on 11 Nov 2026. Replaced automatically at each build once GOOGLE_PLACES_API_KEY and GOOGLE_PLACE_ID are set in Netlify.",
+  "reviews": [
+    {
+      "author": "Kodandaram M",
+      "rating": 5,
+      "when": "A week ago",
+      "text": "I recently started my investment journey with Bhavya Sampada, and honestly, the experience has been really good so far. The team is very approachable, explains everything patiently",
+      "url": "https://share.google/V3oD3dOOpZJHswJtR"
+    },
+    {
+      "author": "Nandula Nageswararao Rao",
+      "rating": 5,
+      "when": "3 months ago",
+      "text": "I have been associated with Bapi Raju (Bhavya Sampada) since 2017, and it has been a wonderful experience. From SIPs and lump sum investments to retirement planning, their guidance has always been transparent and trustworthy",
+      "url": "https://share.google/V3oD3dOOpZJHswJtR"
+    },
+    {
+      "author": "Swagatika Sabata",
+      "rating": 5,
+      "when": "5 months ago",
+      "text": "I’ve been with Bhavya Sampada for quite some time now and they’ve been amazing. What really sets them apart is how personalized everything is. They track my portfolio regularly",
+      "url": "https://share.google/V3oD3dOOpZJHswJtR"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Old site URLs → new site (301, permanent)
+/index.html              /                          301!
+/about.html              /about/                    301!
+/services.html           /services/                 301!
+/blog.html               /articles/                 301!
+/blog                    /articles/                 301!
+/blog/*                  /articles/                 301!
+/videos.html             /articles/#videos          301!
+/videos                  /articles/#videos          301!
+/testimonials.html       /#clients                  301!
+/testimonials            /#clients                  301!
+/contact                 /book-a-free-review/       301!
+/contact.html            /book-a-free-review/       301!
+/book                    /book-a-free-review/       301!
+/privacy                 /privacy-policy/           301!
+/terms-of-use            /terms/                    301!
+/SETUP-GUIDE.html        /                          301!
+
+# Old article ids from posts.json
+/blog.html?id=sip-vs-lumpsum-2026               /articles/sip-vs-lump-sum/          301!
+/blog.html?id=tax-saving-govt-employees-2026    /articles/tax-saving-salaried/      301!
+/blog.html?id=retirement-corpus-hyderabad-2026  /articles/how-much-to-retire/       301!
+
+# Old content JSON paths are no longer public
+/content/*               /404.html                  404

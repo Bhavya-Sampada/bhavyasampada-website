@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bhavya Sampada — About</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+*{box-sizing:border-box}
+.site{--ink:#0B0B14;--muted:#535768;--soft:#7A7F90;--line:#E4E4EF;--paper:#FFFFFF;--page:#F6F6F6;--surface-1:#F4F4F8;
+--gold:#D4AF37;--gold-soft:#E0C462;--gold-pale:#EAD58F;--gold-tint:#F3EAD0;--gold-wash:#F9F6EF;--gold-ring:#D4AF3755;--gold-glow:#D4AF3722;--bronze:#7A5C12;
+--brand-hover:#C39F2C;--brand-pressed:#B08F24;
+--dk-bg:#131110;--dk-panel:#1C1917;--dk-card:#262220;--dk-line:#FFFFFF14;--dk-fg:#F5F2EC;--dk-muted:#B3ADA2;
+--font:Poppins,system-ui,sans-serif;--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.2,.8,.2,1);--spring:cubic-bezier(.22,1,.36,1);
+font:400 15px/24px var(--font);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:clip;min-width:0}
+.site a{color:inherit;text-decoration:none}
+.site h1,.site h2,.site h3,.site h4,.site p,.site ul{margin:0}
+.site ul{padding:0;list-style:none}
+.wrap{max-width:1440px;margin:0 auto;padding:0 80px}
+.h1{font:500 56px/60px var(--font);letter-spacing:-.03em;text-wrap:balance}
+.h2{font:500 40px/46px var(--font);letter-spacing:-.03em;text-wrap:balance}
+.h3{font:500 24px/30px var(--font);letter-spacing:-.025em}
+.lead{font:400 19px/30px var(--font);color:var(--muted);text-wrap:pretty}
+.eyebrow{font:500 12px/16px var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.site :focus-visible{outline:3px solid var(--bronze);outline-offset:3px;border-radius:6px}
+.cta :focus-visible,.foot :focus-visible{outline-color:#F0DC9A}
+.skip{position:absolute;left:-9999px;top:14px;z-index:40;background:var(--gold);color:var(--ink);padding:10px 16px;border-radius:8px;font-weight:500}
+.skip:focus{left:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:8px;font:500 15px/1 var(--font);border:1px solid transparent;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease),transform .12s var(--ease),box-shadow .2s var(--ease);white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--gold);color:var(--ink);box-shadow:0 8px 24px var(--gold-glow)}
+.btn-primary:hover{background:var(--brand-hover);box-shadow:0 12px 32px var(--gold-ring)}
+.btn-primary:active{background:var(--brand-pressed)}
+.btn-sm{height:44px;padding:0 20px;font-size:14px}
+.btn .arr{transition:transform .2s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+.rv{transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.ready .rv{opacity:0;transform:translateY(14px);animation:rise .7s var(--ease-out) .05s forwards}
+.ready .rv.in{opacity:1;transform:none}
+.no-motion *{animation:none!important;transition:none!important}
+.no-motion .rv{opacity:1;transform:none}
+.nav{position:sticky;top:0;z-index:30;height:80px;color:var(--ink);background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(16px) saturate(1.8);backdrop-filter:blur(16px) saturate(1.8);border-bottom:1px solid transparent;transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.nav.on{border-color:var(--line);box-shadow:0 8px 32px rgba(11,11,20,.04)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;line-height:1}
+.brand .mark{height:46px;width:auto;display:block;filter:brightness(.72) saturate(1.2);transition:transform .3s var(--spring)}
+.brand:hover .mark{transform:scale(1.04)}
+.brand .bt{display:flex;flex-direction:column}
+.logo-full{height:124px;width:auto;display:block}
+.brand b{font:500 21px/24px var(--font);letter-spacing:-.025em}
+.brand span{font:500 10px/14px var(--font);letter-spacing:.16em;color:var(--bronze)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{position:relative;font-weight:500;font-size:14px;opacity:.8;transition:opacity .2s;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease-out)}
+.nav-links a:hover,.nav-links a.cur{opacity:1}
+.nav-links a:hover::after,.nav-links a.cur::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-right .login{font-weight:500;font-size:14px;opacity:.8;transition:opacity .2s}
+.nav-right .login:hover{opacity:1}
+.burger{display:none;width:44px;height:44px;border:0;background:transparent;color:inherit;cursor:pointer;border-radius:8px;align-items:center;justify-content:center}
+.mmenu{position:fixed;left:0;right:0;top:80px;z-index:29;background:#fff;color:var(--ink);border-bottom:1px solid var(--line);padding:16px 20px 24px;display:flex;flex-direction:column;gap:4px;box-shadow:0 24px 48px rgba(11,11,20,.08);animation:drop .25s var(--ease-out)}
+.mmenu a{padding:12px 8px;font-weight:500;font-size:16px;border-radius:8px}
+.mmenu a:hover{background:var(--surface-1)}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.phero .wave{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;opacity:.8}
+.phero{position:relative;padding:96px 0 80px;background:linear-gradient(125deg,#F9F6EF 0%,#F3EAD0 55%,#EFE3C2 100%);overflow:hidden}
+.phero .glow{position:absolute;width:640px;height:640px;left:40%;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(234,213,143,.7),transparent 62%);filter:blur(24px);pointer-events:none;animation:breathe 9s var(--ease) infinite alternate}
+@keyframes breathe{from{opacity:.7;transform:scale(1)}to{opacity:1;transform:scale(1.08)}}
+.phero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:end}
+.ready .rise{opacity:0;transform:translateY(14px);animation:rise .8s var(--ease-out) forwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}.d4{animation-delay:.42s}
+@keyframes rise{to{opacity:1;transform:none}}
+.phero .eyebrow{color:var(--ink);opacity:.7;margin-bottom:18px}
+.phero .lead{color:#4A4336;margin-top:20px;max-width:600px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fact{background:rgba(255,255,255,.6);border:1px solid rgba(11,11,20,.08);border-radius:12px;padding:20px;transition:background .2s,transform .2s var(--spring)}
+.fact:hover{background:#fff;transform:translateY(-2px)}
+.fact b{display:block;font:500 30px/34px var(--font);letter-spacing:-.03em}
+.fact span{font-size:13px;color:var(--muted)}
+.sec{padding-top:140px}
+.sec-head{max-width:760px;margin-bottom:48px}
+.sec-head .eyebrow{margin-bottom:16px}
+.sec-head .lead{margin-top:18px}
+.story{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
+.story .ph-img{aspect-ratio:4/3;border-radius:16px}
+.ph-img.has-img{border:0;background:none;overflow:hidden;display:block}.ph-img.has-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+.story p{font-size:17px;line-height:28px;color:var(--muted);margin-bottom:18px;text-wrap:pretty}
+.ph-img{border-radius:12px;background:linear-gradient(160deg,var(--surface-1),#E6E6F2);display:grid;place-items:center;color:var(--muted);font-size:12px;border:1.5px dashed #C9CBDD}
+.approach{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:var(--surface-1);border-radius:16px;padding:32px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.card:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.icon{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--gold-tint);color:var(--bronze);margin-bottom:22px;transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--spring)}
+.card:hover .icon{background:var(--gold);color:var(--ink);transform:rotate(-6deg) scale(1.06)}
+.card h3{font:500 20px/26px var(--font);letter-spacing:-.01em;margin-bottom:10px}
+.card p{color:var(--muted)}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.person{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.person:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.person .ph-img{aspect-ratio:4/5;margin-bottom:16px}
+.person b{display:block;font:500 18px/24px var(--font)}
+.person span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.person em{display:block;font-style:normal;color:var(--muted);font-size:13px;margin-top:8px}
+.person.sm{padding:16px}
+.person.team{background:linear-gradient(160deg,#FBF8F1,#F3EAD0);border:1px solid #E8DFC6;box-shadow:none;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px}.person.team:hover{transform:none;box-shadow:none}.person.team b{font-size:17px;color:var(--ink)}.person.team span{font-size:13px;color:var(--muted)}.avstack{display:flex;align-items:center;margin-bottom:14px}.avstack i,.avstack em{width:44px;height:44px;border-radius:50%;border:3px solid #FBF8F1;margin-left:-12px;display:grid;place-items:center}.avstack i:first-child{margin-left:0}.avstack .a1{background:linear-gradient(160deg,#E6CF7A,#D4AF37)}.avstack .a2{background:linear-gradient(160deg,#D4AF37,#B08F24)}.avstack .a3{background:linear-gradient(160deg,#C39F2C,#7A5C12)}.avstack i::before{content:"";width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.85);transform:translateY(-5px)}.avstack em{background:var(--ink);color:var(--gold);font:500 13px/1 var(--font);font-style:normal}
+
+.person.sm .ph-img{aspect-ratio:1;margin-bottom:12px}
+.person.sm b{font-size:15px;line-height:20px}
+.values{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.val{border:1px solid var(--line);border-radius:12px;padding:28px;transition:border-color .25s,transform .25s var(--ease),box-shadow .25s}
+.val:hover{border-color:transparent;transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.val i{display:block;width:28px;height:3px;border-radius:2px;background:var(--gold);margin-bottom:18px;transition:width .3s var(--ease-out)}
+.val:hover i{width:56px}
+.val b{display:block;font:500 18px/24px var(--font);margin-bottom:8px}
+.val p{color:var(--muted)}
+.regs{margin-top:140px;background:var(--gold-wash);padding:72px 0}
+.regs .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:center}
+.reg{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid #E8DFC6;border-radius:12px;padding:16px 18px;margin-bottom:10px}
+.reg i{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--gold-tint);color:var(--bronze)}
+.reg b{display:block;font-weight:500}
+.reg span{color:var(--muted);font-size:13px}
+.cta{margin-top:0;background:var(--dk-bg);color:var(--dk-fg);padding:100px 0;position:relative;overflow:hidden}
+.cta .orb{position:absolute;width:560px;height:560px;right:-160px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.22),transparent 60%);filter:blur(30px);pointer-events:none;animation:breathe 10s var(--ease) infinite alternate}
+.cta .wrap{position:relative;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.cta h2{color:#fff}
+.cta .lead{color:var(--dk-muted);margin-top:14px}
+.foot{background:var(--dk-bg);color:var(--dk-muted);font-size:14px;padding-bottom:40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:48px;padding:64px 0 48px;border-top:1px solid var(--dk-line)}
+.foot h4{font:500 12px/16px var(--font);letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.foot li{padding:4px 0}
+.foot a{transition:color .2s}
+.foot a:hover{color:#fff}
+.foot .brand b{color:#fff}
+.social{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.social a{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--dk-line);color:var(--dk-muted);font-weight:500;font-size:13px;transition:color .2s,border-color .2s,transform .2s var(--spring)}
+.social a:hover{color:#fff;border-color:#ffffff40;transform:translateY(-2px)}
+.social svg{flex:none}
+.foot .brand span{color:var(--gold-pale)}
+.disc{border-top:1px solid var(--dk-line);padding-top:28px;font-size:12px;line-height:19px;color:#9A9DAA;max-width:1100px}
+@media (max-width:1100px){
+  .wrap{padding:0 40px}
+  .sec{padding-top:100px}
+  .g4,.g3,.approach,.values{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .phero .wrap,.story,.regs .wrap{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){.brand{gap:9px}.brand .mark{height:36px}.brand b{font-size:17px;line-height:20px;white-space:nowrap}.brand span{font-size:8px;line-height:11px;letter-spacing:.12em}.nav-right{gap:10px}.nav-right .btn{height:38px;padding:0 12px;font-size:13px}.story{grid-template-columns:1fr}
+  .wrap{padding:0 20px}
+  .sec{padding-top:80px}
+  .nav-links,.nav-right .login{display:none}
+  .burger{display:inline-flex}
+  .h1{font-size:40px;line-height:44px}
+  .h2{font-size:32px;line-height:38px}
+  .lead{font-size:17px;line-height:27px}
+  .phero{padding:64px 0 56px}
+  .facts{grid-template-columns:1fr}
+  .g3,.g4,.approach,.values{grid-template-columns:1fr}
+  .regs{margin-top:80px;padding:56px 0}
+  .cta{padding:72px 0}
+  .cta .btn{width:100%}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  .site *{animation:none!important;transition:none!important}
+  .rise,.rv{opacity:1;transform:none;animation:none}
+}
+</style>
+</helmet>
+<div class="site {{motionClass}} {{readyClass}}" style="--gold: {{accent}}">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav {{navClass}}">
+  <div class="wrap">
+    <a class="brand" href="Main.dc.html" aria-label="Bhavya Sampada home"><img class="mark" src="/_blob/597e264cd8a0b0ddbc6966debb2bec4a" alt=""><div class="bt"><b>Bhavya Sampada</b><span>WEALTH MANAGEMENT</span></div></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="Services.dc.html">Services</a>
+      <a class="cur" href="About.dc.html" aria-current="page">About</a>
+      <a href="Insights.dc.html">Case studies</a>
+      <a href="Main.dc.html#clients">Clients</a>
+    </nav>
+    <div class="nav-right">
+      <a class="login" href="https://ewa.njindiaonline.com/ewa/login">Client login</a>
+      <a class="btn btn-primary btn-sm" href="Book.dc.html">Book a free review</a>
+      <button class="burger" type="button" aria-label="Menu" aria-controls="mmenu" aria-expanded="{{menuOpen}}" onClick="{{toggleMenu}}">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+  <div class="mmenu" id="mmenu">
+    <a href="Services.dc.html">Services</a>
+    <a href="About.dc.html">About</a>
+    <a href="Insights.dc.html">Case studies</a>
+    <a href="Main.dc.html#clients">Clients</a>
+    <a href="https://ewa.njindiaonline.com/ewa/login">Client login</a>
+  </div>
+</sc-if>
+
+<main id="main" tabindex="-1">
+<section class="phero">
+  <canvas class="wave" id="wave" aria-hidden="true"></canvas>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rise d1">About Bhavya Sampada</p>
+      <h1 class="h1 rise d2">Our story, your future</h1>
+      <p class="lead rise d3">Bhavya Sampada was founded on a simple belief: every family deserves world-class financial guidance. Fifteen years on, we serve more than 2,000 families with the same personal attention we gave the first one.</p>
+    </div>
+    <div class="facts rise d4">
+      <div class="fact"><b>15+</b><span>Years guiding families</span></div>
+      <div class="fact"><b>2,000+</b><span>Families served</span></div>
+      <div class="fact"><b>₹250+ Cr</b><span>Assets under management</span></div><div class="fact" style="grid-column:1/-1;display:flex;align-items:center;gap:12px"><b style="font-size:26px;line-height:30px">5.0 <span style="color:var(--gold);font-size:18px;letter-spacing:2px">★★★★★</span></b><span>139 Google reviews</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="story">
+  <div class="wrap story">
+    <div class="ph-img rv has-img"><img src="/_blob/dc8952d746ed1b38b006ec518d4952d3" alt="Illustration of a review meeting: two directors and a family at a table with a written plan, a sunrise in the window" width="1600" height="1200"></div>
+    <div class="rv" style="animation-delay:.1s">
+      <p class="eyebrow" style="margin-bottom:16px">Our story</p>
+      <h2 class="h2" style="margin-bottom:24px">Founded on one belief: every family deserves world-class financial guidance</h2>
+      <p>Bhavya Sampada started in Secunderabad more than fifteen years ago with that belief and a handful of families. Most of them had money in the right places and no plan holding it together, so the first thing we did, and still do, was write the plan before recommending anything.</p>
+      <p>Over fifteen years the work grew from mutual funds to the whole picture: goal-based planning, every kind of insurance, and loans compared across lenders. What stayed the same is who you deal with. Your first conversation is with a director, and the same people review your plan every six months.</p>
+      <p>Today we serve more than 2,000 families, in person at our Kapra office and online across India, with ₹250 crore and more entrusted to the plans we manage together.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="approach">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Our approach</p>
+      <h2 class="h2">Goals first. Products second. Reviewed always.</h2>
+    </div>
+    <div class="approach">
+      <article class="card rv">
+        <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2"></path></svg></span>
+        <h3>We start with your goals</h3><p>Before any product, you get a written plan: what you need, when, and the gap to each goal.</p>
+      </article>
+      <article class="card rv" style="animation-delay:.08s">
+        <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"></path></svg></span>
+        <h3>One firm for the whole picture</h3><p>Investments, insurance and loans decided together, so one choice never quietly undoes another.</p>
+      </article>
+      <article class="card rv" style="animation-delay:.16s">
+        <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"></path><path d="M3 21v-5h5"></path></svg></span>
+        <h3>We review every six months</h3><p>Life changes. So does the plan. You hear from us, not the other way round.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="team">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Leadership</p>
+      <h2 class="h2">The people who run your first review</h2>
+      <p class="lead">Every free review is with one of the directors of the firm. Four directors, and a team of seven behind them.</p>
+    </div>
+    <div class="g3">
+      <div class="person rv"><div class="ph-img has-img"><img src="/_blob/db637f927c3d193f5d350373a198d24c" alt="V M Bapiraju, Chief Executive Officer" width="800" height="1000"></div><b>V M Bapiraju</b><span>Chief Executive Officer</span><em>15+ years in finance · 100+ industry awards · AMFI and IRDAI certified</em></div>
+      <div class="person rv" style="animation-delay:.08s"><div class="ph-img has-img"><img src="/_blob/18ad6f9f8b3ce22eb087edfd52fa09c7" alt="A Vijay Datta, Chief Business Officer" width="1000" height="1250"></div><b>A Vijay Datta</b><span>Chief Business Office</span><em>8+ years in finance · AMFI and IRDAI certified · Certified goal planner · Entrepreneur</em></div>
+      <div class="person rv" style="animation-delay:.16s"><div class="ph-img has-img"><img src="/_blob/61bbf6aae7d99a24196221b668c97746" alt="Aparna, Managing Director" width="1000" height="1250"></div><b>Aparna</b><span>Managing Director</span><em>5+ years in finance · MBA (Finance) · AMFI and IRDAI certified</em></div>
+      <div class="person rv" style="animation-delay:.24s"><div class="ph-img has-img"><img src="/_blob/691fee36a0e37ef052cfd12223e97661" alt="V Parvathi, Managing Director" width="800" height="1000"></div><b>V Parvathi</b><span>Managing Director</span><em>10+ years of experience</em></div>
+      <div class="person rv" style="animation-delay:.32s"><div class="ph-img has-img"><img src="/_blob/a74cedb13400c2884b3b7a738c3a0623" alt="V Maitreyi, Customer Success Manager" width="800" height="1000"></div><b>V Maitreyi</b><span>Customer Success Manager</span><em>3 years of experience · Looks after the customer success team</em></div>
+      <div class="person team rv" style="animation-delay:.40s" aria-label="Six more team members">
+        <div class="avstack" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><em>+6</em></div>
+        <b>+6 more employees</b><span>Operations, service and client support</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="values">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Mission and values</p>
+      <h2 class="h2">To give every family and individual world-class financial guidance: to build lasting wealth, protect what matters most, and reach real financial freedom.</h2>
+    </div>
+    <div class="values">
+      <div class="val rv"><i></i><b>Client first</b><p>Every recommendation starts and ends with your interest, built on transparency, trust and long-term relationships.</p></div>
+      <div class="val rv" style="animation-delay:.06s"><i></i><b>Long-term thinking</b><p>We don’t chase short-term performance. We build lasting wealth through disciplined, goal-based planning.</p></div>
+      <div class="val rv" style="animation-delay:.12s"><i></i><b>Financial education</b><p>An informed client is an empowered client. We take the time to explain what, why and how.</p></div>
+      <div class="val rv" style="animation-delay:.18s"><i></i><b>Integrity</b><p>Complete transparency. You’ll always know how we are paid, our reasoning and our recommendations, without fine print.</p></div>
+      <div class="val rv" style="animation-delay:.24s"><i></i><b>Empathy</b><p>We listen before we recommend. Every family’s situation is different, and we take the time to understand your goals and fears.</p></div>
+      <div class="val rv" style="animation-delay:.30s"><i></i><b>Accountability</b><p>We take ownership of your financial journey: regular reviews, proactive communication and honest assessments.</p></div>
+      <div class="val rv" style="animation-delay:.36s"><i></i><b>Simplicity</b><p>Finance can be complex. Our job is to make it simple, so you can make confident, informed decisions.</p></div>
+      <div class="val rv" style="animation-delay:.42s"><i></i><b>Community</b><p>More than a firm: a community of families building better financial futures together. Your success is our success.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="regs" id="registrations">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow" style="color:var(--bronze);margin-bottom:14px">Registrations</p>
+      <h2 class="h2">Registered, and happy to show it</h2>
+      <p class="lead" style="margin-top:16px">Every product we help you with sits under a regulator. Here is where we stand.</p>
+    </div>
+    <div class="rv" style="animation-delay:.1s">
+      <div class="reg"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"></path><path d="M9 12l2 2 4-4"></path></svg></i><div><b>AMFI-registered Mutual Fund Distributor</b><span>ARN: 266666</span></div></div>
+      <div class="reg"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"></path><path d="M9 12l2 2 4-4"></path></svg></i><div><b>IRDAI-licensed insurance intermediary</b><span>Licence A00830505</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="orb" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="rv"><h2 class="h2">Meet us. It’s free.</h2><p class="lead">A 30-minute review with one of our directors, in person or online.</p></div>
+    <a class="btn btn-primary rv" href="Book.dc.html" style="animation-delay:.12s">Book my free review <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="Main.dc.html" aria-label="Bhavya Sampada home"><img class="logo-full" src="/_blob/d5170994c6ef0c369a079afad9225e5e" alt="Bhavya Sampada"></a>
+        <p style="margin-top:16px;max-width:300px">Financial planning, investments, insurance and loans for families across India. 15+ years of helping families grow, protect and transfer wealth.</p>
+        <div class="social">
+          <a href="https://www.youtube.com/@the.two.wealth.theory"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"></rect><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"></path></svg>YouTube</a>
+          <a href="https://www.instagram.com/thewealth.theory/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg>Instagram</a>
+          <a href="https://share.google/V3oD3dOOpZJHswJtR"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.9l-5.3 2.8 1.1-5.9-4.3-4.1 5.9-.8z"></path></svg>Review us on Google</a>
+        </div>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="Services.dc.html#plan">Financial planning</a></li><li><a href="Services.dc.html#plan">Tax planning</a></li><li><a href="Services.dc.html#invest">Mutual funds &amp; SIPs</a></li><li><a href="Services.dc.html#protect">Insurance</a></li><li><a href="Services.dc.html#borrow">Loans</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="About.dc.html">About</a></li><li><a href="Main.dc.html#how">How we work</a></li><li><a href="Main.dc.html#clients">Clients</a></li><li><a href="Insights.dc.html">Case studies</a></li><li><a href="Book.dc.html">Book a free review</a></li><li><a href="https://ewa.njindiaonline.com/ewa/login">Client login</a></li><li><a href="Privacy.dc.html">Privacy policy</a></li><li><a href="Terms.dc.html">Terms of use</a></li></ul></div>
+      <div><h4>Contact</h4><ul>
+        <li>Plot No. 156, Srinivasa Nagar Colony, Near Radhika Theater, Kapra, Secunderabad – 500062</li>
+        <li><a href="tel:04035175228">040-35175228</a></li>
+        <li><a href="tel:+919848977660">+91 98489 77660</a></li>
+        <li><a href="mailto:support@bhavyasampada.com">support@bhavyasampada.com</a></li></ul></div>
+    </div>
+    <p class="disc">AMFI-registered Mutual Fund Distributor | ARN: 266666 · IRDAI licence A00830505. Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Investments facilitated through Bhavya Sampada are in Regular Plan, which involves payment of trail commission to the MFD. Insurance is the subject matter of solicitation. Loans are subject to the lender’s approval and terms. This website is for informational purposes only and does not constitute financial, tax or legal advice. © 2026 Bhavya Sampada Private Limited. All rights reserved.</p>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#D4AF37","options":["#D4AF37","#C39F2C","#B08F24"],"section":"Brand"},"motion":{"editor":"boolean","default":true,"section":"Motion"},"$preview":{"width":1440,"height":5760}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { scrolled: false, menu: false, ready: false };
+  }
+  componentDidMount() {
+    this.initWave((this.props.motion ?? true) && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches));
+    this.setState({ ready: true });
+    this.fallback = setTimeout(() => { document.querySelectorAll('.rv').forEach((e) => e.classList.add('in')); }, 1800);
+    this.onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      const s = y > 8;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+    if (reduce || (this.props.motion === false) || !('IntersectionObserver' in window)) {
+      els.forEach((e) => e.classList.add('in'));
+      return;
+    }
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        this.io.unobserve(en.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach((e) => this.io.observe(e));
+  }
+
+  /* Hero background: the same slow gold dot-ribbon wave as the Home page, tuned for the sand background. */
+  initWave(motion) {
+    const c = document.getElementById('wave');
+    if (!c || !c.getContext) return;
+    const ctx = c.getContext('2d');
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const size = () => {
+      const r = c.parentElement.getBoundingClientRect();
+      c.width = Math.max(1, Math.floor(r.width * dpr));
+      c.height = Math.max(1, Math.floor(r.height * dpr));
+    };
+    size();
+    this.onResize = size;
+    window.addEventListener('resize', size);
+    const COLS = 72, ROWS = 18;
+    const draw = (t) => {
+      const W = c.width, H = c.height;
+      ctx.clearRect(0, 0, W, H);
+      const horizon = H * 0.25;
+      for (let r = 0; r < ROWS; r++) {
+        const z = r / (ROWS - 1);
+        const depth = 1 - z;
+        const baseY = horizon + Math.pow(depth, 1.5) * H * 0.85;
+        const amp = H * 0.09 * (0.35 + depth);
+        const spread = W * (0.42 + depth * 0.5);
+        const rad = (0.9 + depth * 1.6) * dpr;
+        for (let i = 0; i < COLS; i++) {
+          const x = (i / (COLS - 1)) * 2 - 1;
+          const w = Math.sin(x * 3.1 + t * 0.00055 + z * 4.2) * 0.55 + Math.sin(x * 1.4 - t * 0.00038 + z * 2.1) * 0.45;
+          const sx = W / 2 + x * spread;
+          const sy = baseY + w * amp;
+          let a = 0.08 + depth * 0.42;
+          const fade = 1 - Math.max(0, (sy - H * 0.78) / (H * 0.22));
+          a *= Math.max(0, Math.min(1, fade));
+          if (a <= 0.01) continue;
+          ctx.fillStyle = 'rgba(176,143,36,' + a.toFixed(3) + ')';
+          ctx.beginPath();
+          ctx.arc(sx, sy, rad, 0, 6.2832);
+          ctx.fill();
+        }
+      }
+    };
+    if (!motion) { draw(0); return; }
+    this.waveVisible = true;
+    if ('IntersectionObserver' in window) {
+      this.vis = new IntersectionObserver((en) => { this.waveVisible = en[0].isIntersecting; }, { threshold: 0 });
+      this.vis.observe(c);
+    }
+    const loop = (t) => {
+      this.waveRaf = requestAnimationFrame(loop);
+      if (!this.waveVisible || document.hidden) return;
+      draw(t);
+    };
+    this.waveRaf = requestAnimationFrame(loop);
+  }
+  componentWillUnmount() {
+    if (this.onResize) window.removeEventListener('resize', this.onResize);
+    if (this.vis) this.vis.disconnect();
+    if (this.waveRaf) cancelAnimationFrame(this.waveRaf);
+    window.removeEventListener('scroll', this.onScroll);
+    if (this.io) this.io.disconnect();
+    if (this.fallback) clearTimeout(this.fallback);
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#D4AF37';
+    const motionOn = this.props.motion ?? true;
+    return {
+      accent: accent,
+      motionClass: motionOn ? '' : 'no-motion',
+      readyClass: (this.state.ready && motionOn) ? 'ready' : '',
+      navClass: this.state.scrolled ? 'on' : '',
+      menuOpen: this.state.menu,
+      toggleMenu: () => this.setState({ menu: !this.state.menu })
+    };
+  }
+}
+</script>
+</body>
+</html>

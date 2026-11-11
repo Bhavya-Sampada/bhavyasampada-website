@@ -1,0 +1,125 @@
+# ============================================================
+# Bhavya Sampada — Decap CMS configuration
+# Login: Netlify Identity (same as before). Every save commits to GitHub
+# and Netlify rebuilds the site, so changes are live in a few minutes.
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "Add {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "Upload “{{path}}”"
+    deleteMedia: "Delete “{{path}}”"
+
+site_url: https://bhavyasampada.com
+display_url: https://bhavyasampada.com
+logo_url: /assets/img/logo-full.png
+
+media_folder: "src/assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+# Press "Save" to commit; nothing goes live until it is published.
+publish_mode: editorial_workflow
+
+collections:
+  # ----------------------------------------------------------
+  # ARTICLES — guides and client case studies, one file each
+  # ----------------------------------------------------------
+  - name: "articles"
+    label: "Articles"
+    label_singular: "Article"
+    folder: "content/articles"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    preview_path: "articles/{{slug}}/"
+    summary: "{{title}} — {{author}} — {{date}}"
+    sortable_fields: ["date", "title", "author", "topic"]
+    view_filters:
+      - { label: "Guides", field: type, pattern: "guide" }
+      - { label: "Case studies", field: type, pattern: "case" }
+    fields:
+      - { label: "Title", name: title, widget: string, hint: "Sentence case. Phrase it the way a client would search." }
+      - { label: "URL slug", name: slug, widget: string, pattern: ["^[a-z0-9-]+$", "Lower-case letters, numbers and hyphens only"], hint: "Becomes /articles/<slug>/. Do not change after publishing." }
+      - { label: "Type", name: type, widget: select, options: [{ label: "Guide", value: "guide" }, { label: "Client case study", value: "case" }], default: "guide" }
+      - { label: "Topic", name: topic, widget: select, options: ["Planning", "Investing", "Retirement", "Tax", "Insurance", "Loans"] }
+      - { label: "Author", name: author, widget: select, options: ["V M Bapiraju", "A Vijay Datta", "Aparna"], hint: "Only directors may be bylined. Credentials and photo come from the Team page." }
+      - { label: "Role (optional)", name: role, widget: string, required: false, hint: "Leave empty to use the role from the Team page." }
+      - { label: "Publish date", name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD MMM YYYY", time_format: false }
+      - { label: "Last updated (optional)", name: updated, widget: datetime, format: "YYYY-MM-DD", date_format: "DD MMM YYYY", time_format: false, required: false }
+      - { label: "Reading time (minutes)", name: read, widget: number, value_type: int, min: 2, max: 30, default: 7 }
+      - { label: "Summary", name: summary, widget: text, hint: "Two sentences, under 155 characters. Used as the card text and the meta description. Answer the title's question first." }
+      - { label: "Cover image", name: cover, widget: image, hint: "16:10, at least 1600×1000. SVG, WebP, JPG or PNG." }
+      - { label: "Cover alt text", name: cover_alt, widget: string, hint: "Describe the image for screen readers and search engines." }
+      - { label: "Outcome (case studies only)", name: outcome, widget: text, required: false, hint: "What changed, as actions taken. No returns, no percentages, no product names." }
+      - { label: "Client consent on file (case studies only)", name: consent, widget: boolean, required: false, default: false, hint: "Tick only when written consent is on file. Names must be changed." }
+      - { label: "Draft (hide from the site)", name: draft, widget: boolean, required: false, default: false }
+      - label: "Body"
+        name: body
+        widget: markdown
+        hint: "Use ## for section headings (they become the 'In this article' list). A > quote becomes a 'Worth knowing' box. First paragraph answers the title in two sentences."
+        buttons: ["bold", "italic", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"]
+        editor_components: []
+
+  # ----------------------------------------------------------
+  # TEAM — names, roles, credentials and author bios
+  # ----------------------------------------------------------
+  - name: "team"
+    label: "Team"
+    files:
+      - file: "content/team.json"
+        label: "Directors and team"
+        name: "team"
+        fields:
+          - label: "People"
+            name: team
+            widget: list
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { label: "Name", name: name, widget: string, hint: "Exactly as it should appear in bylines." }
+              - { label: "Role", name: role, widget: string }
+              - { label: "Credentials line", name: credentials, widget: string, hint: "Short, separated by ·. Only certifications you can evidence." }
+              - { label: "Author bio", name: bio, widget: text, hint: "One or two sentences shown under articles." }
+              - { label: "Photo", name: photo, widget: image, required: false, hint: "4:5 portrait, 800×1000 or larger." }
+              - { label: "Writes articles", name: writes, widget: boolean, default: false }
+
+  # ----------------------------------------------------------
+  # FEEDS — refreshed automatically; hide items here if needed
+  # ----------------------------------------------------------
+  - name: "feeds"
+    label: "Feeds (automatic)"
+    files:
+      - file: "content/data/youtube.json"
+        label: "YouTube videos"
+        name: "youtube"
+        fields:
+          - { label: "Last refreshed", name: updated, widget: string, required: false }
+          - { label: "Hide these video IDs", name: hidden, widget: list, required: false, field: { label: "Video ID", name: id, widget: string }, hint: "The 11-character ID from the YouTube URL. Hidden videos never appear on the site." }
+          - label: "Latest videos (snapshot, replaced at each build)"
+            name: videos
+            widget: list
+            fields:
+              - { label: "Video ID", name: id, widget: string }
+              - { label: "Title", name: title, widget: string }
+              - { label: "Published", name: date, widget: string }
+      - file: "content/data/google-reviews.json"
+        label: "Google reviews"
+        name: "reviews"
+        fields:
+          - { label: "Last refreshed", name: updated, widget: string, required: false }
+          - { label: "Rating", name: rating, widget: number, value_type: float }
+          - { label: "Review count", name: count, widget: number, value_type: int }
+          - { label: "Source note", name: source, widget: string, required: false }
+          - label: "Latest reviews (snapshot, replaced at each build)"
+            name: reviews
+            widget: list
+            fields:
+              - { label: "Author", name: author, widget: string }
+              - { label: "Stars", name: rating, widget: number, value_type: int, default: 5 }
+              - { label: "When", name: when, widget: string }
+              - { label: "Text", name: text, widget: text }
+              - { label: "Link", name: url, widget: string, required: false }

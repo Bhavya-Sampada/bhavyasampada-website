@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bhavya Sampada — Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+*{box-sizing:border-box}
+.site{--ink:#0B0B14;--muted:#535768;--soft:#7A7F90;--line:#E4E4EF;--line-soft:#ECEEF3;--paper:#FFFFFF;--page:#F6F6F6;--surface-1:#F4F4F8;--surface-2:#F7F7FA;
+--gold:#D4AF37;--gold-bright:#E6C86B;--gold-soft:#E0C462;--gold-pale:#EAD58F;--gold-tint:#F3EAD0;--gold-wash:#F9F6EF;--gold-ring:#D4AF3755;--gold-glow:#D4AF3722;--bronze:#7A5C12;
+--brand-hover:#C39F2C;--brand-pressed:#B08F24;
+--dk-bg:#131110;--dk-panel:#1C1917;--dk-card:#262220;--dk-chip:#33302C;--dk-line:#FFFFFF14;--dk-fg:#F5F2EC;--dk-muted:#B3ADA2;
+--font:Poppins,system-ui,sans-serif;
+--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.2,.8,.2,1);--spring:cubic-bezier(.22,1,.36,1);
+font:400 15px/24px var(--font);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:clip;min-width:0}
+.site a{color:inherit;text-decoration:none}
+.site h1,.site h2,.site h3,.site h4,.site p,.site ul{margin:0}
+.site ul{padding:0;list-style:none}
+.wrap{max-width:1440px;margin:0 auto;padding:0 80px}
+.h1{font:500 60px/64px var(--font);letter-spacing:-.03em;text-wrap:balance}
+.h2{font:500 44px/50px var(--font);letter-spacing:-.03em;text-wrap:balance}
+.h3{font:500 24px/30px var(--font);letter-spacing:-.025em}
+.lead{font:400 19px/30px var(--font);color:var(--muted);text-wrap:pretty}
+.eyebrow{font:500 12px/16px var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.site :focus-visible{outline:3px solid var(--bronze);outline-offset:3px;border-radius:6px}
+.hero :focus-visible,.cta :focus-visible,.foot :focus-visible,.nav:not(.on) :focus-visible{outline-color:#F0DC9A}
+.skip{position:absolute;left:-9999px;top:14px;z-index:40;background:var(--gold);color:var(--ink);padding:10px 16px;border-radius:8px;font-weight:500}
+.skip:focus{left:16px}
+.set{display:flex;gap:12px}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:8px;font:500 15px/1 var(--font);border:1px solid transparent;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease),transform .12s var(--ease),box-shadow .2s var(--ease);white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--gold);color:var(--ink);box-shadow:0 8px 24px var(--gold-glow)}
+.btn-primary:hover{background:var(--brand-hover);box-shadow:0 12px 32px var(--gold-ring)}
+.btn-primary:active{background:var(--brand-pressed)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.3)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-secondary{background:#fff;color:var(--ink);border-color:var(--ink)}
+.btn-secondary:hover{background:var(--ink);color:#fff}
+.btn-sm{height:44px;padding:0 20px;font-size:14px}
+.btn .arr{transition:transform .2s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+.link{display:inline-flex;align-items:center;gap:6px;font-weight:500;color:var(--bronze)}
+.link svg{transition:transform .2s var(--ease)}
+.link:hover svg{transform:translateX(3px)}
+/* reveal: content is visible by default; hiding only applies once the runtime is live (.ready) */
+.rv{transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.ready .rv{opacity:0;transform:translateY(14px);animation:rise .7s var(--ease-out) .05s forwards}
+.ready .rv.in{opacity:1;transform:none}
+.no-motion *{animation:none!important;transition:none!important}
+.no-motion .rv{opacity:1;transform:none}
+/* nav */
+.nav{position:sticky;top:0;z-index:30;height:80px;color:#fff;border-bottom:1px solid transparent;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.nav.on{background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(16px) saturate(1.8);backdrop-filter:blur(16px) saturate(1.8);color:var(--ink);border-color:var(--line);box-shadow:0 8px 32px rgba(11,11,20,.04)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;line-height:1}
+.brand .mark{height:46px;width:auto;display:block;transition:filter .3s var(--ease),transform .3s var(--spring)}
+.brand:hover .mark{transform:scale(1.04)}
+.brand .bt{display:flex;flex-direction:column}
+.nav.on .brand .mark{filter:brightness(.72) saturate(1.2)}
+.logo-full{height:124px;width:auto;display:block}
+.brand b{font:500 21px/24px var(--font);letter-spacing:-.025em}
+.brand span{font:500 10px/14px var(--font);letter-spacing:.16em;color:var(--gold-pale);transition:color .3s}
+.nav.on .brand span{color:var(--bronze)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{position:relative;font-weight:500;font-size:14px;opacity:.8;transition:opacity .2s;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease-out)}
+.nav-links a:hover{opacity:1}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-right .login{font-weight:500;font-size:14px;opacity:.8;transition:opacity .2s}
+.nav-right .login:hover{opacity:1}
+.burger{display:none;width:44px;height:44px;border:0;background:transparent;color:inherit;cursor:pointer;border-radius:8px;align-items:center;justify-content:center}
+.mmenu{position:fixed;left:0;right:0;top:80px;z-index:29;background:#fff;color:var(--ink);border-bottom:1px solid var(--line);padding:16px 20px 24px;display:flex;flex-direction:column;gap:4px;box-shadow:0 24px 48px rgba(11,11,20,.08);animation:drop .25s var(--ease-out)}
+.mmenu a{padding:12px 8px;font-weight:500;font-size:16px;border-radius:8px}
+.mmenu a:hover{background:var(--surface-1)}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+/* hero */
+.hero{position:relative;margin-top:-80px;padding:190px 0 250px;color:#fff;overflow:hidden;background:linear-gradient(180deg,#131110 0%,#131110 34%,#2A2520 52%,#6B5A3A 68%,#C9B98C 82%,#F3EAD0 94%,#FFFFFF 100%)}
+.hero .wave{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.hero .glow{position:absolute;width:720px;height:720px;left:50%;top:-220px;transform:translateX(-10%);border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.22),transparent 62%);filter:blur(20px);pointer-events:none;animation:breathe 9s var(--ease) infinite alternate}
+@keyframes breathe{from{opacity:.7;transform:translateX(-10%) scale(1)}to{opacity:1;transform:translateX(-4%) scale(1.08)}}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.ready .rise{opacity:0;transform:translateY(14px);animation:rise .8s var(--ease-out) forwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}.d4{animation-delay:.42s}.d5{animation-delay:.6s}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero .eyebrow{color:var(--gold-pale);margin-bottom:22px}
+.hero .lead{color:#DCD6C8;margin:24px 0 36px;max-width:600px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-note{margin-top:18px;font-size:13px;line-height:18px;color:#CFC8B8}
+.grating{display:inline-flex;align-items:center;gap:10px;margin-top:22px;height:44px;padding:0 16px 0 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#F5F2EC;font-size:13px;transition:background .2s,transform .2s var(--spring)}
+.grating:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+.grating .stars{color:var(--gold);letter-spacing:1px;font-size:15px}
+.grating b{font-weight:500;font-size:15px}
+/* Google reviews section */
+.gr-head{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.gr-score{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 22px;box-shadow:0 12px 32px var(--gold-glow)}
+.gr-score b{font:500 44px/44px var(--font);letter-spacing:-.04em}
+.gr-score .stars{color:var(--gold);font-size:18px;letter-spacing:2px;display:block}
+.gr-score small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+.gr-logo{display:inline-flex;align-items:center;gap:6px;font-weight:500;font-size:14px;color:var(--muted)}
+.gr-logo i{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#fff;border:1px solid var(--line);font:600 12px var(--font);font-style:normal;color:#4285F4}
+.review{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px;min-height:240px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.review:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.review .stars{color:var(--gold);letter-spacing:2px;font-size:15px}
+.review p{font-size:16px;line-height:26px;color:var(--ink);flex:1}
+.review .who{display:flex;align-items:center;gap:12px}
+.review .who i{width:40px;height:40px;border-radius:50%;background:var(--gold-tint);color:var(--bronze);display:grid;place-items:center;font:500 14px var(--font);font-style:normal}
+.review .who b{display:block;font-weight:500}
+.review .who span{color:var(--muted);font-size:12px}
+/* chart: the 20-year story */
+.chart{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:24px 24px 18px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.chart-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:10px}
+.chart-head b{font-weight:500;font-size:15px}
+.yr{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);font:500 12px/1 var(--font);color:#F0DC9A;font-variant-numeric:tabular-nums;white-space:nowrap}
+.yr i{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 1.6s var(--ease) infinite}
+@keyframes blink{50%{opacity:.3}}
+.chart svg{display:block;width:100%;height:auto;transition:opacity .35s var(--ease)}
+.chart.reset svg{opacity:0}
+.chart .p1,.chart .p2{fill:none;stroke-linecap:round}
+.chart .p1{stroke:#F0DC9A;stroke-width:3.5}
+.chart .p2{stroke:#8A7A52;stroke-width:2}
+.chart .cap{opacity:clamp(0,(var(--p,1) - var(--at,0))*8,1);font:500 11px var(--font);fill:#DCD6C8}
+.chart .cap.plan{fill:#F0DC9A}
+.chart .gap{opacity:clamp(0,(var(--p,1) - .93)*14,1)}
+.chart .m1{fill:#F0DC9A}
+.chart .m2{fill:#131110;stroke:#8A7A52;stroke-width:2}
+.legend{display:flex;gap:20px;margin-top:12px;font-size:12px;color:#DCD6C8;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{display:inline-block;width:18px;height:3px;border-radius:2px;background:#F0DC9A}
+.legend i.b{height:2px;background:#8A7A52}
+.legend em{font-style:normal;color:#CFC8B8;margin-left:auto}
+/* stats */
+.stats{position:relative;z-index:2;margin-top:-96px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px var(--gold-glow),0 2px 8px rgba(11,11,20,.04)}
+.stat{padding:32px 36px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat b{display:block;font:500 44px/48px var(--font);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:6px;color:var(--muted);font-size:14px}
+.badge-ph{height:48px;border:1.5px dashed #C9CBDD;border-radius:8px;display:grid;place-items:center;font-size:12px;color:var(--muted);background:var(--surface-1)}
+/* sections */
+.sec{padding-top:160px}
+.sec-head{max-width:760px;margin-bottom:56px}
+.sec-head .eyebrow{margin-bottom:16px}
+.sec-head .lead{margin-top:18px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.card{background:var(--surface-1);border-radius:16px;padding:32px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease)}
+.card:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.icon{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--gold-tint);color:var(--bronze);margin-bottom:22px;transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--spring)}
+.card:hover .icon{background:var(--gold);color:var(--ink);transform:rotate(-6deg) scale(1.06)}
+.card h3{font:500 20px/26px var(--font);letter-spacing:-.01em;margin-bottom:10px}
+.card p{color:var(--muted)}
+.close{margin-top:24px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--gold-wash);border:1px solid #E8DFC6;border-radius:16px;padding:26px 32px}.close p{margin:0;font-size:18px;line-height:28px;color:var(--muted)}.close p b{color:var(--ink);font-weight:500}.close-mark{width:48px;height:48px;border-radius:12px;background:var(--gold-tint);color:var(--bronze);display:grid;place-items:center}.close .btn{white-space:nowrap}
+/* steps */
+.steps{position:relative}
+.steps::before{content:"";position:absolute;left:40px;right:40px;top:46px;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 8px,transparent 8px 16px);opacity:.6}
+.steps .step{position:relative}
+.outcome{margin-top:24px;background:var(--dk-bg);color:var(--dk-fg);border-radius:16px;padding:36px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.outcome h3{font:500 24px/30px var(--font);letter-spacing:-.02em;margin:12px 0 10px;color:#fff}
+.outcome p{color:var(--dk-muted);font-size:15px;line-height:25px}
+.outcome-cta{display:flex;flex-direction:column;align-items:flex-start;gap:12px;justify-self:end}
+.outcome-cta span{font-size:13px;color:var(--dk-muted)}
+.step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px 26px 30px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s}
+.step:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow);border-color:transparent}
+.step i{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;font:500 13px/1 var(--font);font-style:normal;color:var(--bronze);background:var(--gold-tint);margin-bottom:22px;transition:background .25s,color .25s}
+.step:hover i{background:var(--gold);color:var(--ink)}
+.step h3{font:500 20px/26px var(--font);margin-bottom:10px}
+.step p{color:var(--muted)}
+/* services */
+.svc .tag{font:500 12px/16px var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--bronze)}
+.svc h3{margin:14px 0 8px}
+.svc .out{color:var(--muted);margin-bottom:20px;min-height:48px}
+.svc ul{padding-top:16px;border-top:1px solid var(--line)}
+.svc li{display:flex;gap:10px;align-items:center;padding:5px 0;font-weight:500;font-size:14px}
+.svc li svg{flex:none;color:var(--gold)}
+.svc-foot{margin-top:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);margin-top:36px}
+.track{display:flex;gap:12px;width:max-content;animation:scroll 34s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.chip{display:inline-flex;align-items:center;height:40px;padding:0 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:500;font-size:13px;color:var(--muted);white-space:nowrap}
+.chip.lg{height:56px;padding:0 22px;border-radius:14px;font-size:14px;color:var(--ink)}
+.chip img{height:26px;width:auto;max-width:150px;display:block;object-fit:contain}
+.regs-txt{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline}.regs-txt b{font:500 15px/22px var(--font);letter-spacing:-.01em;white-space:nowrap}.regs-txt span{font-size:13px;line-height:20px;color:var(--muted)}
+.regs-logos{display:flex;gap:14px;align-items:center;height:48px}
+.regs-logos img{height:34px;width:auto;max-width:48%;object-fit:contain}
+/* claims band */
+.claims{margin-top:160px;background:var(--gold-wash);padding:100px 0}
+.claims-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.claims .lead{margin-top:18px}
+.cstep{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-top:1px solid #E8DFC6}
+.cstep:first-child{border-top:0;padding-top:0}
+.cstep i{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:999px;background:var(--gold);color:var(--ink);font:500 12px/1 var(--font);font-style:normal}
+.cstep b{display:block;font-weight:500}
+.cstep span{color:var(--muted);font-size:14px}
+/* people */
+.person{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.person:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.ph-img{aspect-ratio:4/5;border-radius:12px;background:linear-gradient(160deg,var(--surface-1),#E6E6F2);display:grid;place-items:center;color:var(--muted);font-size:12px;margin-bottom:16px;border:1.5px dashed #C9CBDD}
+.ph-img.has-img{border:0;background:none;overflow:hidden;display:block}.ph-img.has-img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.person b{display:block;font:500 18px/24px var(--font)}
+.person span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.person em{display:block;font-style:normal;color:var(--muted);font-size:13px;margin-top:8px}
+/* quotes */
+.quote{background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:260px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.quote:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.quote svg{color:var(--gold);margin-bottom:16px}
+.quote p{font-size:17px;line-height:27px;color:var(--ink)}
+.quote .who b{display:block;font-weight:500}
+.quote .who span{color:var(--muted);font-size:13px}
+/* insights */
+.case{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;color:var(--ink);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}.case:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.case .img{aspect-ratio:16/10;background:var(--gold-wash);border-bottom:1px solid var(--line)}.case .img img{width:100%;height:100%;object-fit:contain;display:block}
+.case .body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.case .meta{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}.case .meta b{color:var(--bronze);font-weight:500}.case .meta i{width:3px;height:3px;border-radius:50%;background:var(--line)}
+.case .tag{background:var(--gold-tint);color:var(--bronze);border-radius:999px;padding:4px 10px;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.case h3{font:500 19px/26px var(--font);letter-spacing:-.01em}.case p{color:var(--muted);font-size:14px;line-height:22px;margin:0}
+.case .out{margin-top:auto;background:var(--gold-wash);border:1px solid #E8DFC6;border-radius:10px;padding:12px 14px;font-size:13px;line-height:20px;color:var(--ink)}.case .out b{display:block;color:var(--bronze);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;font-weight:500}
+.case-note{margin-top:20px;font-size:13px;color:var(--muted)}
+.post{display:flex;flex-direction:column;justify-content:space-between;gap:36px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.post:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.post h3{font:500 20px/28px var(--font);letter-spacing:-.01em}
+.post .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+.post .meta b{color:var(--bronze);font-weight:500}
+/* FAQ (answer-first, for search and answer engines) */
+.faq{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
+.qa{border-top:1px solid var(--line)}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa button{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;padding:20px 0;background:none;border:0;text-align:left;font:500 18px/26px var(--font);color:var(--ink);cursor:pointer}
+.qa button i{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--bronze);transition:transform .3s var(--ease),background .2s}
+.qa.open button i{transform:rotate(45deg);background:var(--gold-tint)}
+.qa .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease)}
+.qa.open .a{grid-template-rows:1fr}
+.qa .a div{overflow:hidden}
+.qa .a p{color:var(--muted);font-size:16px;line-height:27px;padding:0 48px 22px 0}
+/* dark CTA */
+.cta{margin-top:160px;background:var(--dk-bg);color:var(--dk-fg);padding:120px 0;position:relative;overflow:hidden}
+.cta .orb{position:absolute;width:560px;height:560px;right:-160px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.22),transparent 60%);filter:blur(30px);pointer-events:none;animation:breathe 10s var(--ease) infinite alternate}
+.cta-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.cta h2{color:#fff}
+.cta .lead{color:var(--dk-muted);margin:20px 0 28px}
+.cta li{display:flex;gap:10px;align-items:center;padding:5px 0;color:var(--dk-muted);font-size:14px}
+.cta li svg{color:var(--gold-soft)}
+.form{background:var(--dk-panel);border:1px solid var(--dk-line);border-radius:16px;padding:32px;position:relative}
+.form::before{content:"";position:absolute;inset:-1px;border-radius:17px;padding:1px;background:linear-gradient(135deg,rgba(255,255,255,.25),rgba(255,255,255,.04) 40%,rgba(212,175,55,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.form h3{font:500 20px/26px var(--font);color:#fff;margin-bottom:20px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:13px;line-height:18px;color:var(--dk-muted);margin-bottom:6px}
+.field input,.field select{width:100%;height:48px;background:var(--dk-card);border:1px solid var(--dk-line);border-radius:8px;color:#fff;padding:0 14px;font:400 15px var(--font);transition:border-color .2s,box-shadow .2s}
+.field input::placeholder{color:#8B8E9B}
+.field input:hover,.field select:hover{border-color:#ffffff33}
+.field input:focus,.field select:focus{outline:none;border-color:var(--gold-soft);box-shadow:0 0 0 4px var(--gold-ring)}
+.form .btn{width:100%;margin-top:8px}
+.form small{display:block;margin-top:14px;color:var(--dk-muted);font-size:12px;line-height:18px}
+.thanks{display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-height:360px;justify-content:center;animation:rise .5s var(--ease-out)}
+.thanks .tick{display:grid;place-items:center;width:52px;height:52px;border-radius:999px;background:var(--gold);color:var(--ink)}
+.thanks h3{margin:0}
+.thanks p{color:var(--dk-muted)}
+/* footer */
+.foot{background:var(--dk-bg);color:var(--dk-muted);font-size:14px;padding-bottom:40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:48px;padding:64px 0 48px;border-top:1px solid var(--dk-line)}
+.foot h4{font:500 12px/16px var(--font);letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.foot li{padding:4px 0}
+.foot a{transition:color .2s}
+.foot a:hover{color:#fff}
+.foot .brand b{color:#fff}
+.social{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.social a{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--dk-line);color:var(--dk-muted);font-weight:500;font-size:13px;transition:color .2s,border-color .2s,transform .2s var(--spring)}
+.social a:hover{color:#fff;border-color:#ffffff40;transform:translateY(-2px)}
+.social svg{flex:none}
+.disc{border-top:1px solid var(--dk-line);padding-top:28px;font-size:12px;line-height:19px;color:#9A9DAA;max-width:1100px}
+@media (max-width:1100px){
+  .faq{grid-template-columns:1fr;gap:24px}
+  .wrap{padding:0 40px}
+  .sec{padding-top:120px}
+  .g4,.g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){.close{grid-template-columns:1fr;gap:16px;padding:22px}.close .btn{justify-self:start}.brand{gap:9px}.brand .mark{height:36px}.brand b{font-size:17px;line-height:20px;white-space:nowrap}.brand span{font-size:8px;line-height:11px;letter-spacing:.12em}.nav-right{gap:10px}.nav-right .btn{height:38px;padding:0 12px;font-size:13px}.faq{grid-template-columns:1fr}
+  .wrap{padding:0 20px}
+  .sec{padding-top:88px}
+  .nav-links,.nav-right .login{display:none}
+  .burger{display:inline-flex}
+  .h1{font-size:40px;line-height:44px}
+  .h2{font-size:32px;line-height:38px}
+  .lead{font-size:17px;line-height:27px}
+  .hero{padding:140px 0 220px}
+  .hero-grid,.claims-grid,.cta-grid,.g2,.g3,.g4,.outcome{grid-template-columns:1fr}
+  .steps::before{display:none}
+  .outcome{padding:28px 24px}
+  .outcome-cta{justify-self:start}
+  .stats{grid-template-columns:1fr;margin-top:-72px}
+  .stat{border-left:0;border-top:1px solid var(--line);padding:22px 24px}
+  .stat:first-child{border-top:0}
+  .stat b{font-size:36px;line-height:40px}
+  .row{grid-template-columns:1fr}
+  .claims{margin-top:88px;padding:72px 0}
+  .cta{margin-top:88px;padding:80px 0}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+  .hero-cta .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .site *{animation:none!important;transition:none!important}
+  .rise,.rv{opacity:1;transform:none;animation:none}
+}
+</style>
+</helmet>
+<div class="site {{motionClass}} {{readyClass}}" style="--gold: {{accent}}">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav {{navClass}}">
+  <div class="wrap">
+    <a class="brand" href="Main.dc.html" aria-label="Bhavya Sampada home"><img class="mark" src="/_blob/597e264cd8a0b0ddbc6966debb2bec4a" alt=""><div class="bt"><b>Bhavya Sampada</b><span>WEALTH MANAGEMENT</span></div></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="Services.dc.html">Services</a>
+      <a href="About.dc.html">About</a>
+      <a href="Insights.dc.html">Case studies</a>
+      <a href="#clients">Clients</a>
+    </nav>
+    <div class="nav-right">
+      <a class="login" href="https://ewa.njindiaonline.com/ewa/login">Client login</a>
+      <a class="btn btn-primary btn-sm" href="Book.dc.html">Book a free review</a>
+      <button class="burger" type="button" aria-label="Menu" aria-controls="mmenu" aria-expanded="{{menuOpen}}" onClick="{{toggleMenu}}">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+  <div class="mmenu" id="mmenu">
+    <a href="Services.dc.html">Services</a>
+    <a href="About.dc.html">About</a>
+    <a href="Insights.dc.html" onClick="{{closeMenu}}">Case studies</a>
+    <a href="#clients" onClick="{{closeMenu}}">Clients</a>
+    <a href="https://ewa.njindiaonline.com/ewa/login">Client login</a>
+  </div>
+</sc-if>
+
+<main id="main" tabindex="-1">
+<section class="hero" id="top">
+  <canvas class="wave" id="wave" aria-hidden="true"></canvas>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow rise d1">Planning · Investments · Insurance · Loans</p>
+        <h1 class="h1 rise d2">The financial choices you make today decide where you are in 20 years</h1>
+        <p class="lead rise d3">We help you get them right: a written plan for your goals first, then the investments, insurance and loans that fit it.</p>
+        <div class="hero-cta rise d4">
+          <a class="btn btn-primary" href="Book.dc.html">Book my free review <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+          <a class="btn btn-ghost" href="#why">See how it goes wrong</a>
+        </div>
+        <p class="hero-note rise d5">Free. Your first call is with one of our directors.</p>
+        <a class="grating rise d5" href="https://share.google/V3oD3dOOpZJHswJtR" aria-label="5.0 stars from 139 Google reviews, opens Google">
+          <span class="stars" aria-hidden="true">★★★★★</span><b>5.0</b><span>139 Google reviews</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
+        </a>
+      </div>
+      <div class="chart rv rise d4" id="chartbox" aria-label="Animated illustration: two families with the same income, 20 years on">
+        <div class="chart-head"><b>Two families’ investments. Same income. 20 years.</b><span class="yr" aria-hidden="true"><i></i>Year {{year}} of 20</span></div>
+        <svg id="traj" viewBox="0 0 560 330" role="img" aria-label="The value of one family's investments rises steadily with a Bhavya Sampada plan; the other family's stays flat without one">
+          <g stroke="rgba(255,255,255,.1)" stroke-width="1">
+            <path d="M40 60H520M40 120H520M40 180H520M40 240H520"></path>
+          </g>
+          <path d="M40 300H520" stroke="rgba(255,255,255,.3)" stroke-width="1"></path>
+          <path d="M40 300V40" stroke="rgba(255,255,255,.3)" stroke-width="1"></path>
+          <path d="M36 46l4-6 4 6" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1"></path>
+          <text x="-170" y="22" transform="rotate(-90)" font-family="Poppins, system-ui, sans-serif" font-size="11" font-weight="500" fill="#CFC8B8" text-anchor="middle">Your investments, value over time</text>
+          <path class="p2" d="M40 250 C 150 247, 250 240, 330 238 S 460 244, 520 248"></path>
+          <path class="p1" d="M40 250 C 160 242, 280 205, 380 140 S 490 55, 520 44"></path>
+          <g class="gap"><path d="M532 50V242" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="3 4"></path><path d="M527 50h10M527 242h10" stroke="#D4AF37" stroke-width="1.5"></path><text x="540" y="150" font-family="Poppins, system-ui, sans-serif" font-size="11" font-weight="500" fill="#F0DC9A" transform="rotate(90 540 150)" text-anchor="middle">The gap</text></g>
+          <circle class="m2" cx="520" cy="248" r="5"></circle>
+          <circle class="m1" cx="520" cy="44" r="6"></circle>
+          <g fill="#CFC8B8" font-family="Poppins, system-ui, sans-serif" font-size="12">
+            <text x="40" y="318">Today</text>
+            <text x="280" y="318" text-anchor="middle">10 years</text>
+            <text x="520" y="318" text-anchor="end">20 years</text>
+          </g>
+        </svg>
+        <div class="legend"><span><i></i>With a written plan</span><span><i class="b"></i>Without a plan</span><em>Illustrative, not a forecast</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="stats rv" data-stats="true" role="list">
+    <div class="stat" role="listitem"><b>15+</b><span>Years guiding families</span></div>
+    <div class="stat" role="listitem"><b>2,000+</b><span>Happy clients</span></div>
+    <div class="stat" role="listitem"><b>₹250+ Cr</b><span>Assets under management</span></div>
+    <div class="stat" role="listitem"><div class="regs-logos"><img src="/_blob/d262008820318fc1d6b1e867f43eaa4f" alt="AMFI"><img src="/_blob/b610fd6db46c6adea707675348c399fb" alt="IRDAI"></div><span>AMFI &amp; IRDAI licensed · ARN 266666 · A00830505</span></div>
+  </div>
+</div>
+
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Why it matters</p>
+      <h2 class="h2">Most money mistakes don’t look like mistakes when you sign</h2>
+      <p class="lead">Money decisions compound, and mistakes compound with them. Some of the most common:</p>
+    </div>
+    <div class="g2">
+      <article class="card rv">
+        <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg></span>
+        <h3>The salary stops at 60. The bills don’t.</h3>
+        <p>The medicines, the grocery bill and the grandchildren’s birthdays carry on long after the last salary. Most of us will have no pension to catch us, and without a plan made now, the years you earned for rest can turn into worry, or into asking your children for what you once gave them.</p>
+      </article>
+      <article class="card rv" style="animation-delay:.08s">
+        <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18M7 15h4"></path></svg></span>
+        <h3>The 20-year savings policy</h3>
+        <p>An insurance-savings plan that earns less than inflation, and costs you heavily to exit early.</p>
+      </article>
+      <article class="card rv" style="animation-delay:.16s">
+        <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18L10 12l4 4 6-7"></path><path d="M15 9h5v5"></path></svg></span>
+        <h3>The EMI that eats retirement</h3>
+        <p>A loan whose instalment quietly crowds out your retirement savings for a decade.</p>
+      </article>
+      <article class="card rv" style="animation-delay:.24s">
+        <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"></path></svg></span>
+        <h3>Health cover that’s too small</h3>
+        <p>On the day you need it, the policy stops short and the hospital bill doesn’t.</p>
+      </article>
+    </div>
+    <div class="close rv">
+      <div class="close-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c4-7 9-9 18-9"></path><path d="M14 8h7v7"></path></svg></div>
+      <p>Each one bends where you end up, and the cost grows every year it stays in place. <b>We help you choose right before you commit, and look hard at what you already hold.</b></p>
+      <a class="btn btn-secondary" href="Book.dc.html">Check what I hold <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">How we work</p>
+      <h2 class="h2">Four steps from “where am I?” to a plan you can follow</h2>
+      <p class="lead">It starts with a free conversation with one of our directors and ends with a written plan you can hold us to. No product is recommended before the plan exists.</p>
+    </div>
+    <div class="g4 steps">
+      <div class="step rv"><i>01</i><h3>Talk</h3><p>You meet one of our directors. We learn your goals, income, loans and family situation.</p></div>
+      <div class="step rv" style="animation-delay:.08s"><i>02</i><h3>Map</h3><p>We show where you stand today and the gap to each goal.</p></div>
+      <div class="step rv" style="animation-delay:.16s"><i>03</i><h3>Plan</h3><p>You get a written plan. Products come after, and only where they serve a goal.</p></div>
+      <div class="step rv" style="animation-delay:.24s"><i>04</i><h3>Review</h3><p>Every six months we check progress and adjust as life changes.</p></div>
+    </div>
+    <div class="outcome rv">
+      <div>
+        <p class="eyebrow" style="color:var(--gold-pale)">What you leave with</p>
+        <h3>A written plan, in plain language</h3>
+        <p>Your goals with a date and an amount on each, the gap to every one, the products that serve them and why, what to do first, and what we’ll check at the next review.</p>
+      </div>
+      <div class="outcome-cta">
+        <a class="btn btn-primary" href="Book.dc.html">Book my free review <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+        <span>30 minutes · in person or online · with a director</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Services</p>
+      <h2 class="h2">Plan it. Invest it. Protect it. Fund it.</h2>
+    </div>
+    <div class="g4 svc">
+      <article class="card rv">
+        <p class="tag">Plan</p><h3 class="h3">Know what you need, and when</h3>
+        <p class="out">A clear map of your goals, taxes and what you leave behind.</p>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Financial planning</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Tax planning</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Estate &amp; will planning</li>
+        </ul>
+      </article>
+      <article class="card rv" style="animation-delay:.08s">
+        <p class="tag">Invest</p><h3 class="h3">Put your money to work for each goal</h3>
+        <p class="out">Investments matched to a goal and a timeline.</p>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Mutual funds &amp; SIPs</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Bonds &amp; fixed income</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Portfolio review &amp; tracking</li>
+        </ul>
+      </article>
+      <article class="card rv" style="animation-delay:.16s">
+        <p class="tag">Protect</p><h3 class="h3">Every kind of insurance, and help when you claim</h3>
+        <p class="out">Cover sized to your family, compared across insurers.</p>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Life &amp; term</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Health</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Motor &amp; general</li>
+        </ul>
+      </article>
+      <article class="card rv" style="animation-delay:.24s">
+        <p class="tag">Borrow</p><h3 class="h3">The right loan from the right lender</h3>
+        <p class="out">Lenders compared, EMI checked against your plan.</p>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Home &amp; personal</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Business</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Against property &amp; securities</li>
+        </ul>
+      </article>
+    </div>
+    <div class="svc-foot rv">
+      <a class="link" href="Services.dc.html">All services <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+      <p class="eyebrow">Insurers we work with</p>
+    </div>
+    <div class="marquee rv" aria-label="Insurers we work with">
+      <div class="track">
+        <div class="set"><span class="chip lg"><img src="/_blob/8571f0fa44209aa9092ea267bd5fee85" alt="HDFC Life"></span><span class="chip lg"><img src="/_blob/a707d1618375e0bbd6a032d4b7da4616" alt="ICICI"></span><span class="chip lg"><img src="/_blob/a4112c3cd14880fef5a0567683c621c6" alt="ManipalCigna"></span><span class="chip lg"><img src="/_blob/fb030d75df3e356d4f60c0c9d3c6fe0d" alt="Star Health"></span><span class="chip lg"><img src="/_blob/a20b31148fa549ec02255ec1499834cf" alt="Acko"></span><span class="chip lg"><img src="/_blob/8c72ed55ce3eeb69595b5fa545194339" alt="Digit"></span><span class="chip lg"><img src="/_blob/e3c6dc22cc9445a1e8308eb9448d9063" alt="Aditya Birla"></span><span class="chip lg"><img src="/_blob/9a7ac9f72fc746d3f7a58306ace5e12d" alt="Royal Sundaram Insurance" style="max-width:190px"></span></div>
+        <div class="set" aria-hidden="true"><span class="chip lg"><img src="/_blob/8571f0fa44209aa9092ea267bd5fee85" alt="HDFC Life"></span><span class="chip lg"><img src="/_blob/a707d1618375e0bbd6a032d4b7da4616" alt="ICICI"></span><span class="chip lg"><img src="/_blob/a4112c3cd14880fef5a0567683c621c6" alt="ManipalCigna"></span><span class="chip lg"><img src="/_blob/fb030d75df3e356d4f60c0c9d3c6fe0d" alt="Star Health"></span><span class="chip lg"><img src="/_blob/a20b31148fa549ec02255ec1499834cf" alt="Acko"></span><span class="chip lg"><img src="/_blob/8c72ed55ce3eeb69595b5fa545194339" alt="Digit"></span><span class="chip lg"><img src="/_blob/e3c6dc22cc9445a1e8308eb9448d9063" alt="Aditya Birla"></span><span class="chip lg"><img src="/_blob/9a7ac9f72fc746d3f7a58306ace5e12d" alt="Royal Sundaram Insurance" style="max-width:190px"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="claims" id="claims">
+  <div class="wrap claims-grid">
+    <div class="rv">
+      <p class="eyebrow">Insurance claims</p>
+      <h2 class="h2" style="margin-top:16px">When you need to claim, you call us</h2>
+      <p class="lead">Filing a claim is when insurance matters most, and when people feel most alone. Our team stays with you until it’s settled.</p>
+    </div>
+    <div class="rv" style="animation-delay:.12s">
+      <div class="cstep"><i>1</i><div><b>We prepare the paperwork with you</b><span>Forms, documents and deadlines, handled together.</span></div></div>
+      <div class="cstep"><i>2</i><div><b>We follow up with the insurer</b><span>You don’t chase a call centre. We do.</span></div></div>
+      <div class="cstep"><i>3</i><div><b>We stay until it’s settled</b><span>And we’re there if a claim is questioned.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="leadership">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Leadership</p>
+      <h2 class="h2">Your first conversation is with a director</h2>
+      <p class="lead">Every free review is run by one of the three people who lead the firm.</p>
+    </div>
+    <div class="g3">
+      <div class="person rv"><div class="ph-img has-img"><img src="/_blob/db637f927c3d193f5d350373a198d24c" alt="V M Bapiraju, Chief Executive Officer" width="800" height="1000"></div><b>V M Bapiraju</b><span>Chief Executive Officer</span><em>15+ years in finance · 100+ industry awards · AMFI and IRDAI certified</em></div>
+      <div class="person rv" style="animation-delay:.08s"><div class="ph-img has-img"><img src="/_blob/18ad6f9f8b3ce22eb087edfd52fa09c7" alt="A Vijay Datta, Chief Business Officer" width="1000" height="1250"></div><b>A Vijay Datta</b><span>Chief Business Officer</span><em>8+ years in finance · AMFI and IRDAI certified · Certified goal planner · Entrepreneur</em></div>
+      <div class="person rv" style="animation-delay:.16s"><div class="ph-img has-img"><img src="/_blob/61bbf6aae7d99a24196221b668c97746" alt="Aparna, Managing Director" width="1000" height="1250"></div><b>Aparna</b><span>Managing Director</span><em>5+ years in finance · MBA (Finance) · AMFI and IRDAI certified</em></div>
+    </div>
+    <p class="rv" style="margin-top:28px"><a class="link" href="About.dc.html">Meet the full team <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a></p>
+  </div>
+</section>
+
+<section class="sec" id="clients">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Google reviews</p>
+      <h2 class="h2">139 families gave us five stars on Google</h2>
+      <p class="lead">Pulled live from our Google Business Profile, so every word is a client’s own. Nothing is edited or hand-picked.</p>
+    </div>
+    <div class="gr-head">
+      <div class="gr-score"><b>5.0</b><div><span class="stars" aria-hidden="true">★★★★★</span><small>139 reviews · updated daily</small></div></div>
+      <span class="gr-logo"><i>G</i>Google Business Profile</span>
+      <a class="link" href="https://share.google/V3oD3dOOpZJHswJtR" style="margin-left:auto">Read all 139 reviews on Google <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+    </div>
+    <div class="g3" aria-label="Recent Google reviews">
+      <div class="review"><span class="stars" aria-hidden="true">★★★★★</span><p>“I recently started my investment journey with Bhavya Sampada, and honestly, the experience has been really good so far. The team is very approachable, explains everything patiently…”</p><div class="who"><i>K</i><div><b>Kodandaram M</b><span>A week ago · via Google</span></div></div></div>
+      <div class="review" style="animation-delay:.08s"><span class="stars" aria-hidden="true">★★★★★</span><p>“I have been associated with Bapi Raju (Bhavya Sampada) since 2017, and it has been a wonderful experience. From SIPs and lump sum investments to retirement planning, their guidance has always been transparent and trustworthy…”</p><div class="who"><i>N</i><div><b>Nandula Nageswararao Rao</b><span>3 months ago · via Google</span></div></div></div>
+      <div class="review" style="animation-delay:.16s"><span class="stars" aria-hidden="true">★★★★★</span><p>“I’ve been with Bhavya Sampada for quite some time now and they’ve been amazing. What really sets them apart is how personalized everything is. They track my portfolio regularly…”</p><div class="who"><i>S</i><div><b>Swagatika Sabata</b><span>5 months ago · via Google</span></div></div></div>
+    </div>
+    <p class="rv" style="margin-top:28px;display:flex;gap:28px;flex-wrap:wrap"><a class="link" href="https://share.google/V3oD3dOOpZJHswJtR">Leave us a review <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a><a class="link" href="https://www.youtube.com/@the.two.wealth.theory">Watch us on YouTube <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a></p>
+  </div>
+</section>
+
+<section class="sec" id="insights">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Client case studies</p>
+      <h2 class="h2">How we helped families like yours</h2>
+      <p class="lead">Real situations, names changed, shared with the client’s consent. What they came in with, what we found, and what changed.</p>
+      <p style="margin-top:18px"><a class="link" href="Insights.dc.html#case-studies">All case studies <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a></p>
+    </div>
+    <div class="g3">
+      <a class="case rv" href="Article.dc.html#case-emi-without-stretching-the-loan">
+        <div class="img"><img src="/_blob/f643bd50fb6c6e1ecb081a7a1092a85f" alt=""></div>
+        <div class="body">
+          <div class="meta"><span class="tag">Case study</span><b>Loans</b><i></i><span>6 min read</span></div>
+          <h3>How a Warangal couple cut their EMI without stretching the loan</h3>
+          <p>A balance transfer was not the answer. A rate reset with the same lender, one part-prepayment and a shorter tenure cut the EMI and kept the retirement SIP running.</p>
+          <div class="out"><b>What changed</b>EMI reduced by about ₹4,100 a month, tenure shortened by four years, retirement SIP left untouched.</div>
+        </div>
+      </a>
+      <a class="case rv" href="Article.dc.html#case-doctors-health-cover-rebuilt" style="animation-delay:.08s">
+        <div class="img"><img src="/_blob/6e59f6210cb4a2197697fe18aeb026fb" alt=""></div>
+        <div class="body">
+          <div class="meta"><span class="tag">Case study</span><b>Insurance</b><i></i><span>6 min read</span></div>
+          <h3>A doctor's health cover, rebuilt before it was needed</h3>
+          <p>A ₹5 lakh floater from 2014 with parents on it was not enough for a family of four in 2026. We separated the parents, raised the base cover and added a super top-up.</p>
+          <div class="out"><b>What changed</b>Family cover raised to ₹15 lakh with a ₹50 lakh super top-up, parents moved to their own senior plan, room-rent caps removed, nominees updated. No claim has been needed yet.</div>
+        </div>
+      </a>
+      <a class="case rv" href="Article.dc.html#case-government-teacher-retirement-at-45" style="animation-delay:.16s">
+        <div class="img"><img src="/_blob/46b103f11f3b765c5dc825ee3818a8c4" alt=""></div>
+        <div class="body">
+          <div class="meta"><span class="tag">Case study</span><b>Retirement</b><i></i><span>7 min read</span></div>
+          <h3>A government teacher's retirement plan, built at 45</h3>
+          <p>An NPS-era teacher with no old pension and no retirement number got one. We mapped his NPS, started goal SIPs, made an endowment policy paid-up and built an emergency fund.</p>
+          <div class="out"><b>What changed</b>Written plan with a retirement number, SIPs started for the gap, term cover in place, endowment policy made paid-up, six-month emergency fund built.</div>
+        </div>
+      </a>
+    </div>
+    <p class="case-note rv">Every situation is different. Outcomes describe the actions taken, not investment returns.</p>
+  </div>
+</section>
+
+<section class="sec" id="faq" itemscope="" itemtype="https://schema.org/FAQPage">
+  <div class="wrap faq">
+    <div class="rv">
+      <p class="eyebrow">Common questions</p>
+      <h2 class="h2" style="margin-top:16px">Straight answers</h2>
+      <p class="lead" style="margin-top:18px">The questions families ask before they book. If yours is not here, ask it on the call.</p>
+    </div>
+    <div class="rv" style="animation-delay:.1s">
+      <div class="qa {{f0}}" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button type="button" aria-expanded="{{o0}}" aria-controls="fa0" onClick="{{t0}}"><span itemprop="name">What does Bhavya Sampada do?</span><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"></path></svg></i></button>
+        <div class="a" id="fa0" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div><p itemprop="text">Bhavya Sampada is a financial planning firm in Secunderabad that serves families across India. We write a plan around your goals first, then handle the investments, insurance and loans that carry it out. We are an AMFI-registered mutual fund distributor (ARN 266666) and IRDAI-licensed for insurance.</p></div></div>
+      </div>
+      <div class="qa {{f1}}" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button type="button" aria-expanded="{{o1}}" aria-controls="fa1" onClick="{{t1}}"><span itemprop="name">Is the first review really free?</span><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"></path></svg></i></button>
+        <div class="a" id="fa1" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div><p itemprop="text">Yes. The first review is free, lasts about 30 minutes, and is run by one of our directors, in person at our Secunderabad office or online. You leave with a clear picture of your goals and the gaps, whether or not you work with us afterwards.</p></div></div>
+      </div>
+      <div class="qa {{f2}}" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button type="button" aria-expanded="{{o2}}" aria-controls="fa2" onClick="{{t2}}"><span itemprop="name">How do you get paid?</span><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"></path></svg></i></button>
+        <div class="a" id="fa2" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div><p itemprop="text">Like most distributors in India, we earn commission from the product providers: trail commission on mutual funds (Regular Plan), and commission from insurers and lenders. We do not charge you a separate planning fee. We tell you how each product pays us before you commit.</p></div></div>
+      </div>
+      <div class="qa {{f3}}" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button type="button" aria-expanded="{{o3}}" aria-controls="fa3" onClick="{{t3}}"><span itemprop="name">Do you only work with clients in Hyderabad?</span><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"></path></svg></i></button>
+        <div class="a" id="fa3" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div><p itemprop="text">No. Our office is in Kapra, Secunderabad, and many clients meet us there, but we work with families anywhere in India over video calls and phone. Paperwork is handled online.</p></div></div>
+      </div>
+      <div class="qa {{f4}}" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button type="button" aria-expanded="{{o4}}" aria-controls="fa4" onClick="{{t4}}"><span itemprop="name">Which insurers and lenders do you work with?</span><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"></path></svg></i></button>
+        <div class="a" id="fa4" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div><p itemprop="text">For insurance we compare HDFC Life, ICICI, ManipalCigna, Star Health, Acko, Digit, Aditya Birla, Royal Sundaram and others. For loans we compare leading banks and NBFCs for home, personal, business and property-backed loans.</p></div></div>
+      </div>
+      <div class="qa {{f5}}" itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button type="button" aria-expanded="{{o5}}" aria-controls="fa5" onClick="{{t5}}"><span itemprop="name">What happens if I need to make an insurance claim?</span><i aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"></path></svg></i></button>
+        <div class="a" id="fa5" itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div><p itemprop="text">You call us. We prepare the paperwork with you, follow up with the insurer, and stay with you until the claim is settled, including if it is questioned.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="book">
+  <div class="orb" aria-hidden="true"></div>
+  <div class="wrap cta-grid">
+    <div class="rv">
+      <h2 class="h2">Find out where you stand in 30 minutes</h2>
+      <p class="lead">A free review with one of our directors, in person or online. You leave with a clear picture of your goals and gaps, whether or not you work with us.</p>
+      <ul>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Free and no obligation</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>Run by our CEO, CFO or MD</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"></path></svg>In person or online, wherever you are</li>
+      </ul>
+    </div>
+    <div class="rv" style="animation-delay:.12s">
+      <sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
+        <form class="form" onSubmit="{{submit}}" aria-label="Book a free review">
+          <h3>Book my free review</h3>
+          <div class="row">
+            <div class="field"><label for="fn">First name</label><input id="fn" name="fn" autocomplete="given-name" placeholder="Ravi"></div>
+            <div class="field"><label for="ln">Last name</label><input id="ln" name="ln" autocomplete="family-name" placeholder="Kumar"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="ph">Mobile number</label><input id="ph" name="ph" type="tel" autocomplete="tel" placeholder="+91"></div>
+            <div class="field"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2" placeholder="Secunderabad"></div>
+          </div>
+          <div class="field"><label for="goal">What matters most right now?</label>
+            <select id="goal" name="goal"><option>Retirement</option><option>Children’s education</option><option>Saving tax</option><option>Growing my investments</option><option>Insurance cover</option><option>An insurance claim</option><option>A loan</option><option>Something else</option></select></div>
+          <button class="btn btn-primary" type="submit">Book my free review</button>
+          <small>We use your details only to contact you about this review.</small>
+        </form>
+      </sc-if>
+      <sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+        <div class="form thanks" role="status">
+          <span class="tick"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+          <h3 class="h3" style="color:#fff">Thank you. We’ll call within one working day.</h3>
+          <p>One of our directors will fix a time with you for your free review.</p>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="Main.dc.html" aria-label="Bhavya Sampada home"><img class="logo-full" src="/_blob/d5170994c6ef0c369a079afad9225e5e" alt="Bhavya Sampada"></a>
+        <p style="margin-top:16px;max-width:300px">Financial planning, investments, insurance and loans for families across India. 15+ years of helping families grow, protect and transfer wealth.</p>
+        <div class="social">
+          <a href="https://www.youtube.com/@the.two.wealth.theory"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"></rect><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"></path></svg>YouTube</a>
+          <a href="https://www.instagram.com/thewealth.theory/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg>Instagram</a>
+          <a href="https://share.google/V3oD3dOOpZJHswJtR"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.9l-5.3 2.8 1.1-5.9-4.3-4.1 5.9-.8z"></path></svg>Review us on Google</a>
+        </div>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="Services.dc.html#plan">Financial planning</a></li><li><a href="Services.dc.html#plan">Tax planning</a></li><li><a href="Services.dc.html#invest">Mutual funds &amp; SIPs</a></li><li><a href="Services.dc.html#protect">Insurance</a></li><li><a href="Services.dc.html#borrow">Loans</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="About.dc.html">About</a></li><li><a href="#how">How we work</a></li><li><a href="#clients">Clients</a></li><li><a href="Insights.dc.html">Case studies</a></li><li><a href="Book.dc.html">Book a free review</a></li><li><a href="https://ewa.njindiaonline.com/ewa/login">Client login</a></li><li><a href="Privacy.dc.html">Privacy policy</a></li><li><a href="Terms.dc.html">Terms of use</a></li></ul></div>
+      <div><h4>Contact</h4><ul>
+        <li>Plot No. 156, Srinivasa Nagar Colony, Near Radhika Theater, Kapra, Secunderabad – 500062</li>
+        <li><a href="tel:04035175228">040-35175228</a></li>
+        <li><a href="tel:+919848977660">+91 98489 77660</a></li>
+        <li><a href="mailto:support@bhavyasampada.com">support@bhavyasampada.com</a></li></ul></div>
+    </div>
+    <p class="disc">AMFI-registered Mutual Fund Distributor | ARN: 266666 · IRDAI licence A00830505. Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Investments facilitated through Bhavya Sampada are in Regular Plan, which involves payment of trail commission to the MFD. Insurance is the subject matter of solicitation. Loans are subject to the lender’s approval and terms. This website is for informational purposes only and does not constitute financial, tax or legal advice. © 2026 Bhavya Sampada Private Limited. All rights reserved.</p>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#D4AF37","options":["#D4AF37","#C39F2C","#B08F24"],"section":"Brand"},"motion":{"editor":"boolean","default":true,"section":"Motion"},"$preview":{"width":1440,"height":9800}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { scrolled: false, menu: false, sent: false, ready: false, year: 20, open: 0 };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const motion = (this.props.motion ?? true) && !reduce;
+    this.onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      const s = y > 24;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    this.initWave(motion);
+    this.initChart(motion);
+    const els = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+    if (!motion || !('IntersectionObserver' in window)) {
+      els.forEach((e) => e.classList.add('in'));
+      return;
+    }
+    this.setState({ ready: true });
+    this.fallback = setTimeout(() => {
+      els.forEach((e) => e.classList.add('in'));
+    }, 1800);
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        this.io.unobserve(en.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach((e) => this.io.observe(e));
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    if (this.onResize) window.removeEventListener('resize', this.onResize);
+    if (this.io) this.io.disconnect();
+    if (this.vis) this.vis.disconnect();
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.waveRaf) cancelAnimationFrame(this.waveRaf);
+    if (this.chartRaf) cancelAnimationFrame(this.chartRaf);
+    if (this.fallback) clearTimeout(this.fallback);
+  }
+  /* Hero background: a slow 3D dot-ribbon wave in gold, drawn on a canvas. */
+  initWave(motion) {
+    const c = document.getElementById('wave');
+    if (!c || !c.getContext) return;
+    const ctx = c.getContext('2d');
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const size = () => {
+      const r = c.parentElement.getBoundingClientRect();
+      c.width = Math.max(1, Math.floor(r.width * dpr));
+      c.height = Math.max(1, Math.floor(r.height * dpr));
+    };
+    size();
+    this.onResize = size;
+    window.addEventListener('resize', size);
+    const COLS = 72, ROWS = 26;
+    const draw = (t) => {
+      const W = c.width, H = c.height;
+      ctx.clearRect(0, 0, W, H);
+      const horizon = H * 0.4;
+      for (let r = 0; r < ROWS; r++) {
+        const z = r / (ROWS - 1);
+        const depth = 1 - z;
+        const baseY = horizon + Math.pow(depth, 1.6) * H * 0.62;
+        const amp = H * 0.075 * (0.35 + depth);
+        const spread = W * (0.42 + depth * 0.5);
+        const rad = (0.9 + depth * 1.7) * dpr;
+        for (let i = 0; i < COLS; i++) {
+          const x = (i / (COLS - 1)) * 2 - 1;
+          const w = Math.sin(x * 3.1 + t * 0.00055 + z * 4.2) * 0.55 + Math.sin(x * 1.4 - t * 0.00038 + z * 2.1) * 0.45;
+          const sx = W / 2 + x * spread;
+          const sy = baseY + w * amp;
+          let a = 0.1 + depth * 0.55;
+          const fade = 1 - Math.max(0, (sy - H * 0.68) / (H * 0.27));
+          a *= Math.max(0, Math.min(1, fade));
+          if (a <= 0.01) continue;
+          ctx.fillStyle = 'rgba(228,196,98,' + a.toFixed(3) + ')';
+          ctx.beginPath();
+          ctx.arc(sx, sy, rad, 0, 6.2832);
+          ctx.fill();
+        }
+      }
+    };
+    if (!motion) { draw(0); return; }
+    this.waveVisible = true;
+    if ('IntersectionObserver' in window) {
+      this.vis = new IntersectionObserver((en) => { this.waveVisible = en[0].isIntersecting; }, { threshold: 0 });
+      this.vis.observe(c);
+    }
+    const loop = (t) => {
+      this.waveRaf = requestAnimationFrame(loop);
+      if (!this.waveVisible || document.hidden) return;
+      draw(t);
+    };
+    this.waveRaf = requestAnimationFrame(loop);
+  }
+  /* Hero chart: the two lines draw over "20 years", with captions and a year counter. Loops; pauses on hover. */
+  initChart(motion) {
+    const svg = document.getElementById('traj');
+    const box = document.getElementById('chartbox');
+    if (!svg || !box) return;
+    const p1 = svg.querySelector('.p1'), p2 = svg.querySelector('.p2');
+    const m1 = svg.querySelector('.m1'), m2 = svg.querySelector('.m2');
+    if (!p1 || !p2 || !p1.getTotalLength) return;
+    const L1 = p1.getTotalLength(), L2 = p2.getTotalLength();
+    p1.style.strokeDasharray = L1; p2.style.strokeDasharray = L2;
+    const set = (p) => {
+      p1.style.strokeDashoffset = L1 * (1 - p);
+      p2.style.strokeDashoffset = L2 * (1 - p);
+      const a = p1.getPointAtLength(L1 * p), b = p2.getPointAtLength(L2 * p);
+      m1.setAttribute('cx', a.x.toFixed(1)); m1.setAttribute('cy', a.y.toFixed(1));
+      m2.setAttribute('cx', b.x.toFixed(1)); m2.setAttribute('cy', b.y.toFixed(1));
+      box.style.setProperty('--p', p.toFixed(3));
+      const yr = Math.round(p * 20);
+      if (yr !== this.state.year) this.setState({ year: yr });
+    };
+    if (!motion) { set(1); return; }
+    set(0);
+    const DUR = 7200, HOLD = 2800, RESET = 420;
+    let start = null, last = null;
+    const step = (t) => {
+      this.chartRaf = requestAnimationFrame(step);
+      if (start === null) { start = t; last = t; }
+      const dt = t - last; last = t;
+      if (box.matches(':hover') && this.state.year < 20) { start += dt; return; }
+      const e = t - start;
+      if (e < DUR) {
+        const p = e / DUR;
+        const ease = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+        box.classList.remove('reset');
+        set(ease);
+      } else if (e < DUR + HOLD) {
+        set(1);
+      } else if (e < DUR + HOLD + RESET) {
+        box.classList.add('reset');
+      } else {
+        set(0);
+        start = t;
+      }
+    };
+    this.chartRaf = requestAnimationFrame(step);
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#D4AF37';
+    const motionOn = this.props.motion ?? true;
+    const s = this.state;
+    return {
+      f0: s.open === 0 ? 'open' : '', o0: s.open === 0, t0: () => this.setState({ open: s.open === 0 ? -1 : 0 }),
+      f1: s.open === 1 ? 'open' : '', o1: s.open === 1, t1: () => this.setState({ open: s.open === 1 ? -1 : 1 }),
+      f2: s.open === 2 ? 'open' : '', o2: s.open === 2, t2: () => this.setState({ open: s.open === 2 ? -1 : 2 }),
+      f3: s.open === 3 ? 'open' : '', o3: s.open === 3, t3: () => this.setState({ open: s.open === 3 ? -1 : 3 }),
+      f4: s.open === 4 ? 'open' : '', o4: s.open === 4, t4: () => this.setState({ open: s.open === 4 ? -1 : 4 }),
+      f5: s.open === 5 ? 'open' : '', o5: s.open === 5, t5: () => this.setState({ open: s.open === 5 ? -1 : 5 }),
+      accent: accent,
+      motionClass: motionOn ? '' : 'no-motion',
+      readyClass: (this.state.ready && motionOn) ? 'ready' : '',
+      navClass: this.state.scrolled ? 'on' : '',
+      menuOpen: this.state.menu,
+      toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      closeMenu: () => this.setState({ menu: false }),
+      year: this.state.year,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

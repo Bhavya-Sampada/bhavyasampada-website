@@ -1,31 +1,44 @@
 {
   "team": [
     {
-      "featured": true,
-      "id": "Bapiraju",
-      "name": "Bapiraju",
-      "initials": "BR",
-      "title": "Founder & CEO",
-      "bio": "Bapiraju brings over 25 years of financial market expertise. As the principal leader of the firm, his insights govern the high-level retirement planning, long-term asset allocation frameworks for the clients. His extensive industry tenure and profound market insight elevate our mutual fund distribution company standards to the highest professional level."
+      "name": "V M Bapiraju",
+      "role": "Chief Executive Officer",
+      "credentials": "15+ years in finance · 100+ industry awards · AMFI and IRDAI certified",
+      "bio": "Chief Executive Officer, Bhavya Sampada. Fifteen-plus years in finance, AMFI and IRDAI certified, with more than a hundred industry awards. Runs client reviews on investments and loans, and has guided families through planning since the firm began.",
+      "photo": "/assets/img/team/photo-bapiraju.jpg",
+      "writes": true
     },
     {
-      "featured": true,
-      "title": "Co-Founder & Managing Director",
-      "bio": "Aparna is the Co-Founder and MD of Bhavya Sampada. An MBA in Finance with over 5 years of experience, she holds AMFI, PMS, and insurance advisory credentials. Her modern, forward-thinking perspective and multi-asset expertise enable her to relate to and effectively design financial strategies for a diverse, multi-generational client base.",
-      "id": "Aparna ",
-      "name": "Aparna A",
-      "initials": "AP",
-      "expertise": [
-        "Insurnace",
-        "Portfolio Management Services",
-        "Marketing"
-      ],
-      "credentials": [
-        "AMFI Certified",
-        "IRDAI-certified BQP",
-        "SEBI Registered",
-        "MBA Finance and Business Management"
-      ]
+      "name": "A Vijay Datta",
+      "role": "Chief Business Officer",
+      "credentials": "8+ years in finance · AMFI and IRDAI certified · Certified goal planner · Entrepreneur",
+      "bio": "Chief Business Officer, Bhavya Sampada. Eight-plus years in finance, AMFI and IRDAI certified, a certified goal planner and an entrepreneur. Leads planning on retirement, tax and cash flow, and writes the numbers side of every plan.",
+      "photo": "/assets/img/team/photo-datta.jpg",
+      "writes": true
+    },
+    {
+      "name": "Aparna",
+      "role": "Managing Director",
+      "credentials": "5+ years in finance · MBA (Finance) · AMFI and IRDAI certified",
+      "bio": "Managing Director, Bhavya Sampada. Five-plus years in finance, an MBA in Finance, AMFI and IRDAI certified. Leads insurance and claims, and has sat with hundreds of families through hospital bills and claim paperwork.",
+      "photo": "/assets/img/team/photo-aparna.jpg",
+      "writes": true
+    },
+    {
+      "name": "V Parvathi",
+      "role": "Managing Director",
+      "credentials": "10+ years of experience",
+      "bio": "Managing Director, Bhavya Sampada. Ten-plus years of experience working with families on their plans.",
+      "photo": "/assets/img/team/photo-parvathi.jpg",
+      "writes": false
+    },
+    {
+      "name": "V Maitreyi",
+      "role": "Customer Success Manager",
+      "credentials": "3 years of experience · Looks after the customer success team",
+      "bio": "Customer Success Manager, Bhavya Sampada. Looks after every client after the review.",
+      "photo": "/assets/img/team/photo-maitreyi.jpg",
+      "writes": false
     }
   ]
 }
