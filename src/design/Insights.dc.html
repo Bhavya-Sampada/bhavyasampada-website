@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bhavya Sampada — Articles</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+*{box-sizing:border-box}
+.site{--ink:#0B0B14;--muted:#535768;--soft:#7A7F90;--line:#E4E4EF;--paper:#FFFFFF;--page:#F6F6F6;--surface-1:#F4F4F8;
+--gold:#D4AF37;--gold-soft:#E0C462;--gold-pale:#EAD58F;--gold-tint:#F3EAD0;--gold-wash:#F9F6EF;--gold-ring:#D4AF3755;--gold-glow:#D4AF3722;--bronze:#7A5C12;
+--brand-hover:#C39F2C;--brand-pressed:#B08F24;
+--dk-bg:#131110;--dk-panel:#1C1917;--dk-card:#262220;--dk-line:#FFFFFF14;--dk-fg:#F5F2EC;--dk-muted:#B3ADA2;
+--font:Poppins,system-ui,sans-serif;--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(.2,.8,.2,1);--spring:cubic-bezier(.22,1,.36,1);
+font:400 15px/24px var(--font);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:clip;min-width:0}
+.site a{color:inherit;text-decoration:none}
+.site h1,.site h2,.site h3,.site h4,.site p,.site ul{margin:0}
+.site ul{padding:0;list-style:none}
+.wrap{max-width:1440px;margin:0 auto;padding:0 80px}
+.h1{font:500 56px/60px var(--font);letter-spacing:-.03em;text-wrap:balance}
+.h2{font:500 40px/46px var(--font);letter-spacing:-.03em;text-wrap:balance}
+.h3{font:500 24px/30px var(--font);letter-spacing:-.025em}
+.lead{font:400 19px/30px var(--font);color:var(--muted);text-wrap:pretty}
+.eyebrow{font:500 12px/16px var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.site :focus-visible{outline:3px solid var(--bronze);outline-offset:3px;border-radius:6px}
+.cta :focus-visible,.foot :focus-visible{outline-color:#F0DC9A}
+.skip{position:absolute;left:-9999px;top:14px;z-index:40;background:var(--gold);color:var(--ink);padding:10px 16px;border-radius:8px;font-weight:500}
+.skip:focus{left:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:8px;font:500 15px/1 var(--font);border:1px solid transparent;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease),transform .12s var(--ease),box-shadow .2s var(--ease);white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--gold);color:var(--ink);box-shadow:0 8px 24px var(--gold-glow)}
+.btn-primary:hover{background:var(--brand-hover);box-shadow:0 12px 32px var(--gold-ring)}
+.btn-primary:active{background:var(--brand-pressed)}
+.btn-sm{height:44px;padding:0 20px;font-size:14px}
+.btn .arr{transition:transform .2s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+.link{display:inline-flex;align-items:center;gap:6px;font-weight:500;color:var(--bronze)}
+.link svg{transition:transform .2s var(--ease)}
+.link:hover svg{transform:translateX(3px)}
+.rv{transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.ready .rv{opacity:0;transform:translateY(14px);animation:rise .7s var(--ease-out) .05s forwards}
+.ready .rv.in{opacity:1;transform:none}
+.no-motion *{animation:none!important;transition:none!important}
+.no-motion .rv{opacity:1;transform:none}
+.nav{position:sticky;top:0;z-index:30;height:80px;color:var(--ink);background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(16px) saturate(1.8);backdrop-filter:blur(16px) saturate(1.8);border-bottom:1px solid transparent;transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.nav.on{border-color:var(--line);box-shadow:0 8px 32px rgba(11,11,20,.04)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;line-height:1}
+.brand .mark{height:46px;width:auto;display:block;filter:brightness(.72) saturate(1.2);transition:transform .3s var(--spring)}
+.brand:hover .mark{transform:scale(1.04)}
+.brand .bt{display:flex;flex-direction:column}
+.logo-full{height:124px;width:auto;display:block}
+.brand b{font:500 21px/24px var(--font);letter-spacing:-.025em}
+.brand span{font:500 10px/14px var(--font);letter-spacing:.16em;color:var(--bronze)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{position:relative;font-weight:500;font-size:14px;opacity:.8;transition:opacity .2s;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease-out)}
+.nav-links a:hover,.nav-links a.cur{opacity:1}
+.nav-links a:hover::after,.nav-links a.cur::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-right .login{font-weight:500;font-size:14px;opacity:.8;transition:opacity .2s}
+.nav-right .login:hover{opacity:1}
+.burger{display:none;width:44px;height:44px;border:0;background:transparent;color:inherit;cursor:pointer;border-radius:8px;align-items:center;justify-content:center}
+.mmenu{position:fixed;left:0;right:0;top:80px;z-index:29;background:#fff;color:var(--ink);border-bottom:1px solid var(--line);padding:16px 20px 24px;display:flex;flex-direction:column;gap:4px;box-shadow:0 24px 48px rgba(11,11,20,.08);animation:drop .25s var(--ease-out)}
+.mmenu a{padding:12px 8px;font-weight:500;font-size:16px;border-radius:8px}
+.mmenu a:hover{background:var(--surface-1)}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+/* page header */
+.phero .wave{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;opacity:.8}
+
+.phero{position:relative;padding:88px 0 56px;background:linear-gradient(125deg,#F9F6EF 0%,#F3EAD0 55%,#EFE3C2 100%);overflow:hidden}
+.phero .glow{position:absolute;width:640px;height:640px;right:-120px;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(234,213,143,.7),transparent 62%);filter:blur(24px);pointer-events:none;animation:breathe 9s var(--ease) infinite alternate}
+@keyframes breathe{from{opacity:.7;transform:scale(1)}to{opacity:1;transform:scale(1.08)}}
+.phero .wrap{position:relative}
+.ready .rise{opacity:0;transform:translateY(14px);animation:rise .8s var(--ease-out) forwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}.d4{animation-delay:.42s}
+@keyframes rise{to{opacity:1;transform:none}}
+.phero .eyebrow{color:var(--ink);opacity:.7;margin-bottom:18px}
+.phero .lead{color:#4A4336;margin-top:20px;max-width:640px}
+/* type switch + filters */
+.types{display:inline-flex;gap:4px;margin-top:36px;padding:4px;border-radius:12px;background:rgba(255,255,255,.55);border:1px solid rgba(11,11,20,.08)}
+.tb{height:44px;padding:0 20px;border-radius:9px;border:0;background:none;font:500 14px var(--font);color:var(--muted);cursor:pointer;transition:background .2s,color .2s}
+.tb:hover{color:var(--ink)}
+.tb.on{background:var(--ink);color:#fff}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.post.case{background:var(--gold-wash)}
+.post .out{font-size:14px;color:var(--ink);background:#fff;border:1px solid #E8DFC6;border-radius:8px;padding:10px 12px}
+.post .out b{display:block;font:500 11px/16px var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--bronze);margin-bottom:2px}
+.post .out small{display:block;color:var(--muted);font-size:11px;margin-top:6px}
+.tag{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;font:500 11px var(--font);background:var(--surface-1);color:var(--muted)}
+.tag.case{background:var(--gold-tint);color:var(--bronze)}
+.chipb{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;background:rgba(255,255,255,.55);border:1px solid rgba(11,11,20,.08);font:500 14px var(--font);color:var(--ink);cursor:pointer;transition:background .2s,transform .2s var(--spring),box-shadow .2s,border-color .2s}
+.chipb:hover{background:#fff;transform:translateY(-2px);box-shadow:0 10px 24px var(--gold-glow)}
+.chipb.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+/* featured */
+.sec{padding-top:72px}
+.feat{display:grid;grid-template-columns:1.2fr 1fr;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.feat:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.feat .img{aspect-ratio:16/10;background:linear-gradient(160deg,var(--surface-1),#E6E6F2);display:grid;place-items:center;color:var(--muted);font-size:12px;border-right:1px solid var(--line)}
+.feat .body{padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.feat h2{font:500 30px/38px var(--font);letter-spacing:-.025em;margin-top:14px}
+.feat p{color:var(--muted);margin-top:12px}
+.meta{display:flex;gap:14px;align-items:center;color:var(--muted);font-size:13px;flex-wrap:wrap}
+.meta b{color:var(--bronze);font-weight:500}
+.meta i{font-style:normal;width:3px;height:3px;border-radius:50%;background:#C9CBDD}
+/* grid */
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.post{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.post:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.post .img img{width:100%;height:100%;object-fit:contain;background:#131110;display:block}
+.feat .img{aspect-ratio:auto;display:block;align-self:stretch;overflow:hidden}
+.feat .img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.feat{align-items:stretch}
+.post .img{aspect-ratio:16/10;background:linear-gradient(160deg,var(--surface-1),#E6E6F2);display:grid;place-items:center;color:var(--muted);font-size:12px;border-bottom:1px solid var(--line)}
+.post .body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:14px;flex:1}
+.post h3{font:500 20px/28px var(--font);letter-spacing:-.01em}
+.post p{color:var(--muted);font-size:14px;flex:1}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px;flex-wrap:wrap}
+
+.vid{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;color:var(--ink);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}.vid:hover{transform:translateY(-3px);box-shadow:0 20px 48px var(--gold-glow)}
+.vthumb{position:relative;display:block;aspect-ratio:16/9;background:var(--dk-bg)}.vthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vid .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .25s var(--spring)}.vid:hover .play{transform:translate(-50%,-50%) scale(1.1)}
+.vbody{display:block;padding:16px 18px 18px}.vbody b{display:block;font:500 16px/24px var(--font);letter-spacing:-.01em}.vbody span{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+.fresh{display:inline-flex;align-items:center;gap:7px;margin-left:8px;padding:3px 10px;border-radius:999px;background:var(--gold-tint);color:var(--bronze);font-size:12px;font-weight:500;vertical-align:middle;white-space:nowrap}.fresh i{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.6s ease-in-out infinite}@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+
+.ytcta{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--dk-bg);border-radius:16px;padding:28px 32px;color:#fff}
+.ytcta-txt b{display:block;font:500 20px/28px var(--font);letter-spacing:-.02em}.ytcta-txt span{display:block;margin-top:6px;color:var(--dk-muted);font-size:15px;line-height:24px}
+.ytcta-btns{display:flex;gap:12px;flex-wrap:wrap}.ytcta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.3)}.ytcta .btn-ghost:hover{background:rgba(255,255,255,.08)}
+
+
+
+
+.more{display:flex;justify-content:center;margin-top:40px}
+.btn-secondary{background:#fff;color:var(--ink);border-color:var(--ink)}
+.btn-secondary:hover{background:var(--ink);color:#fff}
+/* subscribe band */
+.sub{margin-top:120px;background:var(--gold-wash);padding:72px 0}
+.sub .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.sub form{display:flex;gap:10px}
+.sub input{flex:1;height:52px;border:1px solid var(--line);border-radius:8px;padding:0 16px;font:400 15px var(--font);background:#fff}
+.sub input:focus{outline:none;border-color:var(--bronze);box-shadow:0 0 0 4px var(--gold-ring)}
+.sub small{display:block;margin-top:10px;color:var(--muted);font-size:12px}
+/* cta + footer */
+.cta{background:var(--dk-bg);color:var(--dk-fg);padding:100px 0;position:relative;overflow:hidden}
+.cta .orb{position:absolute;width:560px;height:560px;right:-160px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.22),transparent 60%);filter:blur(30px);pointer-events:none;animation:breathe 10s var(--ease) infinite alternate}
+.cta .wrap{position:relative;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.cta h2{color:#fff}
+.cta .lead{color:var(--dk-muted);margin-top:14px}
+.foot{background:var(--dk-bg);color:var(--dk-muted);font-size:14px;padding-bottom:40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:48px;padding:64px 0 48px;border-top:1px solid var(--dk-line)}
+.foot h4{font:500 12px/16px var(--font);letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.foot li{padding:4px 0}
+.foot a{transition:color .2s}
+.foot a:hover{color:#fff}
+.social{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.social a{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--dk-line);color:var(--dk-muted);font-weight:500;font-size:13px;transition:color .2s,border-color .2s,transform .2s var(--spring)}
+.social a:hover{color:#fff;border-color:#ffffff40;transform:translateY(-2px)}
+.social svg{flex:none}
+.disc{border-top:1px solid var(--dk-line);padding-top:28px;font-size:12px;line-height:19px;color:#9A9DAA;max-width:1100px}
+@media (max-width:1100px){
+  .wrap{padding:0 40px}
+  .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){.ytcta{grid-template-columns:1fr;padding:22px}.types{display:flex}.tb{flex:1;padding:0 8px;white-space:nowrap;font-size:13px}.brand{gap:9px}.brand .mark{height:36px}.brand b{font-size:17px;line-height:20px;white-space:nowrap}.brand span{font-size:8px;line-height:11px;letter-spacing:.12em}.nav-right{gap:10px}.nav-right .btn{height:38px;padding:0 12px;font-size:13px}
+  .wrap{padding:0 20px}
+  .nav-links,.nav-right .login{display:none}
+  .burger{display:inline-flex}
+  .h1{font-size:40px;line-height:44px}
+  .h2{font-size:32px;line-height:38px}
+  .lead{font-size:17px;line-height:27px}
+  .phero{padding:56px 0 40px}
+  .feat,.g3,.sub .wrap{grid-template-columns:1fr}
+  .feat .img{border-right:0;border-bottom:1px solid var(--line)}
+  .feat .body{padding:28px}
+  .sub{margin-top:80px;padding:56px 0}
+  .sub form{flex-direction:column}
+  .cta{padding:72px 0}
+  .cta .btn{width:100%}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  .site *{animation:none!important;transition:none!important}
+  .rise,.rv{opacity:1;transform:none;animation:none}
+}
+</style>
+</helmet>
+<div class="site {{motionClass}} {{readyClass}}" style="--gold: {{accent}}">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav {{navClass}}">
+  <div class="wrap">
+    <a class="brand" href="Main.dc.html" aria-label="Bhavya Sampada home"><img class="mark" src="/_blob/597e264cd8a0b0ddbc6966debb2bec4a" alt=""><div class="bt"><b>Bhavya Sampada</b><span>WEALTH MANAGEMENT</span></div></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="Services.dc.html">Services</a>
+      <a href="About.dc.html">About</a>
+      <a class="{{curNav}}" href="Insights.dc.html">Case studies</a>
+      <a href="Main.dc.html#clients">Clients</a>
+    </nav>
+    <div class="nav-right">
+      <a class="login" href="https://ewa.njindiaonline.com/ewa/login">Client login</a>
+      <a class="btn btn-primary btn-sm" href="Book.dc.html">Book a free review</a>
+      <button class="burger" type="button" aria-label="Menu" aria-controls="mmenu" aria-expanded="{{menuOpen}}" onClick="{{toggleMenu}}">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+  <div class="mmenu" id="mmenu">
+    <a href="Services.dc.html">Services</a>
+    <a href="About.dc.html">About</a>
+    <a href="Insights.dc.html">Case studies</a>
+    <a href="Main.dc.html#clients">Clients</a>
+    <a href="https://ewa.njindiaonline.com/ewa/login">Client login</a>
+  </div>
+</sc-if>
+
+<main id="main" tabindex="-1">
+<section class="phero">
+  <canvas class="wave" id="wave" aria-hidden="true"></canvas>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow rise d1">Articles and videos</p>
+    <h1 class="h1 rise d2">Money guidance you can act on</h1>
+    <p class="lead rise d3">Plain guides to the questions families ask us most, and case studies of how we helped clients with theirs. Written by the people who run your review.</p>
+    <div class="types rise d4" role="group" aria-label="Article type">
+      <button class="tb {{tAll}}" type="button" onClick="{{typeAll}}">All</button>
+      <button class="tb {{tEdu}}" type="button" onClick="{{typeEdu}}">Guides</button>
+      <button class="tb {{tCase}}" type="button" onClick="{{typeCase}}">Client case studies</button>
+    </div>
+    <div class="filters rise d4" role="group" aria-label="Filter articles by topic">
+      <button class="chipb {{fAll}}" type="button" onClick="{{pickAll}}">All</button>
+      <button class="chipb {{fInv}}" type="button" onClick="{{pickInv}}">Investing</button>
+      <button class="chipb {{fTax}}" type="button" onClick="{{pickTax}}">Tax</button>
+      <button class="chipb {{fRet}}" type="button" onClick="{{pickRet}}">Retirement</button>
+      <button class="chipb {{fIns}}" type="button" onClick="{{pickIns}}">Insurance</button>
+      <button class="chipb {{fLoan}}" type="button" onClick="{{pickLoan}}">Loans</button>
+      <button class="chipb {{fVid}}" type="button" onClick="{{pickVid}}">Videos</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <a class="feat rv" href="Article.dc.html#how-much-to-retire">
+      <div class="img"><img src="/_blob/cd483d9346786a09407b4601b862b3b0" alt="A simple calculator next to a cup of tea and a handwritten monthly budget."></div>
+      <div class="body">
+        <div>
+          <div class="meta"><span class="tag">Guide</span><b>Retirement</b><i></i><span>8 min read</span><i></i><span>22 Jun 2026</span></div>
+          <h2>How much do you really need to retire comfortably?</h2>
+          <p>Start from today&#x27;s monthly spend, adjust for what stops and what grows, inflate it to your retirement year, then multiply by about 25. A starting point, not a verdict.</p>
+        </div>
+        <span class="link">Read the article <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 class="h2">{{heading}}</h2><span class="meta">Showing <b>{{countLabel}}</b></span></div>
+    <div class="g3">
+      <sc-for list="{{posts}}" as="p" hint-placeholder-count="6">
+        <a class="post rv {{p.cls}}" href="Article.dc.html#{{p.slug}}">
+          <div class="img"><img src="{{p.cover}}" alt=""></div>
+          <div class="body">
+            <div class="meta"><span class="tag {{p.cls}}">{{p.type}}</span><b>{{p.cat}}</b><i></i><span>{{p.read}}</span></div>
+            <h3>{{p.title}}</h3>
+            <p>{{p.sum}}</p>
+            <sc-if value="{{p.isCase}}" hint-placeholder-val="{{false}}">
+              <div class="out"><b>What changed</b>{{p.out}}<small>Shared with the client’s consent. Names changed. Every situation is different.</small></div>
+            </sc-if>
+            <div class="meta"><span>{{p.date}}</span></div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+    <div class="more rv"><a class="btn btn-secondary" href="#">Load more articles</a></div>
+  </div>
+</section>
+
+<section class="sec" id="videos">
+  <div class="wrap">
+    <div class="sec-head rv"><h2 class="h2">From our YouTube channel</h2><a class="link" href="https://www.youtube.com/@the.two.wealth.theory/shorts">All videos <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
+    <p class="lead rv" style="margin:-24px 0 28px;max-width:720px">Short, plain explainers on The Wealth Theory, our channel: one money idea in under a minute. The three newest videos appear here automatically. <span class="fresh"><i></i>Refreshed every 24 hours from the channel</span></p>
+    <div class="g3">
+      <a class="vid rv" href="https://www.youtube.com/watch?v=kqQy8mAXpXs"><span class="vthumb"><img class="thumb" src="/_blob/520257ba8332b3e9ea03c926d6958da4" alt="" loading="lazy"><span class="play"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg></span></span><span class="vbody"><b>A wealth manager by profession, but so much more behind the scenes</b><span>Watch on YouTube · Short</span></span></a>
+      <a class="vid rv" href="https://www.youtube.com/watch?v=2n1vmhCY9tM" style="animation-delay:.08s"><span class="vthumb"><img class="thumb" src="/_blob/93ab1e24cfc84249b37a50b901c2c5f9" alt="" loading="lazy"><span class="play"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg></span></span><span class="vbody"><b>How did he calculate that so fast? It’s called the Rule of 72!</b><span>Watch on YouTube · Short</span></span></a>
+      <a class="vid rv" href="https://www.youtube.com/watch?v=-hWMw3ZsRRk" style="animation-delay:.16s"><span class="vthumb"><img class="thumb" src="/_blob/5cce1ddfdf430703ebb0ebe1b0aa40cf" alt="" loading="lazy"><span class="play"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg></span></span><span class="vbody"><b>You don’t have to be rich to start investing. You just need to start</b><span>Watch on YouTube · Short</span></span></a>
+    </div>
+    <div class="ytcta rv">
+      <div class="ytcta-txt"><b>New video every week on The Wealth Theory</b><span>NAV, XIRR, exit loads, SIPs and tax, explained in under a minute by the people who run your review.</span></div>
+      <div class="ytcta-btns">
+        <a class="btn btn-primary" href="https://www.youtube.com/@the.two.wealth.theory?sub_confirmation=1"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.5-3.2.5-4.8s-.1-3.2-.5-4.8zM9.8 15.1V8.9l6 3.1-6 3.1z"/></svg> Subscribe on YouTube</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/thewealth.theory/">Follow on Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sub">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow" style="color:var(--bronze);margin-bottom:14px">Newsletter</p>
+      <h2 class="h2">One useful money idea a month</h2>
+      <p class="lead" style="margin-top:14px">No market noise, no product pushes. Unsubscribe any time.</p>
+    </div>
+    <div class="rv" style="animation-delay:.1s">
+      <form onSubmit="{{noop}}" aria-label="Subscribe to the newsletter">
+        <label for="em" style="position:absolute;left:-9999px">Email address</label>
+        <input id="em" type="email" placeholder="name@example.com" autocomplete="email">
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+      <small>We'll only use your email for the newsletter.</small>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="orb" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="rv"><h2 class="h2">Reading is a start. A plan is better.</h2><p class="lead">Book a free review with one of our directors and see where you stand.</p></div>
+    <a class="btn btn-primary rv" href="Book.dc.html" style="animation-delay:.12s">Book my free review <svg class="arr" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="Main.dc.html" aria-label="Bhavya Sampada home"><img class="logo-full" src="/_blob/d5170994c6ef0c369a079afad9225e5e" alt="Bhavya Sampada"></a>
+        <p style="margin-top:16px;max-width:300px">Financial planning, investments, insurance and loans for families across India. 15+ years of helping families grow, protect and transfer wealth.</p>
+        <div class="social">
+          <a href="https://www.youtube.com/@the.two.wealth.theory"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/></svg>YouTube</a>
+          <a href="https://www.instagram.com/thewealth.theory/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+          <a href="https://share.google/V3oD3dOOpZJHswJtR"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L12 16.9l-5.3 2.8 1.1-5.9-4.3-4.1 5.9-.8z"/></svg>Review us on Google</a>
+        </div>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="Services.dc.html#plan">Financial planning</a></li><li><a href="Services.dc.html#plan">Tax planning</a></li><li><a href="Services.dc.html#invest">Mutual funds &amp; SIPs</a></li><li><a href="Services.dc.html#protect">Insurance</a></li><li><a href="Services.dc.html#borrow">Loans</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="About.dc.html">About</a></li><li><a href="Main.dc.html#how">How we work</a></li><li><a href="Main.dc.html#clients">Clients</a></li><li><a href="Insights.dc.html">Case studies</a></li><li><a href="Book.dc.html">Book a free review</a></li><li><a href="https://ewa.njindiaonline.com/ewa/login">Client login</a></li><li><a href="Privacy.dc.html">Privacy policy</a></li><li><a href="Terms.dc.html">Terms of use</a></li></ul></div>
+      <div><h4>Contact</h4><ul>
+        <li>Plot No. 156, Srinivasa Nagar Colony, Near Radhika Theater, Kapra, Secunderabad – 500062</li>
+        <li><a href="tel:04035175228">040-35175228</a></li>
+        <li><a href="tel:+919848977660">+91 98489 77660</a></li>
+        <li><a href="mailto:support@bhavyasampada.com">support@bhavyasampada.com</a></li></ul></div>
+    </div>
+    <p class="disc">AMFI-registered Mutual Fund Distributor | ARN: 266666 · IRDAI licence A00830505. Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Investments facilitated through Bhavya Sampada are in Regular Plan, which involves payment of trail commission to the MFD. Insurance is the subject matter of solicitation. Loans are subject to the lender’s approval and terms. This website is for informational purposes only and does not constitute financial, tax or legal advice. © 2026 Bhavya Sampada Private Limited. All rights reserved.</p>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#D4AF37","options":["#D4AF37","#C39F2C","#B08F24"],"section":"Brand"},"motion":{"editor":"boolean","default":true,"section":"Motion"},"$preview":{"width":1440,"height":7300}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { scrolled: false, menu: false, ready: false, filter: 'all', type: (typeof location !== 'undefined' && location.hash === '#case-studies') ? 'case' : ((typeof location !== 'undefined' && location.hash === '#guides') ? 'edu' : 'all') };
+    this.posts = [
+      {"slug": "how-much-to-retire", "kind": "edu", "cat": "Retirement", "title": "How much do you really need to retire comfortably?", "sum": "Start from today's monthly spend, adjust for what stops and what grows, inflate it to your retirement year, then multiply by about 25. A starting point, not a verdict.", "out": "", "read": "8 min read", "date": "22 Jun 2026", "cover": "/_blob/cd483d9346786a09407b4601b862b3b0"},
+      {"slug": "sip-vs-lump-sum", "kind": "edu", "cat": "Investing", "title": "SIP vs lump sum: which investment strategy suits you in 2026?", "sum": "Neither is better. Pick the one that matches how your money arrives: a SIP for monthly salary, a planned lump sum for bonuses, fees or inheritance.", "out": "", "read": "7 min read", "date": "18 May 2026", "cover": "/_blob/1d167a463aae3494944f4ba4448ce273"},
+      {"slug": "case-emi-without-stretching-the-loan", "kind": "case", "cat": "Loans", "title": "How a Warangal couple cut their EMI without stretching the loan", "sum": "A balance transfer was not the answer. A rate reset with the same lender, one part-prepayment and a shorter tenure cut the EMI and kept the retirement SIP running.", "out": "EMI reduced by about ₹4,100 a month, tenure shortened by four years, retirement SIP left untouched.", "read": "6 min read", "date": "11 Jun 2026", "cover": "/_blob/f643bd50fb6c6e1ecb081a7a1092a85f"},
+      {"slug": "tax-saving-salaried", "kind": "edu", "cat": "Tax", "title": "5 legal ways salaried and government employees can reduce tax", "sum": "First decide old regime or new. Then use 80C, 80D, HRA, home-loan interest and NPS where they apply, and never buy a policy in March just to save tax.", "out": "", "read": "8 min read", "date": "27 Jul 2026", "cover": "/_blob/e69fb25389adf8f0715af042ee02d193"},
+      {"slug": "case-doctors-health-cover-rebuilt", "kind": "case", "cat": "Insurance", "title": "A doctor's health cover, rebuilt before it was needed", "sum": "A ₹5 lakh floater from 2014 with parents on it was not enough for a family of four in 2026. We separated the parents, raised the base cover and added a super top-up.", "out": "Family cover raised to ₹15 lakh with a ₹50 lakh super top-up, parents moved to their own senior plan, room-rent caps removed, nominees updated. No claim has been needed yet.", "read": "6 min read", "date": "21 Jul 2026", "cover": "/_blob/6e59f6210cb4a2197697fe18aeb026fb"},
+      {"slug": "health-cover-parents", "kind": "edu", "cat": "Insurance", "title": "Health cover for parents over 60: what to buy and what to check", "sum": "Buy parents a separate senior policy, not a slot on your family floater. Check waiting periods, room-rent caps and co-pay before price, and disclose everything.", "out": "", "read": "8 min read", "date": "19 Aug 2026", "cover": "/_blob/2f95026918304cdb21614833cf8275bf"},
+      {"slug": "term-insurance-how-much", "kind": "edu", "cat": "Insurance", "title": "How much term cover does your family actually need?", "sum": "Add the income your family needs replaced, the loans to clear and the goals to fund, subtract what you already own. That number, not a thumb rule, is your cover.", "out": "", "read": "8 min read", "date": "6 Oct 2026", "cover": "/_blob/fc66652374d45acfd122bc0137dda903"},
+      {"slug": "case-government-teacher-retirement-at-45", "kind": "case", "cat": "Retirement", "title": "A government teacher's retirement plan, built at 45", "sum": "An NPS-era teacher with no old pension and no retirement number got one. We mapped his NPS, started goal SIPs, made an endowment policy paid-up and built an emergency fund.", "out": "Written plan with a retirement number, SIPs started for the gap, term cover in place, endowment policy made paid-up, six-month emergency fund built.", "read": "7 min read", "date": "18 Aug 2026", "cover": "/_blob/46b103f11f3b765c5dc825ee3818a8c4"},
+      {"slug": "home-loan-balance-transfer", "kind": "edu", "cat": "Loans", "title": "Home loan balance transfer: when it saves money and when it doesn't", "sum": "A transfer helps when the rate gap is wide, the tenure left is long, and fees are small. Late in a loan it rarely pays. Ask your own lender first.", "out": "", "read": "7 min read", "date": "9 Jun 2026", "cover": "/_blob/54af211bbe3e729527f2b6cad9588e72"},
+      {"slug": "when-to-stop-sip", "kind": "edu", "cat": "Investing", "title": "When to stop an SIP, and when not to", "sum": "Stop an SIP when the goal is near, the fund no longer fits the plan, or income has fallen. Do not stop because markets fell or someone has a tip.", "out": "", "read": "6 min read", "date": "23 Jul 2026", "cover": "/_blob/b841948609c16b42d444a390c3348ff4"},
+      {"slug": "case-returning-nri-family", "kind": "case", "cat": "Planning", "title": "Coming home from Dubai: a returning family's money, put in order", "sum": "A family returning from Dubai to Bengaluru had scattered accounts, no Indian health cover and a house to buy. We sequenced it: cover first, then accounts, then the house, with retirement intact.", "out": "Health and term cover in place before landing, NRE/NRO accounts regularised to resident status, house budget set within a limit that kept retirement intact, education SIPs started for both children.", "read": "7 min read", "date": "23 Sep 2026", "cover": "/_blob/6718ebd08e2063005b0243241b3bfca0"},
+      {"slug": "emergency-fund", "kind": "edu", "cat": "Planning", "title": "The emergency fund: how much, where to keep it, and when to touch it", "sum": "Keep six months of essential expenses, twelve if you are single-income or self-employed, in a savings account and sweep FDs, away from long-term money.", "out": "", "read": "7 min read", "date": "19 May 2026", "cover": "/_blob/6b90566e09c4c7ad76b766b044b35365"},
+      {"slug": "savings-policy-vs-term-and-sip", "kind": "edu", "cat": "Insurance", "title": "The 20-year savings policy: what it really gives you, and what to do if you have one", "sum": "A savings policy mixes a small life cover with an opaque savings plan. If you hold one, continue, make it paid-up, or surrender, case by case, and never before term cover is in place.", "out": "", "read": "8 min read", "date": "20 Aug 2026", "cover": "/_blob/824ebb79f0223f0b78d6ee8ff08394e6"},
+      {"slug": "case-claim-and-a-plan-after-a-loss", "kind": "case", "cat": "Insurance", "title": "After a loss: a term claim settled, and a plan that gave Lakshmi time", "sum": "When Lakshmi lost her husband, we helped file the term claim and EPF paperwork, parked the money safely for six months, and only then built a written plan around her needs.", "out": "Term claim settled, EPF and gratuity received, proceeds parked safely for six months with no product decisions, then a written plan with a monthly income arrangement and her own health cover. No products bought in the first six months.", "read": "7 min read", "date": "14 Oct 2026", "cover": "/_blob/f0bfb6f7a8f251d139ea1e56e7f12a21"},
+      {"slug": "childrens-education-fund", "kind": "edu", "cat": "Planning", "title": "Planning your child's education fund without derailing your retirement", "sum": "Put a date and a rupee figure on the course, start early, keep the money separate from retirement, and shift to safer options as the date nears. Education can be borrowed for; retirement cannot.", "out": "", "read": "7 min read", "date": "26 Oct 2026", "cover": "/_blob/46bd308e92186dba213463dfd3f8e7ae"}
+    ];
+  }
+  componentDidMount() {
+    this.initWave((this.props.motion ?? true) && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches));
+    this.onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      const s = y > 8;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+    if (reduce || (this.props.motion === false) || !('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return; }
+    this.setState({ ready: true });
+    this.fallback = setTimeout(() => { document.querySelectorAll('.rv').forEach((e) => e.classList.add('in')); }, 1800);
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (!en.isIntersecting) return; en.target.classList.add('in'); this.io.unobserve(en.target); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach((e) => this.io.observe(e));
+  }
+  componentDidUpdate() {
+    if (this.io) document.querySelectorAll('.rv:not(.in)').forEach((e) => this.io.observe(e));
+  }
+
+  /* Hero background: the same slow gold dot-ribbon wave as the Home page, tuned for the sand background. */
+  initWave(motion) {
+    const c = document.getElementById('wave');
+    if (!c || !c.getContext) return;
+    const ctx = c.getContext('2d');
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const size = () => {
+      const r = c.parentElement.getBoundingClientRect();
+      c.width = Math.max(1, Math.floor(r.width * dpr));
+      c.height = Math.max(1, Math.floor(r.height * dpr));
+    };
+    size();
+    this.onResize = size;
+    window.addEventListener('resize', size);
+    const COLS = 72, ROWS = 18;
+    const draw = (t) => {
+      const W = c.width, H = c.height;
+      ctx.clearRect(0, 0, W, H);
+      const horizon = H * 0.25;
+      for (let r = 0; r < ROWS; r++) {
+        const z = r / (ROWS - 1);
+        const depth = 1 - z;
+        const baseY = horizon + Math.pow(depth, 1.5) * H * 0.85;
+        const amp = H * 0.09 * (0.35 + depth);
+        const spread = W * (0.42 + depth * 0.5);
+        const rad = (0.9 + depth * 1.6) * dpr;
+        for (let i = 0; i < COLS; i++) {
+          const x = (i / (COLS - 1)) * 2 - 1;
+          const w = Math.sin(x * 3.1 + t * 0.00055 + z * 4.2) * 0.55 + Math.sin(x * 1.4 - t * 0.00038 + z * 2.1) * 0.45;
+          const sx = W / 2 + x * spread;
+          const sy = baseY + w * amp;
+          let a = 0.08 + depth * 0.42;
+          const fade = 1 - Math.max(0, (sy - H * 0.78) / (H * 0.22));
+          a *= Math.max(0, Math.min(1, fade));
+          if (a <= 0.01) continue;
+          ctx.fillStyle = 'rgba(176,143,36,' + a.toFixed(3) + ')';
+          ctx.beginPath();
+          ctx.arc(sx, sy, rad, 0, 6.2832);
+          ctx.fill();
+        }
+      }
+    };
+    if (!motion) { draw(0); return; }
+    this.waveVisible = true;
+    if ('IntersectionObserver' in window) {
+      this.vis = new IntersectionObserver((en) => { this.waveVisible = en[0].isIntersecting; }, { threshold: 0 });
+      this.vis.observe(c);
+    }
+    const loop = (t) => {
+      this.waveRaf = requestAnimationFrame(loop);
+      if (!this.waveVisible || document.hidden) return;
+      draw(t);
+    };
+    this.waveRaf = requestAnimationFrame(loop);
+  }
+  componentWillUnmount() {
+    if (this.onResize) window.removeEventListener('resize', this.onResize);
+    if (this.vis) this.vis.disconnect();
+    if (this.waveRaf) cancelAnimationFrame(this.waveRaf);
+    window.removeEventListener('scroll', this.onScroll);
+    if (this.io) this.io.disconnect();
+    if (this.fallback) clearTimeout(this.fallback);
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#D4AF37';
+    const motionOn = this.props.motion ?? true;
+    const f = this.state.filter, t = this.state.type;
+    const map = { inv: 'Investing', tax: 'Tax', ret: 'Retirement', ins: 'Insurance', loan: 'Loans' };
+    const posts = this.posts
+      .filter((p) => t === 'all' || p.kind === t)
+      .filter((p) => f === 'all' || f === 'vid' || p.cat === map[f])
+      .map((p) => Object.assign({}, p, { type: p.kind === 'case' ? 'Case study' : 'Guide', cls: p.kind === 'case' ? 'case' : '', isCase: p.kind === 'case' }));
+    const on = (k) => (f === k ? 'on' : '');
+    const pick = (k) => () => this.setState({ filter: k });
+    const ton = (k) => (t === k ? 'on' : '');
+    const tpick = (k) => () => this.setState({ type: k });
+    const typeWord = t === 'edu' ? 'guides' : (t === 'case' ? 'client case studies' : 'articles');
+    return {
+      heading: t === 'edu' ? 'Guides' : (t === 'case' ? 'Client case studies' : 'Latest articles'),
+      tAll: ton('all'), tEdu: ton('edu'), tCase: ton('case'),
+      curNav: 'cur',
+      typeAll: tpick('all'), typeEdu: tpick('edu'), typeCase: tpick('case'),
+      accent: accent,
+      motionClass: motionOn ? '' : 'no-motion',
+      readyClass: (this.state.ready && motionOn) ? 'ready' : '',
+      navClass: this.state.scrolled ? 'on' : '',
+      menuOpen: this.state.menu,
+      toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      posts: posts,
+      countLabel: posts.length + ' ' + typeWord + (f === 'all' ? '' : (f === 'vid' ? ' · videos' : ' · ' + map[f])),
+      fAll: on('all'), fInv: on('inv'), fTax: on('tax'), fRet: on('ret'), fIns: on('ins'), fLoan: on('loan'), fVid: on('vid'),
+      pickAll: pick('all'), pickInv: pick('inv'), pickTax: pick('tax'), pickRet: pick('ret'), pickIns: pick('ins'), pickLoan: pick('loan'), pickVid: pick('vid'),
+      noop: (e) => { e.preventDefault(); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /thank-you/
+Disallow: /data/
+
+Sitemap: https://bhavyasampada.com/sitemap.xml

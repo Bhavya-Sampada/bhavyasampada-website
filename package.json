@@ -1,0 +1,14 @@
+{
+  "name": "bhavyasampada-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "bhavyasampada.com — static site built from the design pages and markdown content, hosted on Netlify with Decap CMS.",
+  "scripts": {
+    "build": "node build/build.js",
+    "build:offline": "SKIP_FEEDS=1 node build/build.js",
+    "serve": "node build/build.js && python3 -m http.server 8888 --directory dist"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
