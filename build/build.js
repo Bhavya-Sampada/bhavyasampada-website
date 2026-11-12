@@ -324,14 +324,34 @@ async function loadReviews() {
     }, 8000);
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const j = await r.json();
-    const reviews = (j.reviews || [])
+    let rawReviews = j.reviews || [];
+    // Places API (New) returns no review text for some listings; fall back to the Legacy details endpoint, newest first.
+    if (!rawReviews.length) {
+      try {
+        const r2 = await fetchWithTimeout('https://maps.googleapis.com/maps/api/place/details/json?place_id=' + encodeURIComponent(place) + '&fields=rating,user_ratings_total,reviews&reviews_sort=newest&key=' + encodeURIComponent(key), {}, 8000);
+        const j2 = r2.ok ? await r2.json() : {};
+        if (j2.status === 'OK' && j2.result && j2.result.reviews) {
+          rawReviews = j2.result.reviews.map((rv) => ({
+            authorAttribution: { displayName: rv.author_name, uri: rv.author_url },
+            rating: rv.rating,
+            text: { text: rv.text },
+            relativePublishTimeDescription: rv.relative_time_description,
+            publishTime: rv.time ? new Date(rv.time * 1000).toISOString() : '',
+          }));
+          console.log('Google reviews: ' + rawReviews.length + ' from the Legacy details endpoint');
+        } else {
+          console.warn('Google reviews: legacy endpoint gave ' + (j2.status || r2.status) + ' ' + (j2.error_message || ''));
+        }
+      } catch (e2) { console.warn('Google reviews: legacy endpoint failed: ' + e2.message); }
+    }
+    const reviews = rawReviews
       .map((rv) => ({
         author: (rv.authorAttribution && rv.authorAttribution.displayName) || 'Google user',
         rating: rv.rating || 5,
         text: (rv.text && rv.text.text) || (rv.originalText && rv.originalText.text) || '',
         when: rv.relativePublishTimeDescription || '',
         date: rv.publishTime || '',
-        url: rv.googleMapsUri || j.googleMapsUri || GOOGLE_REVIEW_URL,
+        url: (rv.authorAttribution && rv.authorAttribution.uri) || rv.googleMapsUri || j.googleMapsUri || GOOGLE_REVIEW_URL,
       }))
       .filter((rv) => rv.text)
       .sort((a, b) => (a.date < b.date ? 1 : -1));
