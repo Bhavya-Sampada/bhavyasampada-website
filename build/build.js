@@ -646,10 +646,11 @@ async function main() {
 
   // sitemap, llms.txt
   const today = new Date().toISOString().slice(0, 10);
-  const urls = Object.values(PAGES).filter((p) => !p.noindex).map((p) => ({ loc: SITE + p.url, lastmod: today, pri: p.url === '/' ? '1.0' : '0.8' }))
+  // Static pages carry no lastmod (the build date would be misleading); articles use their real dates.
+  const urls = Object.values(PAGES).filter((p) => !p.noindex).map((p) => ({ loc: SITE + p.url, lastmod: '', pri: p.url === '/' ? '1.0' : '0.8' }))
     .concat(articles.map((a) => ({ loc: SITE + '/articles/' + a.slug + '/', lastmod: a.updated, pri: '0.7' })));
   write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    urls.map((u) => '  <url><loc>' + u.loc + '</loc><lastmod>' + u.lastmod + '</lastmod><priority>' + u.pri + '</priority></url>').join('\n') + '\n</urlset>\n');
+    urls.map((u) => '  <url><loc>' + u.loc + '</loc>' + (u.lastmod ? '<lastmod>' + u.lastmod + '</lastmod>' : '') + '<priority>' + u.pri + '</priority></url>').join('\n') + '\n</urlset>\n');
   write('llms.txt', [
     '# ' + ORG,
     '',
