@@ -35,8 +35,8 @@ collections:
     create: true
     extension: "md"
     format: "frontmatter"
-    slug: "{{slug}}"
-    preview_path: "articles/{{slug}}/"
+    slug: "{{fields.slug}}"
+    preview_path: "articles/{{fields.slug}}/"
     summary: "{{title}} — {{author}} — {{date}}"
     sortable_fields: ["date", "title", "author", "topic"]
     view_filters:

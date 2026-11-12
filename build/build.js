@@ -414,7 +414,7 @@ function convert(src, meta, extra) {
   // move <helmet> (fonts + styles) into <head>
   const helmet = (h.match(/<helmet>([\s\S]*?)<\/helmet>/) || [])[1] || '';
   h = h.replace(/<helmet>[\s\S]*?<\/helmet>\s*/, '');
-  h = h.replace(/<title>[\s\S]*?<\/title>/, headBlock(meta) + '\n' + helmet.trim() + '\n<style>[hidden]{display:none!important}.site.settled .rv,.site.settled .rise{opacity:1;transform:none}@media (max-width:480px){.nav-right .btn{display:none}}</style>\n<script src="/assets/js/site.js" defer></script>');
+  h = h.replace(/<title>[\s\S]*?<\/title>/, headBlock(meta) + '\n' + helmet.trim() + '\n<style>[hidden]{display:none!important}.site.settled .rv,.site.settled .rise,.site.settled .nstep,.site.settled .tick{opacity:1;transform:none}@media (max-width:480px){.nav-right .btn{display:none}}@media (min-width:600px) and (max-width:860px){.g3{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media (max-width:1100px){.toc a{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:13px}}@media (max-width:600px){.author{flex-direction:column;align-items:flex-start}.author .ph{width:88px;height:110px}}</style>\n<script src="/assets/js/site.js" defer></script>');
   h = h.replace('<html lang="en">', '<html lang="en-IN">');
   h = h.replace(/<body>/, '<body data-page="' + meta.page + '">');
   h = h.replace(/&display=swap"/g, '&amp;display=swap"');
@@ -432,6 +432,7 @@ function convert(src, meta, extra) {
   h = h.replace(/(<form [^>]*name="book-review"[^>]*>)/g, '$1\n<input type="hidden" name="form-name" value="book-review"><p class="hp" hidden><label>Leave this empty <input name="bot-field"></label></p>');
   h = h.replace(/(<form [^>]*name="newsletter"[^>]*>)/g, '$1\n<input type="hidden" name="form-name" value="newsletter"><p class="hp" hidden><label>Leave this empty <input name="bot-field"></label></p>');
   h = h.replace(/<input id="em" type="email"/g, '<input id="em" name="email" type="email" required');
+  h = h.replace(/<input id="ph" name="ph" type="tel"/g, '<input id="ph" name="ph" type="tel" inputmode="tel" pattern="[+]?[0-9][0-9 \\-]{8,16}[0-9]" title="Enter a mobile number with 10 digits, for example +91 98489 77660" minlength="10"');
 
   // 4. events → data attributes
   h = h.replace(/ on(?:Click|Input|Change|Submit)="\{\{(\w+)\}\}"/g, (all, name) => {

@@ -45,7 +45,7 @@ Old URLs (`/about.html`, `/blog.html`, `/videos`, `/testimonials` …) redirect 
 
 ## Editing content
 
-Sign in at https://bhavyasampada.com/admin with the Netlify Identity login. Articles use an editorial workflow: Save creates a draft, Publish makes it live. Each publish commits to this repository and Netlify rebuilds the site in about a minute.
+Sign in at https://bhavyasampada.com/admin with the Netlify Identity login. Articles use an editorial workflow, so publishing is three clicks: **Save** (creates a draft), **Status → Ready**, then **Publish → Publish now** and confirm. Each publish commits to this repository and Netlify rebuilds the site; the page is live in about a minute. Deleting an entry removes it the same way.
 
 Rules baked into the CMS and the build:
 - Articles are bylined only to the directors listed in `content/team.json` with `"writes": true`. Credentials and photos come from the Team entry, not the article.
