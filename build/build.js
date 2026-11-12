@@ -591,7 +591,7 @@ async function main() {
   // static assets, admin, data snapshots used by the page
   copyDir(path.join(SRC, 'assets'), path.join(DIST, 'assets'));
   copyDir(path.join(SRC, 'admin'), path.join(DIST, 'admin'));
-  for (const f of ['_redirects', '_headers', 'robots.txt']) if (exists(path.join(SRC, f))) fs.copyFileSync(path.join(SRC, f), path.join(DIST, f));
+  for (const f of fs.readdirSync(SRC)) if (/^(_redirects|_headers|robots\.txt|google[0-9a-f]+\.html)$/.test(f)) fs.copyFileSync(path.join(SRC, f), path.join(DIST, f));
   write('data/youtube.json', JSON.stringify(videos, null, 2));
   write('data/google-reviews.json', JSON.stringify(reviews, null, 2));
 
