@@ -96,7 +96,8 @@ font:400 15px/24px var(--font);color:var(--ink);background:var(--paper);-webkit-
 .hero .lead{color:#DCD6C8;margin:24px 0 36px;max-width:600px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
 .hero-note{margin-top:18px;font-size:13px;line-height:18px;color:#CFC8B8}
-.grating{display:inline-flex;align-items:center;gap:10px;margin-top:22px;height:44px;padding:0 16px 0 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#F5F2EC;font-size:13px;transition:background .2s,transform .2s var(--spring)}
+.hero-social{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px}.sics{display:inline-flex;gap:8px}.sic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#F5F2EC;transition:background .2s,color .2s,transform .2s var(--spring)}.sic:hover{background:var(--gold);color:#131110;transform:translateY(-2px)}
+.grating{display:inline-flex;align-items:center;gap:10px;margin-top:0;height:44px;padding:0 16px 0 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#F5F2EC;font-size:13px;transition:background .2s,transform .2s var(--spring)}
 .grating:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
 .grating .stars{color:var(--gold);letter-spacing:1px;font-size:15px}
 .grating b{font-weight:500;font-size:15px}
@@ -364,10 +365,17 @@ font:400 15px/24px var(--font);color:var(--ink);background:var(--paper);-webkit-
           <a class="btn btn-ghost" href="#why">See how it goes wrong</a>
         </div>
         <p class="hero-note rise d5">Free. Your first call is with one of our directors.</p>
-        <a class="grating rise d5" href="https://share.google/V3oD3dOOpZJHswJtR" aria-label="5.0 stars from 139 Google reviews, opens Google">
-          <span class="stars" aria-hidden="true">★★★★★</span><b>5.0</b><span>139 Google reviews</span>
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
-        </a>
+        <div class="hero-social rise d5">
+          <a class="grating" href="https://share.google/V3oD3dOOpZJHswJtR" aria-label="5.0 stars from 139 Google reviews, opens Google">
+            <span class="stars" aria-hidden="true">★★★★★</span><b>5.0</b><span>139 Google reviews</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
+          </a>
+          <span class="sics">
+            <a class="sic" href="https://www.youtube.com/@the.two.wealth.theory" aria-label="Our YouTube channel" title="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"></rect><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"></path></svg></a>
+            <a class="sic" href="https://www.instagram.com/thewealth.theory/" aria-label="Our Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+            <a class="sic" href="https://share.google/V3oD3dOOpZJHswJtR" aria-label="Our Google Business Profile" title="Google"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12.2A8 8 0 1 1 17.7 6.5"></path><path d="M12 12h8.2"></path></svg></a>
+          </span>
+        </div>
       </div>
       <div class="chart rv rise d4" id="chartbox" aria-label="Animated illustration: two families with the same income, 20 years on">
         <div class="chart-head"><b>Two families’ investments. Same income. 20 years.</b><span class="yr" aria-hidden="true"><i></i>Year {{year}} of 20</span></div>
