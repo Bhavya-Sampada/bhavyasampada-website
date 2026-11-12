@@ -30,6 +30,8 @@ const DESIGN = path.join(SRC, 'design');
 const CONTENT = path.join(ROOT, 'content');
 const DIST = path.join(ROOT, 'dist');
 const SITE = 'https://bhavyasampada.com';
+const crypto = require('crypto');
+const ASSET_VERSION = crypto.createHash('sha1').update(fs.readFileSync(path.join(__dirname, '..', 'src', 'assets', 'js', 'site.js'))).digest('hex').slice(0, 8);
 const ORG = 'Bhavya Sampada';
 const LEGAL = 'Bhavya Sampada Private Limited';
 const YT_CHANNEL_ID = 'UCby1V52xiNRp0Eg86BCTO1A';
@@ -415,7 +417,7 @@ function convert(src, meta, extra) {
   // move <helmet> (fonts + styles) into <head>
   const helmet = (h.match(/<helmet>([\s\S]*?)<\/helmet>/) || [])[1] || '';
   h = h.replace(/<helmet>[\s\S]*?<\/helmet>\s*/, '');
-  h = h.replace(/<title>[\s\S]*?<\/title>/, headBlock(meta) + '\n' + helmet.trim() + '\n<style>[hidden]{display:none!important}.site.settled .rv,.site.settled .rise,.site.settled .nstep,.site.settled .tick{opacity:1;transform:none}@media (max-width:480px){.nav-right .btn{display:none}}@media (min-width:600px) and (max-width:860px){.g3{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media (max-width:1100px){.toc a{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:13px}}@media (max-width:600px){.author{flex-direction:column;align-items:flex-start}.author .ph{width:88px;height:110px}}</style>\n<script src="/assets/js/site.js" defer></script>');
+  h = h.replace(/<title>[\s\S]*?<\/title>/, headBlock(meta) + '\n' + helmet.trim() + '\n<style>[hidden]{display:none!important}.site.settled .rv,.site.settled .rise,.site.settled .nstep,.site.settled .tick{opacity:1;transform:none}@media (max-width:480px){.nav-right .btn{display:none}}@media (min-width:600px) and (max-width:860px){.g3{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media (max-width:1100px){.toc a{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;font-size:13px}}@media (max-width:600px){.author{flex-direction:column;align-items:flex-start}.author .ph{width:88px;height:110px}}</style>\n<script src="/assets/js/site.js?v=' + ASSET_VERSION + '" defer></script>');
   h = h.replace('<html lang="en">', '<html lang="en-IN">');
   h = h.replace(/<body>/, '<body data-page="' + meta.page + '">');
   h = h.replace(/&display=swap"/g, '&amp;display=swap"');
