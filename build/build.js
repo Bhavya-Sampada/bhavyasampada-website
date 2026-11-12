@@ -96,25 +96,25 @@ function shortTitle(t) {
 const PAGES = {
   'Main.dc.html': { out: 'index.html', url: '/', page: 'home',
     title: 'Financial Planning, Insurance & Loans | Bhavya Sampada',
-    desc: 'The financial choices you make today decide where you are in 20 years. A written plan first, then the investments, insurance and loans that fit it. 15+ years, 2,000+ clients.' },
+    desc: 'The financial choices you make today decide where you are in 20 years. A written plan first, then the investments, insurance and loans that fit it.' },
   'Services.dc.html': { out: 'services/index.html', url: '/services/', page: 'services',
     title: 'Financial Planning, Mutual Funds, Insurance & Loans | Bhavya Sampada',
-    desc: 'Plan it, invest it, protect it, fund it. Goal-based planning, mutual funds and SIPs, every kind of insurance with claims help, and loans compared across lenders.' },
+    desc: 'Plan, invest, protect, fund. Goal-based planning, mutual funds and SIPs, every kind of insurance with claims help, and loans compared across lenders.' },
   'About.dc.html': { out: 'about/index.html', url: '/about/', page: 'about',
     title: 'About Bhavya Sampada | 15+ years helping families plan',
-    desc: 'Meet the directors who run every free review, our approach, and our AMFI and IRDAI registrations.' },
+    desc: 'Meet the directors who run every free review, how we work, and our AMFI and IRDAI registrations. Fifteen-plus years guiding families across India.' },
   'Insights.dc.html': { out: 'articles/index.html', url: '/articles/', page: 'articles',
     title: 'Money guides and client case studies | Bhavya Sampada',
     desc: 'Plain guides on SIPs, tax, retirement, cover and loans, plus case studies of how we helped clients. Written by the people who run your review.' },
   'Book.dc.html': { out: 'book-a-free-review/index.html', url: '/book-a-free-review/', page: 'book',
     title: 'Book a free financial review | Bhavya Sampada',
-    desc: 'A free 30-minute review with one of our directors, in person in Secunderabad or online anywhere in India.' },
+    desc: 'Book a free 30-minute review with one of our directors, in person at our Secunderabad office or online anywhere in India. We call within one working day.' },
   'Privacy.dc.html': { out: 'privacy-policy/index.html', url: '/privacy-policy/', page: 'privacy',
     title: 'Privacy policy | Bhavya Sampada',
-    desc: 'How Bhavya Sampada collects, uses and protects your personal data, in line with the Digital Personal Data Protection Act, 2023.' },
+    desc: 'How Bhavya Sampada collects, uses and protects your personal data under the Digital Personal Data Protection Act, 2023, and how to reach our grievance officer.' },
   'Terms.dc.html': { out: 'terms/index.html', url: '/terms/', page: 'terms',
     title: 'Terms of use | Bhavya Sampada',
-    desc: 'The terms on which Bhavya Sampada provides this website and its services, including disclosures, disclaimers and grievance routes.' },
+    desc: 'The terms on which Bhavya Sampada provides this website and its services: disclosures, how we are paid, disclaimers and the grievance routes open to you.' },
   'Thanks.dc.html': { out: 'thank-you/index.html', url: '/thank-you/', page: 'thanks', noindex: true,
     title: 'Thank you | Bhavya Sampada',
     desc: 'We have your details. One of our directors will call within one working day.' },
@@ -366,13 +366,22 @@ async function loadReviews() {
 }
 
 /* ------------------------------------------------------------ converter */
+/* Meta descriptions: keep within 160 characters, cutting at a sentence or word boundary. */
+function clampDesc(d) {
+  d = String(d || '').replace(/\s+/g, ' ').trim();
+  if (d.length <= 160) return d;
+  const cut = d.slice(0, 157);
+  const sent = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('? '), cut.lastIndexOf('! '));
+  if (sent >= 134) return cut.slice(0, sent + 1);
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:]$/, '') + '…';
+}
 function headBlock(meta) {
   const url = SITE + meta.url;
   const img = meta.image ? (meta.image.startsWith('http') ? meta.image : SITE + meta.image) : SITE + '/assets/img/og-default.png';
   return [
     '<title>' + esc(meta.title) + '</title>',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
-    '<meta name="description" content="' + esc(meta.desc) + '">',
+    '<meta name="description" content="' + esc(clampDesc(meta.desc)) + '">',
     meta.noindex ? '<meta name="robots" content="noindex, follow">' : '',
     '<link rel="canonical" href="' + url + '">',
     '<link rel="icon" type="image/png" href="/assets/img/favicon.png">',
@@ -380,7 +389,7 @@ function headBlock(meta) {
     '<meta property="og:type" content="' + (meta.type || 'website') + '">',
     '<meta property="og:site_name" content="' + ORG + '">',
     '<meta property="og:title" content="' + esc(meta.title) + '">',
-    '<meta property="og:description" content="' + esc(meta.desc) + '">',
+    '<meta property="og:description" content="' + esc(clampDesc(meta.desc)) + '">',
     '<meta property="og:url" content="' + url + '">',
     '<meta property="og:image" content="' + img + '">',
     '<meta name="twitter:card" content="summary_large_image">',
@@ -640,7 +649,7 @@ async function main() {
   const tpl = read(path.join(DESIGN, 'Article.dc.html'));
   for (const a of articles) {
     const meta = { out: 'articles/' + a.slug + '/index.html', url: '/articles/' + a.slug + '/', page: 'article', type: 'article',
-      title: a.title + ' | ' + ORG, desc: a.summary, image: a.cover, jsonld: [org, ...articleSchema(a)] };
+      title: (a.title + ' | ' + ORG).length <= 70 ? a.title + ' | ' + ORG : a.title, desc: clampDesc(a.summary), image: a.cover, jsonld: [org, ...articleSchema(a)] };
     write(meta.out, convert(tpl, meta, articleExtras(a, articles)));
   }
 

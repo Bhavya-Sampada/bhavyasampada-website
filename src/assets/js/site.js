@@ -171,6 +171,11 @@
     }
   }
 
+  /* Lead event: a visit to the thank-you page means a form was submitted. */
+  if (page === 'thanks' && typeof gtag === 'function') {
+    gtag('event', 'generate_lead', { form: /newsletter/.test(location.search) ? 'newsletter' : 'book-review' });
+  }
+
   /* ---- Canvas backgrounds ---- */
   var dpr = Math.min(2, w.devicePixelRatio || 1);
   var WAVES = {
