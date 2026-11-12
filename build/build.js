@@ -35,7 +35,7 @@ const ASSET_VERSION = crypto.createHash('sha1').update(fs.readFileSync(path.join
 const ORG = 'Bhavya Sampada';
 const LEGAL = 'Bhavya Sampada Private Limited';
 const YT_CHANNEL_ID = 'UCby1V52xiNRp0Eg86BCTO1A';
-const YT_HANDLE = 'https://www.youtube.com/@the.two.wealth.theory';
+const YT_HANDLE = 'https://www.youtube.com/@the.two.wealth.theory/shorts';
 const GOOGLE_REVIEW_URL = 'https://share.google/V3oD3dOOpZJHswJtR';
 
 /* ------------------------------------------------------------------ helpers */
@@ -398,7 +398,7 @@ function orgSchema() {
     telephone: '+91-40-35175228', email: 'support@bhavyasampada.com',
     address: { '@type': 'PostalAddress', streetAddress: 'Plot No. 156, Srinivasa Nagar Colony, Near Radhika Theater, Kapra', addressLocality: 'Secunderabad', addressRegion: 'Telangana', postalCode: '500062', addressCountry: 'IN' },
     areaServed: 'IN',
-    sameAs: [YT_HANDLE, 'https://www.instagram.com/thewealth.theory/'],
+    sameAs: ['https://www.youtube.com/@the.two.wealth.theory', 'https://www.instagram.com/thewealth.theory/'],
     founder: TEAM.filter((t) => /Chief Executive/.test(t.role)).map((t) => ({ '@type': 'Person', name: t.name, jobTitle: t.role })),
     employee: TEAM.map((t) => ({ '@type': 'Person', name: t.name, jobTitle: t.role })),
     knowsAbout: ['Financial planning', 'Mutual funds', 'SIP', 'Health insurance', 'Term insurance', 'Home loans', 'Retirement planning', 'Tax planning'],
@@ -534,7 +534,7 @@ function postCard(p, i) {
 }
 function videoCard(v, i) {
   const delay = i ? ' style="animation-delay:.' + (i * 8).toString().padStart(2, '0') + 's"' : '';
-  return '<a class="vid rv" href="https://www.youtube.com/watch?v=' + esc(v.id) + '"' + delay + '><span class="vthumb"><img class="thumb" src="https://i.ytimg.com/vi/' + esc(v.id) + '/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="play"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg></span></span><span class="vbody"><b>' + esc(shortTitle(v.title)) + '</b><span>Watch on YouTube · Short</span></span></a>';
+  return '<a class="vid rv" href="https://www.youtube.com/shorts/' + esc(v.id) + '"' + delay + '><span class="vthumb"><img class="thumb" src="https://i.ytimg.com/vi/' + esc(v.id) + '/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="play"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg></span></span><span class="vbody"><b>' + esc(shortTitle(v.title)) + '</b><span>Watch on YouTube · Short</span></span></a>';
 }
 function buildArticlesIndexExtras(articles, videos) {
   return {
