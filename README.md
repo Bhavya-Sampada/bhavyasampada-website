@@ -80,3 +80,20 @@ At build time `build/build.js` fetches:
 ## Compliance notes
 
 The site is written for an AMFI-registered Mutual Fund Distributor (ARN 266666) and IRDAI-licensed intermediary (A00830505). Keep it that way: no "advisor" in titles, no return figures, no scheme recommendations, no rating schema for self-hosted reviews, and keep a dated source for every stat shown (AUM, client count, award count, review count).
+
+## Accounts and access (for whoever maintains this next)
+
+Everything the site needs is in this repository, except the logins below. No file on any individual's computer is required; a fresh clone plus `node build/build.js` reproduces the whole site.
+
+| What | Where | Login |
+|---|---|---|
+| Source code and content | github.com/Bhavya-Sampada/bhavyasampada-website (`main` is live) | GitHub user Datta0512 (owner of the Bhavya-Sampada organisation) |
+| Hosting, forms, build, scheduled function | app.netlify.com, project "bhavyasampada.com" (ID rococo-cendol-312798) | vijaydatta3@gmail.com |
+| CMS logins for editors | Netlify Identity (invite-only) → bhavyasampada.com/admin | Each editor's own invite |
+| Google reviews feed | Google Cloud project "bhavya-sampada", API key `bhavyasampada-website-reviews` | bhavyasampada@gmail.com |
+| Search Console, Analytics (G-9FGD8VCFBR), Business Profile | search.google.com/search-console, analytics.google.com, Business Profile via Google Search | bhavyasampada@gmail.com |
+| Domain DNS | wherever bhavyasampada.com is registered (points at Netlify; nothing to change) | registrar login |
+
+Secrets never live in the repository. They are Netlify environment variables: `BUILD_HOOK_URL`, `GA_MEASUREMENT_ID`, `GOOGLE_PLACE_ID`, `PLACES_ACCESS_B64`.
+
+For an AI tool or a developer picking this up cold, start with `AGENTS.md`.
