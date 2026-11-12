@@ -71,7 +71,7 @@ At build time `build/build.js` fetches:
 3. **Build hook**: Site configuration → Build & deploy → Build hooks → add `daily-refresh` on `main`. Copy the URL.
 4. **Environment variables**: Site configuration → Environment variables → add
    - `BUILD_HOOK_URL` = the hook URL from step 3
-   - `GOOGLE_PLACES_API_KEY` = a Google Cloud API key with Places API (New) enabled, restricted to the Places API
+   - `PLACES_ACCESS_B64` = the Google Places API key, base64-encoded (Netlify's free plan refuses the raw key as a plain variable). `GOOGLE_PLACES_API_KEY` with the raw key also works on plans that allow secrets.
    - `GOOGLE_PLACE_ID` = the Place ID of the Google Business Profile
    - `GA_MEASUREMENT_ID` = the Google Analytics 4 measurement ID (G-XXXXXXX). Leave unset for no analytics; when set, a consent banner appears and analytics stays off until the visitor accepts.
 5. **Identity**: already on. Invite new CMS users under Identity → Invite users. Keep registration on "Invite only".

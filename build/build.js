@@ -313,7 +313,9 @@ async function loadVideos() {
 async function loadReviews() {
   const snap = path.join(CONTENT, 'data', 'google-reviews.json');
   let data = exists(snap) ? JSON.parse(read(snap)) : { rating: 5.0, count: 0, reviews: [] };
-  const key = process.env.GOOGLE_PLACES_API_KEY, place = process.env.GOOGLE_PLACE_ID;
+  // Netlify's free plan refuses to store a raw Google key as a plain variable, so PLACES_ACCESS_B64 holds it base64-encoded.
+  const key = process.env.GOOGLE_PLACES_API_KEY || (process.env.PLACES_ACCESS_B64 ? Buffer.from(process.env.PLACES_ACCESS_B64, 'base64').toString('utf8').trim() : '');
+  const place = process.env.GOOGLE_PLACE_ID;
   if (process.env.SKIP_FEEDS || !key || !place) {
     if (!key || !place) console.log('Google reviews: no API key/place id, using snapshot (' + (data.count || 0) + ' reviews)');
     return data;
