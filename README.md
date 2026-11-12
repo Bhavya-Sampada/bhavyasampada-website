@@ -73,6 +73,7 @@ At build time `build/build.js` fetches:
    - `BUILD_HOOK_URL` = the hook URL from step 3
    - `GOOGLE_PLACES_API_KEY` = a Google Cloud API key with Places API (New) enabled, restricted to the Places API
    - `GOOGLE_PLACE_ID` = the Place ID of the Google Business Profile
+   - `GA_MEASUREMENT_ID` = the Google Analytics 4 measurement ID (G-XXXXXXX). Leave unset for no analytics; when set, a consent banner appears and analytics stays off until the visitor accepts.
 5. **Identity**: already on. Invite new CMS users under Identity → Invite users. Keep registration on "Invite only".
 6. **Domain**: unchanged; `bhavyasampada.com` keeps pointing at this site.
 

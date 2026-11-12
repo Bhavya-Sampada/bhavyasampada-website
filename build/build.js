@@ -333,7 +333,7 @@ async function loadReviews() {
       }))
       .filter((rv) => rv.text)
       .sort((a, b) => (a.date < b.date ? 1 : -1));
-    data = { updated: new Date().toISOString(), rating: j.rating || data.rating, count: j.userRatingCount || data.count, reviews: reviews.length ? reviews : data.reviews };
+    data = { updated: new Date().toISOString(), live: true, rating: j.rating || data.rating, count: j.userRatingCount || data.count, reviews: reviews.length ? reviews : data.reviews };
     console.log('Google reviews: ' + data.count + ' reviews, rating ' + data.rating);
   } catch (e) {
     console.warn('Google reviews unavailable, using snapshot: ' + e.message);
@@ -361,6 +361,7 @@ function headBlock(meta) {
     '<meta property="og:image" content="' + img + '">',
     '<meta name="twitter:card" content="summary_large_image">',
     '<meta name="theme-color" content="#131110">',
+    process.env.GA_MEASUREMENT_ID ? ('<script>window.GA_ID=' + JSON.stringify(process.env.GA_MEASUREMENT_ID) + ';window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});gtag("js",new Date());gtag("config",window.GA_ID,{anonymize_ip:true});</script><script async src="https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(process.env.GA_MEASUREMENT_ID) + '"></script>') : '',
     (meta.jsonld || []).map((o) => '<script type="application/ld+json">' + JSON.stringify(o) + '</script>').join('\n'),
   ].filter(Boolean).join('\n');
 }
@@ -470,6 +471,12 @@ function convert(src, meta, extra) {
 function buildHomeExtras(reviews) {
   return {
     transform(h) {
+      if (!reviews.live) {
+        // Snapshot, not a live feed: say so until the Places API key is configured.
+        h = h.replace('Pulled live from our Google Business Profile, so every word is a client’s own. Nothing is edited or hand-picked.',
+          'From our Google Business Profile, in each client’s own words. Nothing is edited or hand-picked.')
+          .replace(/139 reviews · updated daily/, '139 reviews on Google');
+      }
       const count = reviews.count || 139;
       const rating = Number(reviews.rating || 5).toFixed(1);
       h = h.replace(/139 Google reviews/g, count + ' Google reviews')

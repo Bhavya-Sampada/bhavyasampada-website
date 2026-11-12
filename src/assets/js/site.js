@@ -143,6 +143,34 @@
     });
   });
 
+  /* Analytics consent banner (only when the build set window.GA_ID). Analytics stays off until accepted. */
+  if (w.GA_ID) {
+    var KEY = 'bs-consent';
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+    var grant = function () { if (typeof gtag === 'function') gtag('consent', 'update', { analytics_storage: 'granted' }); };
+    if (saved === 'yes') grant();
+    else if (saved !== 'no') {
+      var bar = d.createElement('div');
+      bar.className = 'consent';
+      bar.setAttribute('role', 'dialog');
+      bar.setAttribute('aria-label', 'Cookie notice');
+      bar.innerHTML = '<p>We use one analytics cookie to see which pages help visitors. No ads, no selling of data. <a href="/privacy-policy/">Privacy policy</a></p><div><button type="button" class="btn btn-primary" data-consent="yes">Accept</button><button type="button" class="btn btn-secondary" data-consent="no">Decline</button></div>';
+      var style = d.createElement('style');
+      style.textContent = '.consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:720px;margin:0 auto;background:#131110;color:#F5F2EC;border:1px solid #FFFFFF22;border-radius:16px;padding:16px 18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;box-shadow:0 24px 60px rgba(0,0,0,.35);font:400 14px/22px Poppins,system-ui,sans-serif}.consent p{margin:0;flex:1 1 320px}.consent a{color:#E6C86B;text-decoration:underline}.consent div{display:flex;gap:8px}.consent .btn{height:38px;padding:0 14px;font-size:13px}.consent .btn-secondary{background:transparent;color:#F5F2EC;border:1px solid #FFFFFF44}';
+      d.head.appendChild(style);
+      d.body.appendChild(bar);
+      bar.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-consent]');
+        if (!b) return;
+        var v = b.getAttribute('data-consent');
+        try { localStorage.setItem(KEY, v); } catch (err) {}
+        if (v === 'yes') grant();
+        bar.remove();
+      });
+    }
+  }
+
   /* ---- Canvas backgrounds ---- */
   var dpr = Math.min(2, w.devicePixelRatio || 1);
   var WAVES = {
